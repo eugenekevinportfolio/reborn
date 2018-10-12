@@ -106,7 +106,7 @@ class App extends Component {
     }
     const minimum_positive = Math.min(...positive_values);
     const index_of_min = distance_to_bottom.indexOf(minimum_positive);
-    const section_to_focus = sections_array[index_of_min].id;
+    const section_to_focus = sections_array[index_of_min] && sections_array[index_of_min].id;
     selected_tab !== section_to_focus && this.props.selectTab(section_to_focus);
 
     if (window_dimensions.isMobile) {
