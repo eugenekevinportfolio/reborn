@@ -111,10 +111,10 @@ class App extends Component {
 
     if (window_dimensions.isMobile) {
       if (!border) {
-        document.documentElement.scrollTop > 10 && this.setState({ border: true });
+        window.scrollY > 10 && this.setState({ border: true });
       }
       else {
-        document.documentElement.scrollTop < 10 && this.setState({ border: false });
+        window.scrollY < 10 && this.setState({ border: false });
       }
     }
   }
