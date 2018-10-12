@@ -1,0 +1,126 @@
+@media screen and (max-width: 449px) {
+  .panel-container {
+    padding: 95px 20px 50px;
+  }
+
+  .media-description {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 649px) {
+  .panel-container {
+    padding: 115px 50px 50px;
+  }
+
+  .media-description {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .panel-container {
+    padding: 190px 80px 50px 230px;
+  }
+
+  .media-description {
+    font-size: 15px;
+  }
+}
+
+.panel-container {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  transition: transform 0.85s cubic-bezier(0.545, 0.045, 0.255, 1);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.panel-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 50px 80px 0px 230px;
+  border-bottom: solid 1px rgba(0,0,0,.1);
+  z-index: 1;
+  transition: transform 0.7s cubic-bezier(0.545, 0.045, 0.255, 1);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-content {
+  transition: opacity 0.3 ease-in-out;
+}
+
+.close {
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close:hover {
+  opacity: 0.3;
+}
+
+.concept-chapters {
+  display: flex;
+}
+
+.concept-chapters p {
+  font-weight: 400;
+  cursor: pointer;
+  margin-right: 20px;
+  letter-spacing: .3px;
+  opacity: 0.3;
+  transition: all 0.2s;
+  flex-wrap:nowrap;
+}
+
+.concept-chapters p:hover {
+  opacity: 1;
+}
+
+.panel-content {
+  max-width: 850px;
+}
+
+.media-container {
+  max-width: 450px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.media {
+  width: 300px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.media-description {
+  border-left: solid 3px black;
+  padding-left: 15px;
+  opacity: 0.4;
+}
+
+.leave-hitbox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
