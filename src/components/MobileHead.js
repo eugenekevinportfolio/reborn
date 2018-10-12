@@ -108,11 +108,13 @@ class MobileHead extends Component {
               this.props.openBurger(true);
               document.getElementsByTagName("body")[0].style.overflow = "hidden";
               document.getElementsByTagName("body")[0].style.position = "relative";
+              document.getElementsByTagName("body")[0].style.height = "100%";
             }
             else {
               this.props.openBurger(false);
               document.getElementsByTagName("body")[0].style.overflow = null;
               document.getElementsByTagName("body")[0].style.position = null;
+              document.getElementsByTagName("body")[0].style.height = null;
             }
           }
         }}
@@ -131,6 +133,7 @@ class MobileHead extends Component {
             this.props.openBurger(false);
             document.getElementsByTagName("body")[0].style.overflow = null;
             document.getElementsByTagName("body")[0].style.position = null;
+            document.getElementsByTagName("body")[0].style.height = null;
           }}>
           <div className="side-footer">
             <a href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
