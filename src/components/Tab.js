@@ -31,6 +31,11 @@ class Tab extends Component {
           }
         }
       }
+      else {
+        return {
+          "pointerEvents": "none"
+        }
+      }
     }
     else {
       if (id === selected_tab) {
