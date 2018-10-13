@@ -9,10 +9,23 @@ import {
 } from '../actions/index.js';
 import reddit_img from '../img/RedditLogo.png';
 import medium_img from '../img/MediumLogo.png';
+import map from 'lodash/map';
+import Publisher from './Publisher.js';
 
 class Concept extends Component {
+  renderPublishers() {
+    const { publishers } = this.props;
+
+    return(
+      map(
+        publishers,
+        (publisher, id) => <Publisher key={id} id={id} {...publisher} />
+      )
+    );
+  }
+
   render() {
-    const { title, date, description, id, concepts, ready, reddit, medium } = this.props;
+    const { title, date, description, id, concepts, ready, reddit, medium, publishers } = this.props;
     const concepts_keys = Object.keys(concepts);
     const last_id = concepts_keys[concepts_keys.length - 1];
 
@@ -50,6 +63,15 @@ class Concept extends Component {
             </a>
           }
         </div>
+        {publishers &&
+          <div>
+            <p className="hat">
+              PUBLISHED BY
+            </p>
+            <div className="publishers-container">
+              {this.renderPublishers()}
+            </div>
+          </div>}
       </div>
     );
   }

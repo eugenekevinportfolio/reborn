@@ -5,7 +5,19 @@ const initialState = {
     description: "Non-intrusive Siri with contextual awareness, new accessibility features, a clipboard manager, contextual awareness in Apple Maps, Live Notifications, and much more. iOS Mogi is all about mobile multitasking and context preservation.",
     date: "August 2018",
     medium: "https://uxdesign.cc/redesigning-siri-and-adding-multitasking-features-to-ios-70c2f1a1569b",
-    reddit: "https://www.reddit.com/r/apple/comments/947yrm/redesigning_siri_and_adding_multitasking_features/?utm_content=comments&utm_medium=user&utm_source=reddit&utm_name=frontpage"
+    reddit: "https://www.reddit.com/r/apple/comments/947yrm/redesigning_siri_and_adding_multitasking_features/?utm_content=comments&utm_medium=user&utm_source=reddit&utm_name=frontpage",
+    publishers: {
+      "ninetofivemac": {
+        publisher: "9TO5Mac",
+        link: "https://9to5mac.com/2018/08/03/siri-concept-non-intrusive-multitasking-ios/",
+        title: "Beautiful Siri concept imagines ‘parallel help’ ditching full-screen takeover, reinvents iOS multitasking"
+      },
+      macrumors: {
+        publisher: "MacRumors",
+        link: "https://www.macrumors.com/2018/08/03/ios-concept-reimagines-siri/",
+        title: "iOS Concept Reimagines Siri With Non-Intrusive UI, Contextual Awareness, and More"
+      }
+    }
   },
   chatroom: {
     ready: true,

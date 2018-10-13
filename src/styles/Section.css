@@ -195,3 +195,29 @@ p a {
 #medium {
   width: 25px;
 }
+
+.publishers-container {
+  display: flex;
+}
+
+.publishers-container .head {
+  margin-bottom: 5px;
+}
+
+.publishers-container .description {
+  margin-top: 0;
+  font-style: italic;
+}
+
+#ninetofivemac {
+  margin-right: 35px;
+}
+
+.publisher {
+  flex: 1;
+  transition: all 0.3s;
+}
+
+.publisher:hover {
+  opacity: 0.5;
+}
