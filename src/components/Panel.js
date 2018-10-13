@@ -28,6 +28,7 @@ class Panel extends Component {
     const { navbar_hidden, selected_chapter, window_dimensions } = this.props;
     const panel_content = document.getElementById("panel-content");
     const deltaY = panel_content.getBoundingClientRect().top - this.last_scroll_position;
+    const page_bottom = window_dimensions.height;
 
     if (deltaY > 10) {
       navbar_hidden && this.props.hideNavbar(false);
@@ -40,7 +41,7 @@ class Panel extends Component {
     const section_titles = document.getElementById("panel-content").getElementsByClassName("section-title");
     let distances_from_top = [], positive_values = []
     for (let i = 0; i < section_titles.length; i++) {
-      distances_from_top[i] = 190 - section_titles[i].getBoundingClientRect().top;
+      distances_from_top[i] = page_bottom - 200 - section_titles[i].getBoundingClientRect().top;
       if (distances_from_top[i] >= 0) {
         positive_values[i] = distances_from_top[i];
       }
@@ -100,6 +101,42 @@ class Panel extends Component {
     for (let i = 0; i < media.length; i++) {
       if (media[i].nodeName === "VIDEO") {
         media[i].pause();
+      }
+    }
+
+    // Handle key events
+    this.pressKey = this.pressKey.bind(this);
+    window.addEventListener("keydown", this.pressKey);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.pressKey);
+    this.pressKey = undefined;
+  }
+
+  pressKey(e) {
+    const { panel, chapters, selected_chapter, selected_concept } = this.props;
+    const chapters_ids = Object.keys(chapters[selected_concept]);
+    const selected_chapter_index = chapters_ids.indexOf(selected_chapter);
+
+    e.preventDefault();
+    if (e.keyCode === 27 && panel.isOpen) {
+      this.props.openPanel(false, "");
+    }
+    else if (e.keyCode === 38 || e.keyCode === 37) {
+      if (selected_chapter_index > 0) {
+        const section_DOM = document.getElementById(chapters_ids[selected_chapter_index - 1]);
+        section_DOM.scrollIntoView({
+          behavior: "smooth"
+        })
+      }
+    }
+    else if (e.keyCode === 39 || e.keyCode === 40) {
+      if (selected_chapter_index < chapters_ids.length - 1) {
+        const section_DOM = document.getElementById(chapters_ids[selected_chapter_index + 1]);
+        section_DOM.scrollIntoView({
+          behavior: "smooth"
+        })
       }
     }
   }
