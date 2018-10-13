@@ -24,6 +24,15 @@ class MobileHead extends Component {
     }
   }
 
+  componentDidMount() {
+    const { burger, panel } = this.props;
+
+    // For iOS browser
+    document.getElementsByTagName("body")[0].ontouchend = (e) => {
+      (burger || panel.isOpen) && e.preventDefault();
+    };
+  }
+
   renderTab() {
     const { tabs } = this.props;
 
@@ -107,20 +116,10 @@ class MobileHead extends Component {
             if (!burger) {
               this.props.openBurger(true);
               document.getElementsByTagName("body")[0].style.overflow = "hidden";
-              document.getElementsByTagName("body")[0].style.position = "relative";
-              document.getElementsByTagName("body")[0].style.height = "100%";
-              document.getElementsByTagName("html")[0].style.overflow = "hidden";
-              document.getElementsByTagName("html")[0].style.position = "relative";
-              document.getElementsByTagName("html")[0].style.height = "100%";
             }
             else {
               this.props.openBurger(false);
               document.getElementsByTagName("body")[0].style.overflow = null;
-              document.getElementsByTagName("body")[0].style.position = null;
-              document.getElementsByTagName("body")[0].style.height = null;
-              document.getElementsByTagName("html")[0].style.overflow = null;
-              document.getElementsByTagName("html")[0].style.position = null;
-              document.getElementsByTagName("html")[0].style.height = null;
             }
           }
         }}
@@ -138,11 +137,6 @@ class MobileHead extends Component {
           onClick={() => {
             this.props.openBurger(false);
             document.getElementsByTagName("body")[0].style.overflow = null;
-            document.getElementsByTagName("body")[0].style.position = null;
-            document.getElementsByTagName("body")[0].style.height = null;
-            document.getElementsByTagName("html")[0].style.overflow = null;
-            document.getElementsByTagName("html")[0].style.position = null;
-            document.getElementsByTagName("html")[0].style.height = null;
           }}>
           <div className="side-footer">
             <a href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
