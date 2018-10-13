@@ -52,7 +52,7 @@
 
 @media screen and (min-width: 650px) {
   .content {
-    padding: 50px 80px 50px 230px;
+    padding: 70px 100px 50px 250px;
   }
 
   .logo {
@@ -84,10 +84,6 @@
 body {
   font-family: "Rubik";
   letter-spacing: 0.3px;
-}
-
-.content {
-  max-width: 850px;
 }
 
 .header {
