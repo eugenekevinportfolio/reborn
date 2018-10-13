@@ -20,11 +20,8 @@
   }
 
   .side-footer {
+    flex-direction: column;
     align-items: center;
-  }
-
-  .twitter {
-    margin-right: 15px;
   }
 
   .linkedin {
@@ -54,11 +51,8 @@
   }
 
   .side-footer {
+    flex-direction: column;
     align-items: center;
-  }
-
-  .twitter {
-    margin-right: 15px;
   }
 
   .linkedin {

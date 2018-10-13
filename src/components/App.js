@@ -141,7 +141,7 @@ class App extends Component {
             Welcome to my portfolio
           </h1>
           <p className="intro">
-            This is my portfolio. Please scroll down to have a look at a few of my UI-UX projects.
+            I am a designer, web developer, and storyteller. Please scroll down to have a look at a few of my UI-UX projects.
           </p>
           <Concepts />
           <About />
