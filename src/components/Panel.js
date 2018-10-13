@@ -94,6 +94,14 @@ class Panel extends Component {
     }, 1000);
 
     this.last_scroll_position = 190;
+
+    // Pause every video (workaround for mobile)
+    const media = document.getElementsByClassName("media");
+    for (let i = 0; i < media.length; i++) {
+      if (media[i].nodeName === "VIDEO") {
+        media[i].pause();
+      }
+    }
   }
 
   componentDidUpdate(prevProps) {

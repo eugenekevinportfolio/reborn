@@ -8,7 +8,7 @@ class Video extends Component {
     const description = this.props.children;
     return(
       <div className="media-container">
-        <video playsInline src={src} loop className="media">
+        <video autoPlay playsInline src={src} loop className="media">
           <source src={src} />
         </video>
         <p
