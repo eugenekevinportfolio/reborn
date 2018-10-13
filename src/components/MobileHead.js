@@ -124,7 +124,7 @@ class MobileHead extends Component {
         {desync_burger_open &&
         <div
           className="dropdown"
-          onTouchStart={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
           style={dropdown_opaque ? {opacity: 1} : {}}
           onClick={() => {
             this.props.openBurger(false);
