@@ -1,11 +1,11 @@
 @media screen and (max-width: 449px) {
   .mobile-head {
-    padding: 20px 25px;
+    padding: 20px 20px;
   }
 
   .hamburger {
     top: 30px;
-    right: 25px;
+    right: 20px;
   }
 }
 

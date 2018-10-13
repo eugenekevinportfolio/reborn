@@ -95,9 +95,9 @@ class App extends Component {
     const { selected_tab, tabs, panel } = this.props;
     const tabs_ids = Object.keys(tabs);
     const selectab_tab_index = tabs_ids.indexOf(selected_tab);
-    e.preventDefault();
     if (!panel.isOpen) {
       if (e.keyCode === 38) {
+        e.preventDefault();
         if (selectab_tab_index > 0) {
           const section_DOM = document.getElementById(tabs_ids[selectab_tab_index - 1]);
           section_DOM.childNodes[0].scrollIntoView({
@@ -106,6 +106,7 @@ class App extends Component {
         }
       }
       else if (e.keyCode === 40) {
+        e.preventDefault();
         if (selectab_tab_index < tabs_ids.length - 1) {
           const section_DOM = document.getElementById(tabs_ids[selectab_tab_index + 1]);
           section_DOM.childNodes[0].scrollIntoView({
