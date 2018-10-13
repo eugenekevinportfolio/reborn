@@ -20,12 +20,7 @@
   }
 
   .side-footer {
-    flex-direction: column;
     align-items: center;
-  }
-
-  .linkedin {
-    margin-right: 35px;
   }
 }
 
@@ -51,12 +46,7 @@
   }
 
   .side-footer {
-    flex-direction: column;
     align-items: center;
-  }
-
-  .linkedin {
-    margin-right: 35px;
   }
 }
 

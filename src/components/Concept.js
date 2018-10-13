@@ -64,7 +64,7 @@ class Concept extends Component {
           }
         </div>
         {publishers &&
-          <div>
+          <div className="publishers-box">
             <p className="hat">
               PUBLISHED BY
             </p>

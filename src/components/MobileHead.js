@@ -131,14 +131,9 @@ class MobileHead extends Component {
             document.getElementsByTagName("body")[0].style.overflow = null;
           }}>
           <div className="side-footer">
-            <div>
-              <a href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
-                <img src={linkedin} alt="Linked In" className="linkedin" />
-              </a>
-              <a href="https://twitter.com/Kekakou20" target="_blank" rel="noopener noreferrer">
-                <img src={twitter} alt="Twitter" className="twitter" />
-              </a>
-            </div>
+            <a href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
+              <img src={linkedin} alt="Linked In" className="linkedin" />
+            </a>
             <li>
               <a
                 href={resume}
@@ -147,6 +142,9 @@ class MobileHead extends Component {
                 RESUME
               </a>
             </li>
+            <a href="https://twitter.com/Kekakou20" target="_blank" rel="noopener noreferrer">
+              <img src={twitter} alt="Twitter" className="twitter" />
+            </a>
           </div>
         </div>}
       </div>

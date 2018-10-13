@@ -5,12 +5,12 @@
   }
 
   .big-title {
-    font-size: 38px;
+    font-size: 39px;
     line-height: 45px;
   }
 
   .intro {
-    font-size: 22px;
+    font-size: 21px;
     margin-bottom: 40px;
   }
 
@@ -25,6 +25,10 @@
 
   .description {
     margin-bottom: 20px;
+  }
+
+  .publishers-box .hat {
+    margin-top: 25px;
   }
 
   .CTA {
@@ -78,6 +82,10 @@
     margin-bottom: 25px;
   }
 
+  .publishers-box .hat {
+    margin-top: 30px;
+  }
+
   .CTA {
     font-size: 17px;
     height: 35px;
@@ -120,6 +128,7 @@
   font-weight: bold;
   margin-top: 0;
   letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
 
 .section {
