@@ -24,15 +24,6 @@ class MobileHead extends Component {
     }
   }
 
-  componentDidMount() {
-    const { burger, panel } = this.props;
-
-    // For iOS browser
-    document.getElementsByTagName("body")[0].ontouchend = (e) => {
-      (burger || panel.isOpen) && e.preventDefault();
-    };
-  }
-
   renderTab() {
     const { tabs } = this.props;
 
@@ -133,6 +124,7 @@ class MobileHead extends Component {
         {desync_burger_open &&
         <div
           className="dropdown"
+          onTouchStart={(e) => e.stopPropagation()}
           style={dropdown_opaque ? {opacity: 1} : {}}
           onClick={() => {
             this.props.openBurger(false);
