@@ -116,6 +116,9 @@
   text-transform: uppercase;
   margin-right: 15px;
   margin-bottom: 0;
+}
+
+#about .section-title {
   white-space: nowrap;
 }
 
