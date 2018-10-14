@@ -174,7 +174,7 @@ class Panel extends Component {
 
     if (!desync_panel_open || navbar_hidden) {
       return {
-        transform: "translateY(-180px)"
+        transform: "translateY(-200px)"
       }
     }
   }
@@ -216,27 +216,31 @@ class Panel extends Component {
           <div
             style={this.panelTopStyle()}
             className="panel-top">
-            <div className="panel-header">
-              <h1 className="big-title">
-                {concepts[selected_concept].title}
-              </h1>
-              <img
-                onClick={() => this.props.openPanel(false, "")}
-                src={close}
-                alt="Close"
-                className="close"
-              />
-            </div>
-            <div className="concept-chapters">
-              {this.renderChapters()}
+            <div className="panel-header-box">
+              <div className="panel-header">
+                <h1 className="big-title">
+                  {concepts[selected_concept].title}
+                </h1>
+                <img
+                  onClick={() => this.props.openPanel(false, "")}
+                  src={close}
+                  alt="Close"
+                  className="close"
+                />
+              </div>
+              <div className="concept-chapters">
+                {this.renderChapters()}
+              </div>
             </div>
           </div>
         }
         <div
           onScroll={(e) => this.handleScroll(e)}
           style={this.panelStyle()}
-          className="panel-container">
-          {this.renderArticle()}
+          className="panel-container-box">
+          <div className="panel-container">
+            {this.renderArticle()}
+          </div>
         </div>
         {render_leave_hitbox &&
           <div

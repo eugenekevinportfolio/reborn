@@ -1,5 +1,5 @@
 @media screen and (max-width: 449px) {
-  .content {
+  .container {
     padding: 80px 20px 50px;
   }
 
@@ -25,7 +25,7 @@
 }
 
 @media screen and (min-width: 450px) and (max-width: 649px) {
-  .content {
+  .container {
     padding: 100px 50px 50px;
   }
 
@@ -51,8 +51,12 @@
 }
 
 @media screen and (min-width: 650px) {
+  .container {
+    padding-left: 150px;
+  }
+
   .content {
-    padding: 70px 100px 50px 250px;
+    padding: 50px 80px;
   }
 
   .logo {
@@ -73,17 +77,24 @@
   }
 
   .twitter {
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
 
   .linkedin {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
   }
 }
 
 body {
   font-family: "Rubik";
   letter-spacing: 0.3px;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box;
 }
 
 .header {

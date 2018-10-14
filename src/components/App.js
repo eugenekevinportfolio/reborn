@@ -158,26 +158,28 @@ class App extends Component {
     return (
       <div className="App">
         {window_dimensions.isDesktop && <Side />}
-        <div id="main" className="content">
-          {window_dimensions.isDesktop ?
-            <div id="top-of-the-world" className="header">
-              <img src={logo} alt="Logo" className="logo" />
-              <p>
-                KEVIN EUGENE
-              </p>
-            </div>
-            :
-            <MobileHead border={border}/>
-          }
-          <h1 className="big-title">
-            Welcome to my portfolio
-          </h1>
-          <p className="intro">
-            I am a designer, web developer, and storyteller. Please scroll down to have a look at a few of my UI-UX projects.
-          </p>
-          <Concepts />
-          <About />
-          {desync_panel_open && <Panel />}
+        <div id="main" className="container">
+          <div className="content">
+            {window_dimensions.isDesktop ?
+              <div id="top-of-the-world" className="header">
+                <img src={logo} alt="Logo" className="logo" />
+                <p>
+                  KEVIN EUGENE
+                </p>
+              </div>
+              :
+              <MobileHead border={border}/>
+            }
+            <h1 className="big-title">
+              Welcome to my portfolio
+            </h1>
+            <p className="intro">
+              I am a designer, web developer, and storyteller. Please scroll down to have a look at a few of my UI-UX projects.
+            </p>
+            <Concepts />
+            <About />
+            {desync_panel_open && <Panel />}
+          </div>
         </div>
       </div>
     );
