@@ -4,9 +4,12 @@ class Concepts extends Component {
   render() {
     return (
       <div id="about" className="section">
-        <h2 className="section-title">
-          ABOUT ME
-        </h2>
+        <div className="section-head">
+          <h2 className="section-title">
+            ABOUT ME
+          </h2>
+          <div className="section-bar" />
+        </div>
         <p>
           I am graduate from Telecom ParisTech and HEC Paris. I started design on my own about five years ago. As I was studying Computer Science at the time and not design, I had to learn everything by myself. After spending a lot of time mimicking Apple products' user interfaces on Sketch, I started creating concepts on my own, using what I had learned during that first phase.
         </p>

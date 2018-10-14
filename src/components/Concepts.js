@@ -20,9 +20,12 @@ class Concepts extends Component {
   render() {
     return (
       <div id="concepts" className="section">
-        <h2 className="section-title">
-          CONCEPTS
-        </h2>
+        <div className="section-head">
+          <h2 className="section-title">
+            CONCEPTS
+          </h2>
+          <div className="section-bar" />
+        </div>
         {this.renderConcepts()}
       </div>
     );

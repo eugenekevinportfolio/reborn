@@ -1,7 +1,10 @@
 @media screen and (max-width: 449px) {
   .section-title {
     font-size: 23px;
-    margin-bottom: 20px;
+  }
+
+  .section-head {
+    margin-bottom: 25px;
   }
 
   .big-title {
@@ -39,7 +42,10 @@
 @media screen and (min-width: 450px) {
   .section-title {
     font-size: 25px;
-    margin-bottom: 25px;
+  }
+
+  .section-head {
+    margin-bottom: 30px;
   }
 
   .big-title {
@@ -92,11 +98,25 @@
   margin: 0;
 }
 
+.section-head {
+  display: flex;
+  align-items: center;
+}
+
+.section-bar {
+  height: 4px;
+  background-color: black;
+  width: 100%;
+}
+
 .section-title {
   font-weight: bold;
   margin-top: 0;
   letter-spacing: 0.6px;
   text-transform: uppercase;
+  margin-right: 15px;
+  margin-bottom: 0;
+  white-space: nowrap;
 }
 
 .section {
