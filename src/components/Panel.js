@@ -238,9 +238,7 @@ class Panel extends Component {
           onScroll={(e) => this.handleScroll(e)}
           style={this.panelStyle()}
           className="panel-container-box">
-          <div className="panel-container">
-            {this.renderArticle()}
-          </div>
+          {this.renderArticle()}
         </div>
         {render_leave_hitbox &&
           <div
