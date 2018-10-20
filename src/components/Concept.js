@@ -30,7 +30,7 @@ class Concept extends Component {
     return (
       <div className="concept-box">
         <a
-          href={!ready && medium}
+          href={!ready ? medium : null}
           target="_blank" rel="noopener noreferrer"
           onClick={() => {
             if (ready) {

@@ -6,6 +6,7 @@ import Concepts from './Concepts.js';
 import About from './About.js';
 import Panel from './Panel.js';
 import Header from './Header.js';
+import Intro from './Intro.js';
 import '../styles/App.css';
 import '../styles/Panel.css';
 import {
@@ -22,7 +23,8 @@ class App extends Component {
 
     this.state = {
       desync_panel_open: false,
-      border: false
+      border: false,
+      intro: true
     }
   }
 
@@ -62,6 +64,13 @@ class App extends Component {
     // Handle key events
     this.pressKey = this.pressKey.bind(this);
     window.addEventListener("keydown", this.pressKey);
+
+    //Prevent scrolling for Intro
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    setTimeout(() => {
+      this.setState({intro: false});
+      document.getElementsByTagName("body")[0].style.overflow = null;
+    }, 4500);
   }
 
   componentWillUnmount() {
@@ -152,9 +161,11 @@ class App extends Component {
 
   render() {
     const { desync_panel_open, border } = this.state;
+    const { intro } = this.state;
 
     return (
       <div className="App">
+        {intro && <Intro />}
         <div className="content">
           <Header border={border}/>
           <div className="welcome">
