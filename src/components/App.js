@@ -173,7 +173,7 @@ class App extends Component {
               Welcome.
             </h1>
             <p>
-              I am a designer, software engineer, and storyteller. You will find below some of my published UI-UX projects.
+              You will find below some of my published UI-UX projects.
             </p>
             <a className="CTA" href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
               Contact Me

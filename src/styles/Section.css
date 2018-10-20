@@ -116,7 +116,6 @@
 
   .selfie {
     width: 250px;
-    margin-right: 60px;
   }
 
   .selfie-description {
@@ -155,6 +154,14 @@
 
   .concept-box {
     margin-bottom: 50px;
+  }
+
+  .about-right {
+    margin-right: 60px;
+  }
+
+  .about-description {
+    flex-direction: row-reverse;
   }
 }
 
