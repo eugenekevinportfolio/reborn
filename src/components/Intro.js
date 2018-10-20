@@ -13,9 +13,9 @@ class Intro extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({intro_finished: true});
-    }, 3500);
+    // setTimeout(() => {
+    //   this.setState({intro_finished: true});
+    // }, 3500);
   }
 
   introStyle() {

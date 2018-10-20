@@ -67,10 +67,10 @@ class App extends Component {
 
     //Prevent scrolling for Intro
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
-    setTimeout(() => {
-      this.setState({intro: false});
-      document.getElementsByTagName("body")[0].style.overflow = null;
-    }, 4500);
+    // setTimeout(() => {
+    //   this.setState({intro: false});
+    //   document.getElementsByTagName("body")[0].style.overflow = null;
+    // }, 4500);
   }
 
   componentWillUnmount() {
