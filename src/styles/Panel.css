@@ -1,34 +1,18 @@
 @media screen and (max-width: 449px) {
-  .panel-container-box {
-    padding: 95px 20px 50px;
-  }
-
-  .media-description {
-    font-size: 14px;
-  }
-}
-
-@media screen and (min-width: 450px) and (max-width: 649px) {
-  .panel-container-box {
-    padding: 120px 50px 50px;
-  }
-
-  .media-description {
-    font-size: 15px;
-  }
-}
-
-@media screen and (min-width: 650px) {
-  .panel-container-box {
-    padding-left: 150px;
-  }
-
   .panel-content {
-    padding: 210px 80px 50px;
+    padding: 80px 20px 50px;
   }
+}
 
-  .media-description {
-    font-size: 15px;
+@media screen and (min-width: 450px) and (max-width: 849px) {
+  .panel-content {
+    padding: 115px 50px 50px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .panel-content {
+    padding: 115px 160px 50px;
   }
 }
 
@@ -46,6 +30,10 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.panel-content {
+  max-width: 850px;
+}
+
 .panel-top {
   position: fixed;
   top: 0;
@@ -53,25 +41,33 @@
   right: 0;
   background-color: white;
   box-sizing: border-box;
-  padding-left: 150px;
   border-bottom: solid 1px rgba(0,0,0,.1);
   z-index: 1;
   transition: transform 0.7s cubic-bezier(0.545, 0.045, 0.255, 1);
+  font-family: "Montserrat";
+  padding-top: 12px;
+  padding-bottom: 15px;
 }
 
-.panel-header-box {
+.panel-top h1 {
+  font-size: 35px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 7px;
+  transition: all 0.4s;
+}
+
+/* .panel-header-box {
   max-width: 1200px;
   width: 100%;
   margin: auto;
   box-sizing: border-box;
   padding: 50px 80px 20px;
-}
+} */
 
 .panel-content {
-  max-width: 1200px;
-  width: 100%;
+  max-width: 850px;
   margin: auto;
-  box-sizing: border-box;
 }
 
 .panel-header {
@@ -92,16 +88,21 @@
 
 .concept-chapters {
   display: flex;
+  justify-content: center;
 }
 
 .concept-chapters p {
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
+  margin: 0;
+  margin-bottom: 3px;
   margin-right: 20px;
   letter-spacing: .3px;
-  opacity: 0.3;
+  opacity: 0.4;
   transition: all 0.2s;
   flex-wrap:nowrap;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
 .concept-chapters p:hover {
@@ -126,6 +127,7 @@
   border-left: solid 3px black;
   padding-left: 15px;
   opacity: 0.4;
+  font-size: 15px;
 }
 
 .leave-hitbox {
@@ -134,4 +136,10 @@
   left: 0;
   right: 0;
   height: 30px;
+}
+
+.article-title {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 20px;
 }

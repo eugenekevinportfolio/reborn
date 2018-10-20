@@ -9,58 +9,30 @@ import {
 
 class Tab extends Component {
   tabStyle() {
-    const { panel, id, selected_tab, tabs, window_dimensions, burger } = this.props;
+    const { panel, id, selected_tab, tabs, burger } = this.props;
 
-    if (window_dimensions.isMobile) {
-      const tabs_ids = Object.keys(tabs);
-      const tab_index = tabs_ids.indexOf(id);
-      if (burger) {
-        if (id === selected_tab) {
-          return {
-            backgroundColor: "white",
-            color: "black",
-            transitionDuration: "0.5s",
-            opacity: 1,
-            transitionDelay: "0.15s"
-          }
-        }
-        else {
-          return {
-            opacity: 1,
-            transitionDelay: "0.15s"
-          }
-        }
-      }
-      else {
-        return {
-          "pointerEvents": "none"
-        }
-      }
-    }
-    else {
+    const tabs_ids = Object.keys(tabs);
+    const tab_index = tabs_ids.indexOf(id);
+    if (burger) {
       if (id === selected_tab) {
         return {
           backgroundColor: "white",
           color: "black",
-          transitionDuration: "0.5s"
+          transitionDuration: "0.5s",
+          opacity: 1,
+          transitionDelay: "0.15s"
         }
       }
       else {
-        if (panel.isOpen) {
-          if (panel.flavor !== id) {
-            return {
-              opacity: 0.3,
-              transitionDuration: "0.5s"
-            }
-          }
-          else {
-            return {
-              backgroundColor: "white",
-              color: "black",
-              transitionDuration: "0.5s"
-            }
-          }
+        return {
+          opacity: 1,
+          transitionDelay: "0.15s"
         }
+      }
+    }
+    else {
+      return {
+        "pointerEvents": "none"
       }
     }
   }

@@ -31,13 +31,12 @@ class Mogi extends Component {
 
     return (
       <div
-        id="panel-content"
-        className="panel-content">
+        id="panel-content">
 
           {/* Intro */}
           <p
             id="intro1"
-            className="section-title">
+            className="article-title">
             Introducing Live Notifications
           </p>
           <p>
@@ -95,7 +94,7 @@ class Mogi extends Component {
           {/* Siri */}
           <p
             id="siri"
-            className="section-title">
+            className="article-title">
             Siri turns into a Live Notification
           </p>
           <p>
@@ -126,7 +125,7 @@ class Mogi extends Component {
           {/* Accessibility */}
           <p
             id="accessibility"
-            className="section-title">
+            className="article-title">
             Siri actions for better accessibility
           </p>
           <p>
@@ -145,7 +144,7 @@ class Mogi extends Component {
           {/* Clipboard */}
           <p
             id="clipboard"
-            className="section-title">
+            className="article-title">
             Native clipboard for iOS
           </p>
           <p>
@@ -176,7 +175,7 @@ class Mogi extends Component {
           {/* Backstory */}
           <p
             id="backstory"
-            className="section-title">
+            className="article-title">
             A little bit of backstory
           </p>
           <p>

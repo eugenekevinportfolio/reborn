@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import { bindActionCreators } from 'redux';
 
 class Chapter extends Component {
   chapterStyle() {
-    const { selected_chapter, id } = this.props;
+    const { selected_chapter, id, selected_concept, chapters } = this.props;
+    const chapters_id = Object.keys(chapters[selected_concept]);
+    const last_chapter_id = chapters_id[chapters_id.length - 1];
 
     if (id === selected_chapter) {
-      return {
-        opacity: 1,
-        transitionDuration: "0.4s"
+      if ((id === last_chapter_id) || window.innerWidth <= 1000) {
+        return {
+          opacity: 1,
+          transitionDuration: "0.4s",
+          marginRight: 0
+        }
+      }
+      else {
+        return {
+          opacity: 1,
+          transitionDuration: "0.4s"
+        }
+      }
+    }
+    else {
+      if ((id === last_chapter_id) || window.innerWidth <= 1000) {
+        return {
+          marginRight: 0
+        }
       }
     }
   }
@@ -32,24 +49,21 @@ class Chapter extends Component {
   }
 }
 
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({
-
-  }, dispatch)
-}
-
 const selector = createSelector(
-  state => state['concepts'],
   state => state['selected_chapter'],
+  state => state['chapters'],
+  state => state['selected_concept'],
   (
-    concepts,
-    selected_chapter
+    selected_chapter,
+    chapters,
+    selected_concept
 ) => {
     return  {
-      concepts,
-      selected_chapter
+      selected_chapter,
+      chapters,
+      selected_concept
     };
   }
 );
 
-export default connect(selector, matchDispatchToProps)(Chapter);
+export default connect(selector)(Chapter);

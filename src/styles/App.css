@@ -1,87 +1,86 @@
 @media screen and (max-width: 449px) {
-  .container {
-    padding: 80px 20px 50px;
-  }
-
-  .header {
-    z-index: 1;
-  }
-
   .logo {
     height: 35px;
   }
 
-  body {
+  .welcome {
+    padding: 120px 20px 40px;
+  }
+
+  .welcome h1 {
+    font-size: 40px;
+  }
+
+  .CTA {
+    font-size: 15px;
+  }
+
+  li {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 849px) {
+  .logo {
+    height: 50px;
+  }
+
+  .welcome {
+    padding: 150px 50px 60px;
+  }
+
+  .welcome h1 {
+    font-size: 50px;
+  }
+
+  .welcome p {
+    font-size: 22px;
+  }
+
+  .CTA {
     font-size: 16px;
   }
 
-  .hamburger li {
-    opacity: 0;
+  p {
+    font-size: 17px;
   }
 
-  .side-footer {
-    align-items: center;
-  }
-}
-
-@media screen and (min-width: 450px) and (max-width: 649px) {
-  .container {
-    padding: 100px 50px 50px;
-  }
-
-  .header {
-    z-index: 1;
-  }
-
-  .logo {
-    height: 35px;
-  }
-
-  body {
-    font-size: 18px;
-  }
-
-  .hamburger li {
-    opacity: 0;
-  }
-
-  .side-footer {
-    align-items: center;
+  li {
+    font-size: 16px;
   }
 }
 
-@media screen and (min-width: 650px) {
-  .container {
-    padding-left: 150px;
+@media screen and (min-width: 850px) {
+  .welcome h1 {
+    font-size: 70px;
   }
 
-  .content {
-    padding: 50px 80px;
+  .welcome {
+    padding: 190px 160px 90px;
+  }
+
+  .welcome p {
+    font-size: 24px;
   }
 
   .logo {
-    width: 30px;
+    width: 55px;
   }
 
-  body {
+  p {
     font-size: 18px;
   }
 
-  .header {
-    margin-bottom: 10px;
+  .CTA {
+    font-size: 17px;
   }
 
-  .side-footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .twitter {
-    margin-bottom: 18px;
-  }
-
-  .linkedin {
-    margin-bottom: 25px;
+  li {
+    font-size: 17px;
   }
 }
 
@@ -90,20 +89,56 @@ body {
   letter-spacing: 0.3px;
 }
 
+.welcome {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.welcome-left, .welcome-right {
+  width: 50%;
+}
+
+.welcome-left {
+  margin-right: 40px;
+}
+
+.welcome h1 {
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-family: "Montserrat";
+}
+
+.welcome p {
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 35px;
+  font-family: "Montserrat";
+}
+
+.CTA {
+  display: inline-flex;
+  color: white;
+  align-items: center;
+  font-weight: 800;
+  font-family: "Montserrat";
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  background-color: black;
+  padding: 9px 13px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
 .content {
-  max-width: 1200px;
-  width: 100%;
   margin: auto;
   box-sizing: border-box;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-}
-
 .logo {
+  border-radius: 2px;
   margin-right: 15px;
+  transition: all 0.7s cubic-bezier(0.545, 0.045, 0.255, 1);
 }
 
 .side {
@@ -141,8 +176,6 @@ li {
   height: 35px;
   width: 125px;
   color: white;
-  font-size: 17px;
-  font-weight: bold;
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -150,6 +183,10 @@ li {
   margin-bottom: 15px;
   cursor: pointer;
   transition: all 0.2s;
+  font-family: "Montserrat";
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  border-radius: 2px;
 }
 
 li:hover {
@@ -160,6 +197,7 @@ li:hover {
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  align-items: center;
 }
 
 .twitter {

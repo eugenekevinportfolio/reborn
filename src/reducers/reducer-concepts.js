@@ -1,5 +1,11 @@
+import mogi_url from '../img/Mogi.jpeg';
+import chatroom_url from '../img/Chatroom_Thumbnail.jpg';
+import mac_url from '../img/MacOS.jpg';
+import youtube_url from '../img/Youtube.jpg';
+
 const initialState = {
   mogi: {
+    img_url: mogi_url,
     ready: true,
     title: "iOS Mogi",
     description: "Non-intrusive Siri with contextual awareness, new accessibility features, a clipboard manager, contextual awareness in Apple Maps, Live Notifications, and much more. iOS Mogi is all about mobile multitasking and context preservation.",
@@ -20,6 +26,7 @@ const initialState = {
     }
   },
   chatroom: {
+    img_url: chatroom_url,
     ready: true,
     title: "iMessage Chatroom",
     description: "A new place to enjoy content or work with relatives in real time, new use cases for live collaboration, breaking out of the shell of iMessage, and more. iMessage Chatroom tries to ease live collaboration and sharing on iOS.",
@@ -27,6 +34,7 @@ const initialState = {
     medium: "https://uxdesign.cc/redesigning-social-interactions-on-ios-with-imessage-17e9c8fa314",
   },
   newton: {
+    img_url: mac_url,
     ready: false,
     title: "macOS Newton",
     description: "New window management for the desktop, inspired by the mobile. macOS Newton brings the mobile and the desktop closer than ever.",
@@ -34,6 +42,7 @@ const initialState = {
     medium: "https://uxdesign.cc/my-attempt-at-redesigning-the-desktop-experience-macos-case-study-99f5f2fb3b10",
   },
   youtube: {
+    img_url: youtube_url,
     ready: false,
     title: "Youtube 2.0",
     description: "A better homepage with a big emphasis on recommendations, picture-in-picture for the desktop, Instant Playlists, clear labelling in the video panel, digital wellbeing and much more. Youtube 2.0 vows to deliver a modern and intuitive experience to all its users.",

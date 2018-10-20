@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { bindActionCreators } from 'redux';
-import '../styles/Mobile.css';
+import '../styles/Header.css';
 import logo from '../img/Logo.png';
 import {
   openBurger,
@@ -14,7 +14,7 @@ import twitter from '../img/twitter.png';
 import linkedin from '../img/linkedin.png';
 import resume from '../img/Resume.pdf';
 
-class MobileHead extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
 
@@ -85,20 +85,85 @@ class MobileHead extends Component {
     }
   }
 
+  headerStyle() {
+    const { border, panel, window_dimensions, navbar_hidden } = this.props;
+    let is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (window_dimensions.isMobile) {
+      if (border || panel.isOpen) {
+        return {
+          borderBottom: "solid 1px rgba(0,0,0,0.1)",
+          backgroundColor: is_safari && "rgba(255,255,255,0.7)"
+        }
+      }
+    }
+    else {
+      if (panel.isOpen && !navbar_hidden) {
+        return {
+          pointerEvents: "none"
+        }
+      }
+      else if (panel.isOpen && navbar_hidden) {
+        return {
+          pointerEvents: "none",
+          transform: "translateY(-30px)"
+        }
+      }
+    }
+  }
+
+  menuStyle() {
+    const { navbar_hidden, panel, window_dimensions } = this.props;
+
+    if (window_dimensions.isDesktop) {
+      if (navbar_hidden && panel.isOpen) {
+        return {
+          transform: "scale(0.7)",
+          pointerEvents: "auto"
+        }
+      }
+      else {
+        return {
+          pointerEvents: "auto"
+        }
+      }
+    }
+    else {
+      if (panel.isOpen) {
+        return {
+          pointerEvents: "auto"
+        }
+      }
+      else {
+        return {
+          pointerEvents: "auto"
+        }
+      }
+    }
+  }
+
   render() {
     const { desync_burger_open, dropdown_opaque } = this.state;
-    const { border, panel, burger } = this.props;
+    const { border, panel, burger, window_dimensions } = this.props;
 
     return (
       <div
-        style={(border || panel.isOpen) ? {borderBottom: "solid 1px rgba(0,0,0,0.1)"} : {}}
+        style={this.headerStyle()}
         className="mobile-head">
         <div id="top-of-the-world" className="header">
-          <img src={logo} alt="Logo" className="logo" />
-          <p>
-            KEVIN EUGENE
-          </p>
+          <img
+            style={this.menuStyle()}
+            src={logo}
+            alt="Logo"
+            className="logo" />
+          {window_dimensions.isMobile &&
+            <p>
+              KEVIN EUGENE
+            </p>
+          }
         </div>
+
+        {/* Burger */}
         <div onClick={() => {
           if (panel.isOpen) {
             this.props.openPanel(false, "");
@@ -114,6 +179,7 @@ class MobileHead extends Component {
             }
           }
         }}
+        style={this.menuStyle()}
         className="hamburger">
           <div style={this.topStyle()} className="top-burger" />
           <div style={burger ? {overflow: "visible", height: 100} : {height: 0}} className="mobile-chapters-container">
@@ -121,6 +187,8 @@ class MobileHead extends Component {
           </div>
           <div style={this.bottomStyle()} className="bottom-burger" />
         </div>
+
+        {/* Dropdown */}
         {desync_burger_open &&
         <div
           className="dropdown"
@@ -160,20 +228,26 @@ function matchDispatchToProps(dispatch) {
 }
 
 const selector = createSelector(
+  state => state['window_dimensions'],
   state => state['panel'],
   state => state['burger'],
   state => state['tabs'],
+  state => state['navbar_hidden'],
   (
+    window_dimensions,
     panel,
     burger,
-    tabs
+    tabs,
+    navbar_hidden
 ) => {
     return  {
+      window_dimensions,
       panel,
       burger,
-      tabs
+      tabs,
+      navbar_hidden
     };
   }
 );
 
-export default connect(selector, matchDispatchToProps)(MobileHead);
+export default connect(selector, matchDispatchToProps)(Header);

@@ -38,7 +38,7 @@ class Panel extends Component {
     }
     this.last_scroll_position = panel_content.getBoundingClientRect().top;
 
-    const section_titles = document.getElementById("panel-content").getElementsByClassName("section-title");
+    const section_titles = document.getElementById("panel-content").getElementsByClassName("article-title");
     let distances_from_top = [], positive_values = []
     for (let i = 0; i < section_titles.length; i++) {
       distances_from_top[i] = page_bottom - 200 - section_titles[i].getBoundingClientRect().top;
@@ -172,9 +172,14 @@ class Panel extends Component {
     const { desync_panel_open } = this.state;
     const { navbar_hidden } = this.props;
 
-    if (!desync_panel_open || navbar_hidden) {
+    if (!desync_panel_open) {
       return {
         transform: "translateY(-200px)"
+      }
+    }
+    else if (navbar_hidden) {
+      return {
+        transform: "translateY(-56px)"
       }
     }
   }
@@ -208,7 +213,7 @@ class Panel extends Component {
 
   render() {
     const { render_leave_hitbox } = this.state;
-    const { concepts, selected_concept, leave_panel, window_dimensions } = this.props;
+    const { concepts, selected_concept, leave_panel, window_dimensions, navbar_hidden } = this.props;
 
     return (
       <div className="panel">
@@ -216,21 +221,11 @@ class Panel extends Component {
           <div
             style={this.panelTopStyle()}
             className="panel-top">
-            <div className="panel-header-box">
-              <div className="panel-header">
-                <h1 className="big-title">
-                  {concepts[selected_concept].title}
-                </h1>
-                <img
-                  onClick={() => this.props.openPanel(false, "")}
-                  src={close}
-                  alt="Close"
-                  className="close"
-                />
-              </div>
-              <div className="concept-chapters">
-                {this.renderChapters()}
-              </div>
+            <h1 style={navbar_hidden ? {opacity: 0} : {}} className="big-title">
+              {concepts[selected_concept].title}
+            </h1>
+            <div className="concept-chapters">
+              {this.renderChapters()}
             </div>
           </div>
         }
@@ -238,7 +233,9 @@ class Panel extends Component {
           onScroll={(e) => this.handleScroll(e)}
           style={this.panelStyle()}
           className="panel-container-box">
-          {this.renderArticle()}
+          <div className="panel-content">
+            {this.renderArticle()}
+          </div>
         </div>
         {render_leave_hitbox &&
           <div

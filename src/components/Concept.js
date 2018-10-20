@@ -25,23 +25,36 @@ class Concept extends Component {
   }
 
   render() {
-    const { title, date, description, id, concepts, ready, reddit, medium, publishers } = this.props;
-    const concepts_ids = Object.keys(concepts);
-    const last_id = concepts_ids[concepts_ids.length - 1];
+    const { title, date, description, img_url, id, medium, ready } = this.props;
 
     return (
-      <div style={id === last_id ? {borderBottom: "none"} : {}} className="concept-box">
-        <div className="concept">
-          <p className="hat">
-            {date.toUpperCase()}
-          </p>
-          <h2 className="head">
-            {title}
-          </h2>
-          <p className="description">
-            {description}
-          </p>
-          <div className="CTA-row">
+      <div className="concept-box">
+        <a
+          href={!ready && medium}
+          target="_blank" rel="noopener noreferrer"
+          onClick={() => {
+            if (ready) {
+              this.props.selectConcept(id);
+              this.props.openPanel(true, "concepts");
+            }
+          }}
+          className="concept">
+          <div className="concept-left">
+            <p className="hat">
+              {date.toUpperCase()}
+            </p>
+            <h2 className="head">
+              {title}
+            </h2>
+            <p className="description">
+              {description}
+            </p>
+          </div>
+          <div className="concept-right">
+            <div style={{backgroundImage: "url(" + img_url + ")"}} className="thumbnail" />
+          </div>
+
+          {/* <div className="CTA-row">
             {ready &&
               <div
                 onClick={() => {
@@ -61,9 +74,9 @@ class Concept extends Component {
                 <img id="reddit" src={reddit_img} alt="Reddit" />
               </a>
             }
-          </div>
-        </div>
-        {publishers &&
+          </div> */}
+        </a>
+        {/* {publishers &&
           <div className="publishers-box">
             <p className="hat">
               PUBLISHED BY
@@ -71,7 +84,7 @@ class Concept extends Component {
             <div className="publishers-container">
               {this.renderPublishers()}
             </div>
-          </div>}
+          </div>} */}
       </div>
     );
   }

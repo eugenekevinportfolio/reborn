@@ -4,9 +4,8 @@ import { createSelector } from 'reselect';
 import { bindActionCreators } from 'redux';
 import Concepts from './Concepts.js';
 import About from './About.js';
-import Side from './Side.js';
 import Panel from './Panel.js';
-import MobileHead from './MobileHead.js';
+import Header from './Header.js';
 import '../styles/App.css';
 import '../styles/Panel.css';
 import {
@@ -34,7 +33,7 @@ class App extends Component {
       this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     }, 400);
 
-    if (window.innerWidth < 650) {
+    if (window.innerWidth < 850) {
       // Trigger mobile version
       !window_dimensions.isMobile && this.props.switchToMobile();
     }
@@ -48,7 +47,7 @@ class App extends Component {
     window.addEventListener("resize", this.updateDimensions.bind(this));
     const { window_dimensions } = this.props;
     this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
-    if (window.innerWidth < 650) {
+    if (window.innerWidth < 850) {
       // Trigger mobile version
       !window_dimensions.isMobile && this.props.switchToMobile();
     }
@@ -153,33 +152,25 @@ class App extends Component {
 
   render() {
     const { desync_panel_open, border } = this.state;
-    const { window_dimensions } = this.props;
 
     return (
       <div className="App">
-        {window_dimensions.isDesktop && <Side />}
-        <div id="main" className="container">
-          <div className="content">
-            {window_dimensions.isDesktop ?
-              <div id="top-of-the-world" className="header">
-                <img src={logo} alt="Logo" className="logo" />
-                <p>
-                  KEVIN EUGENE
-                </p>
-              </div>
-              :
-              <MobileHead border={border}/>
-            }
-            <h1 className="big-title">
-              Welcome to my portfolio
+        <div className="content">
+          <Header border={border}/>
+          <div className="welcome">
+            <h1>
+              Welcome.
             </h1>
-            <p className="intro">
-              I am a designer, web developer, and storyteller. Please scroll down to have a look at a few of my UI-UX projects.
+            <p>
+              I am a designer, web developer, and storyteller. You'll find below some of my published UI-UX projects.
             </p>
-            <Concepts />
-            <About />
-            {desync_panel_open && <Panel />}
+            <a className="CTA" href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
+              Contact Me
+            </a>
           </div>
+          <Concepts />
+          <About />
+          {desync_panel_open && <Panel />}
         </div>
       </div>
     );

@@ -32,12 +32,11 @@ class Chatroom extends Component {
 
     return (
       <div
-        id="panel-content"
-        className="panel-content">
+        id="panel-content">
         {/* Intro */}
         <p
           id="intro2"
-          className="section-title">
+          className="article-title">
           Introducing iMessage's Chatroom
         </p>
         <p>
@@ -132,7 +131,7 @@ class Chatroom extends Component {
         </Image>
         <p
           id="scope"
-          className="section-title">
+          className="article-title">
           Expanding the scope
         </p>
         <p>
@@ -170,7 +169,7 @@ class Chatroom extends Component {
         </p>
         <p
           id="groups"
-          className="section-title">
+          className="article-title">
           Group conversation
         </p>
         <p>
@@ -181,7 +180,7 @@ class Chatroom extends Component {
         </Video>
         <p
           id="conference"
-          className="section-title">
+          className="article-title">
           Video conference
         </p>
         <p>
@@ -192,7 +191,7 @@ class Chatroom extends Component {
         </Image>
         <p
           id="shell"
-          className="section-title">
+          className="article-title">
           Breaking out of the shell of iMessage
         </p>
         <p>
@@ -212,7 +211,7 @@ class Chatroom extends Component {
         </p>
         <p
           id="design"
-          className="section-title">
+          className="article-title">
           About the design process
         </p>
         <p>
