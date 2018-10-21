@@ -98,14 +98,8 @@ class Header extends Component {
       }
     }
     else {
-      if (panel.isOpen && !navbar_hidden) {
+      if (panel.isOpen && navbar_hidden) {
         return {
-          pointerEvents: "none"
-        }
-      }
-      else if (panel.isOpen && navbar_hidden) {
-        return {
-          pointerEvents: "none",
           transform: "translateY(-30px)"
         }
       }
@@ -119,24 +113,6 @@ class Header extends Component {
       if (navbar_hidden && panel.isOpen) {
         return {
           transform: "scale(0.7)",
-          pointerEvents: "auto"
-        }
-      }
-      else {
-        return {
-          pointerEvents: "auto"
-        }
-      }
-    }
-    else {
-      if (panel.isOpen) {
-        return {
-          pointerEvents: "auto"
-        }
-      }
-      else {
-        return {
-          pointerEvents: "auto"
         }
       }
     }

@@ -17,6 +17,15 @@ export const openBurger = (payload) => {
   );
 }
 
+export const openIntro = (payload) => {
+  return(
+    {
+      type: "OPEN_INTRO",
+      payload
+    }
+  );
+}
+
 export const hideNavbar = (payload) => {
   return(
     {

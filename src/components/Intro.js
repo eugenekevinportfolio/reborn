@@ -1,28 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
+import { bindActionCreators } from 'redux';
 import white_logo from '../img/WhiteLogo.png';
+import {
+  openIntro
+} from '../actions/index.js';
 
 class Intro extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      intro_finished: false
-    }
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({intro_finished: true});
-    }, 3500);
-  }
-
   introStyle() {
-    const { window_dimensions } = this.props;
-    const { intro_finished } = this.state;
+    const { window_dimensions, intro } = this.props;
 
-    if (intro_finished) {
+    if (!intro) {
       return {
         transform: `translateY(-${window_dimensions.height+30}px)`,
         backgroundColor: "rgba(32,31,31,0)"
@@ -32,7 +21,7 @@ class Intro extends Component {
 
   render() {
     return(
-      <div style={this.introStyle()} className="intro">
+      <div onClick={() => this.props.openIntro(false)} style={this.introStyle()} className="intro">
         <img
           src={white_logo}
           alt="White Logo"
@@ -60,16 +49,25 @@ class Intro extends Component {
   }
 }
 
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    openIntro
+  }, dispatch)
+}
+
 const selector = createSelector(
   state => state['window_dimensions'],
+  state => state['intro'],
   (
     window_dimensions,
+    intro
 ) => {
     return  {
       window_dimensions,
+      intro
     };
   }
 );
 
 
-export default connect(selector)(Intro);
+export default connect(selector, matchDispatchToProps)(Intro);

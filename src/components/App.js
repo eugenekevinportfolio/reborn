@@ -13,7 +13,8 @@ import {
   storeWindowDimensions,
   switchToMobile,
   switchToDesktop,
-  selectTab
+  selectTab,
+  openIntro
 } from '../actions/index.js';
 import logo from '../img/Logo.png';
 
@@ -24,7 +25,7 @@ class App extends Component {
     this.state = {
       desync_panel_open: false,
       border: false,
-      intro: true
+      desync_intro: true
     }
   }
 
@@ -67,10 +68,9 @@ class App extends Component {
 
     //Prevent scrolling for Intro
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
-    setTimeout(() => {
-      this.setState({intro: false});
-      document.getElementsByTagName("body")[0].style.overflow = null;
-    }, 4500);
+    this.introTimeout = setTimeout(() => {
+      this.props.openIntro(false);
+    }, 3000);
   }
 
   componentWillUnmount() {
@@ -81,7 +81,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { panel } = this.props;
+    const { panel, intro } = this.props;
 
     if (!prevProps.panel.isOpen && panel.isOpen) {
       document.getElementsByTagName("body")[0].style.overflow = "hidden";
@@ -96,6 +96,16 @@ class App extends Component {
           desync_panel_open: false
         })
       }, 800)
+    }
+
+    if (prevProps.intro !== intro) {
+      this.introTimeout && clearTimeout(this.introTimeout);
+      setTimeout(() => {
+        this.setState({
+          desync_intro: false
+        });
+        document.getElementsByTagName("body")[0].style.overflow = null;
+      }, 850)
     }
   }
 
@@ -161,11 +171,11 @@ class App extends Component {
 
   render() {
     const { desync_panel_open, border } = this.state;
-    const { intro } = this.state;
+    const { desync_intro } = this.state;
 
     return (
       <div className="App">
-        {intro && <Intro />}
+        {desync_intro && <Intro />}
         <div className="content">
           <Header border={border}/>
           <div className="welcome">
@@ -193,7 +203,8 @@ function matchDispatchToProps(dispatch) {
     storeWindowDimensions,
     switchToMobile,
     switchToDesktop,
-    selectTab
+    selectTab,
+    openIntro
   }, dispatch)
 }
 
@@ -203,17 +214,20 @@ const selector = createSelector(
   state => state['selected_tab'],
   state => state['panel'],
   state => state['tabs'],
+  state => state['intro'],
   (
     window_dimensions,
     selected_tab,
     panel,
-    tabs
+    tabs,
+    intro
 ) => {
     return  {
       window_dimensions,
       selected_tab,
       panel,
-      tabs
+      tabs,
+      intro
     };
   }
 );

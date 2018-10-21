@@ -10,6 +10,7 @@ import navbar_hidden from './reducer-hide-navbar.js';
 import selected_chapter from './reducer-selected-chapter.js';
 import leave_panel from './reducer-leave-panel.js';
 import burger from './reducer-burger.js';
+import intro from './reducer-intro.js';
 
 const allReducers = combineReducers({
   concepts,
@@ -22,7 +23,8 @@ const allReducers = combineReducers({
   navbar_hidden,
   selected_chapter,
   leave_panel,
-  burger
+  burger,
+  intro
 });
 
 export default allReducers;
