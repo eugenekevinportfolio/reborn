@@ -31,6 +31,7 @@
 @media screen and (min-width: 850px) {
   .mobile-head {
     padding: 30px 50px;
+    pointer-events: none;
   }
 
   .hamburger {
@@ -51,8 +52,7 @@
   align-items: center;
   /* background-color: white; */
   border-bottom: solid 1px rgba(0,0,0,0);
-  transition: all 0.7s cubic-bezier(0.545, 0.045, 0.255, 1);
-  pointer-events: none;
+  transition: transform 0.7s cubic-bezier(0.545, 0.045, 0.255, 1), border-bottom 0.3s ease-in-out;
 }
 
 .header {

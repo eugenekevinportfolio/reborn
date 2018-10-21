@@ -40,7 +40,7 @@ class Intro extends Component {
             </p>
             <div className="separator" />
             <p>
-              Storyteller
+              Storywriter
             </p>
           </div>
         </div>
