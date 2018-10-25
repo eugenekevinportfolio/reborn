@@ -2,8 +2,17 @@ import mogi_url from '../img/Mogi.jpeg';
 import chatroom_url from '../img/Chatroom_Thumbnail.jpg';
 import mac_url from '../img/MacOS.jpg';
 import youtube_url from '../img/Youtube.jpg';
+import ipadOS_url from '../img/Intro.jpg';
 
 const initialState = {
+  ipadOS: {
+    img_url: ipadOS_url,
+    ready: false,
+    title: "iPad OS",
+    description: "New UX for Siri, new app management and navigation paradigm inspired by the iPhone X’s, saving elements and much more. iPad OS aspires to use bezel-less screens at their full potential for better productivity.",
+    date: "October 2018",
+    medium: "https://uxdesign.cc/ipad-os-redesigning-siri-and-multitasking-on-the-ipad-pro-in-the-wake-of-the-apple-event-445ac9bacb54",
+  },
   mogi: {
     img_url: mogi_url,
     ready: true,
