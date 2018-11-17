@@ -143,8 +143,12 @@
 }
 
 body {
-  font-family: "Rubik";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   letter-spacing: 0.3px;
+}
+
+body p {
+  line-height: 25px;
 }
 
 .welcome {
@@ -169,17 +173,18 @@ body {
 }
 
 .welcome h1 {
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: 1px;
   margin-top: 0;
   margin-bottom: 15px;
-  font-family: "Montserrat";
+  /* font-family: "Montserrat"; */
 }
 
 .welcome p {
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 35px;
-  font-family: "Montserrat";
+  /* font-family: "Montserrat"; */
 }
 
 .CTA {
@@ -187,7 +192,7 @@ body {
   color: white;
   align-items: center;
   font-weight: 800;
-  font-family: "Montserrat";
+  /* font-family: "Montserrat"; */
   letter-spacing: 0.5px;
   transition: all 0.2s;
   background-color: black;
@@ -249,7 +254,7 @@ li {
   margin-bottom: 15px;
   cursor: pointer;
   transition: all 0.2s;
-  font-family: "Montserrat";
+  /* font-family: "Montserrat"; */
   font-weight: 800;
   letter-spacing: 0.7px;
   border-radius: 2px;
@@ -291,7 +296,7 @@ li:hover {
   box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
   box-sizing: border-box;
   transition: transform 0.85s cubic-bezier(0.545, 0.045, 0.255, 1), background-color 1s ease-in-out;
-  font-family: "Montserrat";
+  /* font-family: "Montserrat"; */
   -webkit-backdrop-filter: blur(20px);
 }
 

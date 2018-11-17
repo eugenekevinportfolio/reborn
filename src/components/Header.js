@@ -100,7 +100,7 @@ class Header extends Component {
     else {
       if (panel.isOpen && navbar_hidden) {
         return {
-          transform: "translateY(-30px)"
+          transform: "translateY(-26px)"
         }
       }
     }
