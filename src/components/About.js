@@ -17,7 +17,7 @@ class About extends Component {
           </div>
           <div className="about-right">
             <p>
-              I am graduate from Telecom ParisTech and HEC Paris. I started design on my own about five years ago. As I was studying Computer Science at the time and not design, I had to learn everything by myself. After spending a lot of time mimicking Apple products' user interfaces on Sketch, I started creating concepts on my own, using what I had learned during that first phase.
+              I am a graduate from Telecom ParisTech and HEC Paris. I started design on my own about five years ago. As I was studying Computer Science at the time and not design, I had to learn everything by myself. After spending a lot of time mimicking Apple products' user interfaces on Sketch, I started creating concepts on my own, using what I had learned during that first phase.
             </p>
             <p>
               My first concept was called iOS Fuji (July 2016) and can be found <a href="https://eugenekevin.github.io/" target="_blank" rel="noopener noreferrer">here</a>. A few months later, I published <a href="https://eugenekevindesign.github.io/" target="_blank" rel="noopener noreferrer">iOS Fuji 2.0</a> (August 2016) which aimed at simplifying the initial concept.
