@@ -1,6 +1,6 @@
 @media screen and (max-width: 449px) {
   .section-title {
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 32px;
   }
 
@@ -14,11 +14,12 @@
   }
 
   .hat {
-    font-size: 15px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
   }
 
   .head {
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 15px;
   }
 
@@ -56,7 +57,7 @@
 
 @media screen and (min-width: 450px) and (max-width: 849px) {
   .section-title {
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 37px;
   }
 
@@ -73,11 +74,11 @@
   }
 
   .hat {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .head {
-    font-size: 33px;
+    font-size: 24px;
     margin-bottom: 20px;
   }
 
@@ -90,7 +91,7 @@
   }
 
   .selfie {
-    width: 220px;
+    width: 200px;
     margin: auto;
     display: block;
   }
@@ -107,7 +108,7 @@
 
 @media screen and (min-width: 850px) {
   .section-title {
-    font-size: 17px;
+    font-size: 27px;
   }
 
   .section {
@@ -115,7 +116,7 @@
   }
 
   .selfie {
-    width: 250px;
+    width: 220px;
   }
 
   .selfie-description {
@@ -141,11 +142,11 @@
   }
 
   .hat {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .head {
-    font-size: 35px;
+    font-size: 27px;
   }
 
   .section-title {
@@ -166,25 +167,22 @@
 }
 
 #concepts {
-  background-color: rgb(249,249,249);
+  background-color: #191919;
 }
 
 .section-title {
   font-weight: 800;
   margin-top: 0;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  letter-spacing: -0.5px;
   text-align: center;
-  /* font-family: "Montserrat"; */
-  opacity: 0.7;
 }
 
 .concept {
   max-width: 850px;
-  background-color: white;
+  background-color: rgb(14, 14, 14);
   margin:auto;
   border-radius: 2px;
-  box-shadow: 0px 2px 3px rgba(182,182,182,0.5);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   display: flex;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
@@ -192,7 +190,7 @@
 
 .concept:hover {
   transform: scale(1.02);
-  box-shadow: 0px 3px 15px rgba(182,182,182,0.5);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
 }
 
 .concept:hover .thumbnail {
@@ -215,16 +213,16 @@
 }
 
 .hat {
-  font-weight: 500;
-  opacity: 0.4;
+  font-weight: 600;
+  opacity: 0.5;
   margin-bottom: 1px;
   margin-top: 0;
-  letter-spacing: 0.3px;
+  letter-spacing: -0.3px;
 }
 
 .head {
   margin-top: 0;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.5px;
   font-weight: 700;
 }
 
@@ -234,6 +232,8 @@
 
 .description {
   margin-bottom: 10px;
+  font-family: "Book Antiqua";
+  font-weight: 700;
 }
 
 .CTA:hover {
@@ -248,24 +248,26 @@
 
 .about-right p {
   margin-top: 0;
+  font-family: "Book Antiqua";
+  font-weight: 700;
 }
 
 .selfie {
   border-radius: 2px;
-  box-shadow: 0px 2px 3px rgba(182,182,182,0.5);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
 .selfie-description {
-  opacity: 0.4;
+  opacity: 0.5;
   font-size: 15px;
+  line-height: 22px;
 }
 
 p a {
-  font-weight: 500;
   color: inherit;
   text-decoration: none;
   display: inline-block;
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px white;
   line-height: 18px;
   transition: all 0.2s;
 }

@@ -16,10 +16,20 @@
     left: 20px;
   }
 
+  .intro-labels {
+    margin-bottom: 25px;
+  }
+
+  #sayhi p {
+    font-size: 20px;
+  }
+
   .intro-labels p {
     margin: 0;
     margin-bottom: 5px;
     margin-right: 10px;
+    font-size: 20px;
+    line-height: 25px;
   }
 
   .separator {
@@ -31,15 +41,7 @@
     font-size: 40px;
   }
 
-  .CTA {
-    font-size: 15px;
-  }
-
-  li {
-    font-size: 15px;
-  }
-
-  p {
+  .CTA, li, p {
     font-size: 16px;
   }
 }
@@ -61,26 +63,28 @@
     font-size: 50px;
   }
 
-  .welcome p, .intro-labels p {
-    font-size: 22px;
-  }
-
-  .CTA {
-    font-size: 16px;
+  .CTA, li {
+    font-size: 18px;
   }
 
   p {
     font-size: 17px;
   }
 
-  li {
-    font-size: 16px;
+  .intro-labels {
+    margin-bottom: 40px;
+  }
+
+  #sayhi p {
+    font-size: 24px;
   }
 
   .intro-labels p {
     margin: 0;
     margin-bottom: 5px;
     margin-right: 15px;
+    font-size: 24px;
+    line-height: 30px;
   }
 
   .separator {
@@ -96,40 +100,42 @@
 
 @media screen and (min-width: 850px) {
   .welcome h1, .intro h1 {
-    font-size: 70px;
+    font-size: 65px;
   }
 
   .welcome {
     padding: 190px 160px 90px;
   }
 
-  .welcome p, .intro-labels p {
-    font-size: 24px;
-  }
-
   .logo {
-    width: 55px;
+    width: 60px;
   }
 
   p {
     font-size: 18px;
   }
 
-  .CTA {
-    font-size: 17px;
-  }
-
-  li {
-    font-size: 17px;
+  .CTA, li {
+    font-size: 20px;
   }
 
   .intro {
     padding: 280px 160px 90px;
   }
 
+  .intro-labels {
+    margin-bottom: 50px;
+  }
+
+  #sayhi p {
+    font-size: 27px;
+  }
+
   .intro-labels p {
     margin: 0;
     margin-right: 15px;
+    font-size: 27px;
+    line-height: 37px;
   }
 
   .separator {
@@ -142,18 +148,23 @@
   }
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  letter-spacing: 0.3px;
+#sayhi div {
+  max-width: 850px;
+  margin: auto;
 }
 
-body p {
-  line-height: 25px;
+#sayhi div p {
+  font-weight: 800;
+  margin-top: 0;
+}
+
+#sayhi div p:first-of-type {
+  margin-bottom: 10px;
 }
 
 .welcome {
-  max-width: 1100px;
   margin: auto;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.15);
 }
 
 .intro-content {
@@ -173,32 +184,37 @@ body p {
 }
 
 .welcome h1 {
-  font-weight: 900;
-  letter-spacing: 1px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
   margin-top: 0;
   margin-bottom: 15px;
   /* font-family: "Montserrat"; */
 }
 
-.welcome p {
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 35px;
-  /* font-family: "Montserrat"; */
+.intro-labels {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.intro-labels p {
+  color: white;
+  opacity: 0.6;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: -0.4px;
 }
 
 .CTA {
   display: inline-flex;
-  color: white;
+  color: black;
   align-items: center;
   font-weight: 800;
-  /* font-family: "Montserrat"; */
-  letter-spacing: 0.5px;
   transition: all 0.2s;
-  background-color: black;
-  padding: 9px 13px;
+  background-color: white;
+  padding: 10px 15px;
   cursor: pointer;
-  border-radius: 2px;
+  letter-spacing: -0.5px;
 }
 
 .content {
@@ -207,7 +223,6 @@ body p {
 }
 
 .logo {
-  border-radius: 2px;
   margin-right: 15px;
   transition: all 0.7s cubic-bezier(0.545, 0.045, 0.255, 1);
 }
@@ -256,8 +271,7 @@ li {
   transition: all 0.2s;
   /* font-family: "Montserrat"; */
   font-weight: 800;
-  letter-spacing: 0.7px;
-  border-radius: 2px;
+  letter-spacing: -0.2px;
 }
 
 li:hover {
@@ -317,21 +331,6 @@ li:hover {
   to {
     opacity: 0.8;
   }
-}
-
-.intro-labels {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  animation-name: slidein;
-  animation-duration: 1s;
-}
-
-.intro-labels p {
-  color: #E9E5E1;
-  opacity: 0.6;
-  font-weight: 500;
-  white-space: nowrap;
 }
 
 .separator {

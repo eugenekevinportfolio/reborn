@@ -15,7 +15,7 @@ const initialState = {
   },
   mogi: {
     img_url: mogi_url,
-    ready: true,
+    ready: false,
     title: "iOS Mogi",
     description: "Non-intrusive Siri with contextual awareness, new accessibility features, a clipboard manager, contextual awareness in Apple Maps, Live Notifications, and much more. iOS Mogi is all about mobile multitasking and context preservation.",
     date: "August 2018",
@@ -36,7 +36,7 @@ const initialState = {
   },
   chatroom: {
     img_url: chatroom_url,
-    ready: true,
+    ready: false,
     title: "iMessage Chatroom",
     description: "A new place to enjoy content or work with relatives in real time, new use cases for live collaboration, breaking out of the shell of iMessage, and more. iMessage Chatroom tries to ease live collaboration and sharing on iOS.",
     date: "August 2018",

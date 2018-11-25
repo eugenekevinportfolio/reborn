@@ -21,7 +21,7 @@ class Concepts extends Component {
     return (
       <div id="concepts" className="section">
         <h2 className="section-title">
-          CONCEPTS
+          Concepts
         </h2>
         {this.renderConcepts()}
       </div>

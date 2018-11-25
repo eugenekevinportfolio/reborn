@@ -53,7 +53,7 @@ class Tab extends Component {
           }
         }}
         style={this.tabStyle()}>
-        {text.toUpperCase()}
+        {text}
       </li>
     );
   }

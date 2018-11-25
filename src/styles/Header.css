@@ -1,7 +1,7 @@
 @media screen and (max-width: 449px) {
   .mobile-head {
     padding: 20px 20px;
-    background-color: white;
+    background-color: rgb(14, 14, 14);
     -webkit-backdrop-filter: blur(20px);
   }
 
@@ -14,12 +14,12 @@
 @media screen and (min-width: 450px) and (max-width: 849px) {
   .mobile-head {
     padding: 30px 50px;
-    background-color: white;
+    background-color: rgb(14, 14, 14);
     -webkit-backdrop-filter: blur(20px);
   }
 
   .hamburger {
-    top: 48px;
+    top: 53px;
     right: 50px;
   }
 
@@ -35,7 +35,7 @@
   }
 
   .hamburger {
-    top: 50px;
+    top: 53px;
     right: 50px;
   }
 }
@@ -86,9 +86,8 @@
 
 .top-burger, .bottom-burger {
   height: 4px;
-  background-color: black;
+  background-color: white;
   transition: all 0.3s cubic-bezier(0.545, 0.045, 0.255, 1);
-  border-radius: 1px;
 }
 
 .mobile-chapters-container {

@@ -17,6 +17,7 @@ import {
   openIntro
 } from '../actions/index.js';
 import logo from '../img/Logo.png';
+import SayHi from './SayHi.js';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +26,6 @@ class App extends Component {
     this.state = {
       desync_panel_open: false,
       border: false,
-      desync_intro: true
     }
   }
 
@@ -65,12 +65,6 @@ class App extends Component {
     // Handle key events
     this.pressKey = this.pressKey.bind(this);
     window.addEventListener("keydown", this.pressKey);
-
-    //Prevent scrolling for Intro
-    document.getElementsByTagName("body")[0].style.overflow = "hidden";
-    this.introTimeout = setTimeout(() => {
-      this.props.openIntro(false);
-    }, 3000);
   }
 
   componentWillUnmount() {
@@ -96,16 +90,6 @@ class App extends Component {
           desync_panel_open: false
         })
       }, 800)
-    }
-
-    if (prevProps.intro !== intro) {
-      this.introTimeout && clearTimeout(this.introTimeout);
-      setTimeout(() => {
-        this.setState({
-          desync_intro: false
-        });
-        document.getElementsByTagName("body")[0].style.overflow = null;
-      }, 850)
     }
   }
 
@@ -175,22 +159,33 @@ class App extends Component {
 
     return (
       <div className="App">
-        {desync_intro && <Intro />}
+        {/* {desync_intro && <Intro />} */}
         <div className="content">
           <Header border={border}/>
           <div className="welcome">
             <h1>
-              Welcome.
+              Kevin Eugene
             </h1>
-            <p>
-              You will find below some of my published UI-UX projects.
-            </p>
+            <div className="intro-labels">
+              <p>
+                Designer
+              </p>
+              <div className="separator" />
+              <p>
+                Software Engineer
+              </p>
+              <div className="separator" />
+              <p>
+                Storywriter
+              </p>
+            </div>
             <a className="CTA" href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
               Contact Me
             </a>
           </div>
           <Concepts />
           <About />
+          {/* <SayHi /> */}
           {desync_panel_open && <Panel />}
         </div>
       </div>

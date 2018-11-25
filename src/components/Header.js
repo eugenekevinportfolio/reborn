@@ -92,8 +92,8 @@ class Header extends Component {
     if (window_dimensions.isMobile) {
       if (border || panel.isOpen) {
         return {
-          borderBottom: "solid 1px rgba(0,0,0,0.1)",
-          backgroundColor: is_safari && "rgba(255,255,255,0.7)"
+          borderBottom: "solid 1px rgba(255,255,255,0.15)",
+          backgroundColor: is_safari && "rgba(14,14,14,0.7)"
         }
       }
     }
@@ -134,7 +134,7 @@ class Header extends Component {
             className="logo" />
           {window_dimensions.isMobile &&
             <p>
-              KEVIN EUGENE
+              Kevin Eugene
             </p>
           }
         </div>
@@ -183,7 +183,7 @@ class Header extends Component {
                 href={resume}
                 target="_blank"
                 rel="noopener noreferrer">
-                RESUME
+                Resume
               </a>
             </li>
             <a href="https://twitter.com/Kekakou20" target="_blank" rel="noopener noreferrer">
