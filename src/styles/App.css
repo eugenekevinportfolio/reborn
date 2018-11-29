@@ -48,7 +48,7 @@
 
 @media screen and (min-width: 450px) and (max-width: 849px) {
   .logo {
-    height: 50px;
+    height: 40px;
   }
 
   .welcome {
@@ -108,7 +108,7 @@
   }
 
   .logo {
-    width: 60px;
+    width: 50px;
   }
 
   p {
