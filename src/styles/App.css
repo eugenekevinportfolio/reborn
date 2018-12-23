@@ -44,6 +44,10 @@
   .CTA, li, p {
     font-size: 16px;
   }
+
+  .CTA {
+    margin-right: 17px;
+  }
 }
 
 @media screen and (min-width: 450px) and (max-width: 849px) {
@@ -61,6 +65,10 @@
 
   .welcome h1, .intro h1 {
     font-size: 50px;
+  }
+
+  .CTA {
+    margin-right: 20px;
   }
 
   .CTA, li {
@@ -113,6 +121,10 @@
 
   p {
     font-size: 18px;
+  }
+
+  .CTA {
+    margin-right: 25px;
   }
 
   .CTA, li {
@@ -205,8 +217,12 @@
   letter-spacing: -0.4px;
 }
 
+.CTA-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .CTA {
-  display: inline-flex;
   color: black;
   align-items: center;
   font-weight: 800;
@@ -214,7 +230,13 @@
   background-color: white;
   padding: 10px 15px;
   cursor: pointer;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.3px;
+}
+
+.CTA:last-child {
+  color: white;
+  margin-right: 0;
+  background-color: rgba(63,63,63,1);
 }
 
 .content {

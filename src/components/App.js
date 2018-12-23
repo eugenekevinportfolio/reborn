@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { bindActionCreators } from 'redux';
+import resume from '../img/Resume.pdf';
 import Concepts from './Concepts.js';
 import About from './About.js';
 import Panel from './Panel.js';
@@ -179,9 +180,18 @@ class App extends Component {
                 Storywriter
               </p>
             </div>
-            <a className="CTA" href="https://www.linkedin.com/in/eugenekevin/" target="_blank" rel="noopener noreferrer">
-              Contact Me
-            </a>
+            <div className="CTA-row">
+              <a className="CTA" href="mailto:kevin.eugene@hec.edu">
+                Say Hi!
+              </a>
+              <a
+                className="CTA"
+                href={resume}
+                target="_blank"
+                rel="noopener noreferrer">
+                Resume
+              </a>
+            </div>
           </div>
           <Concepts />
           <About />
