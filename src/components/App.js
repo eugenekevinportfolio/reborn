@@ -64,7 +64,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     window.addEventListener("resize", this.updateDimensions.bind(this));
+    isSafari && window.addEventListener("scroll", this.handleScroll.bind(this));
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     const { window_dimensions } = this.props;
@@ -87,8 +89,13 @@ class App extends Component {
 
   render() {
     const { canScroll } = this.state;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
     return (
-      <div onScroll={() => this.handleScroll()} className="main-body">
+      <div
+        onScroll={() => this.handleScroll()}
+        className={"main-body " + (!isSafari ? "main-body-not-safari" : "")}
+      >
         <Header />
         {this.renderConcepts()}
         <Presentation canScroll={canScroll} />

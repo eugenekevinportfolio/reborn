@@ -62,9 +62,6 @@
 
 .selected-concept-background {
   background-color: rgba(0, 0, 0, 0.6);
-}
-
-.selected-concept-background-safari {
   backdrop-filter: blur(15px);
 }
 

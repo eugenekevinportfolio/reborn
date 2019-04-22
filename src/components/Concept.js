@@ -26,10 +26,7 @@ class Concept extends Component {
         <div
           className={
             "concept-background " +
-            (selected_concept === id ? "selected-concept-background " : "") +
-            (selected_concept === id && isSafari
-              ? "selected-concept-background-safari"
-              : "")
+            (selected_concept === id ? "selected-concept-background " : "")
           }
         >
           <div
