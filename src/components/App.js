@@ -46,8 +46,8 @@ class App extends Component {
     const conceptsDOM = document.getElementsByClassName("concept-container");
     for (let i = 0; i < conceptsDOM.length; i++) {
       if (
-        conceptsDOM[i].getBoundingClientRect().top >= -120 &&
-        conceptsDOM[i].getBoundingClientRect().top <= 60
+        conceptsDOM[i].getBoundingClientRect().top >= -window.innerHeight / 5 &&
+        conceptsDOM[i].getBoundingClientRect().top <= window.innerHeight / 5
       ) {
         selected_concept !== conceptsDOM[i].id &&
           this.props.selectConcept(conceptsDOM[i].id);
