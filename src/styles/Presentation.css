@@ -43,7 +43,6 @@
 .presentation-container {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
-  transition: height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   scroll-snap-align: start;
   position: relative;
   display: flex;

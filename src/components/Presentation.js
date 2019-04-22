@@ -79,7 +79,7 @@ class Presentation extends Component {
     const { canScroll } = this.props;
     const videoControl = paused ? play : pause;
     return (
-      <div id="presentation-container" className="presentation-container">
+      <div id="presentation-container" className="presentation-container ">
         <video
           className={paused ? "paused-video" : ""}
           ref={ref => (this.videoRef = ref)}
@@ -91,7 +91,11 @@ class Presentation extends Component {
           <source src={introVideo} />
         </video>
         <div onClick={() => this.onPlayClick()} className="play-btn">
-          <img src={videoControl} style={paused ? { marginLeft: 2 } : {}} />
+          <img
+            alt="video-control"
+            src={videoControl}
+            style={paused ? { marginLeft: 2 } : {}}
+          />
         </div>
 
         <div

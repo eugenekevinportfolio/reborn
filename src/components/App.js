@@ -26,8 +26,7 @@ class App extends Component {
   updateDimensions() {
     const { window_dimensions } = this.props;
     this.timeout && clearTimeout(this.timeout);
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
     this.timeout = setTimeout(() => {
       this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     }, 400);
@@ -56,7 +55,10 @@ class App extends Component {
     }
 
     const presentationDOM = document.getElementById("presentation-container");
-    if (presentationDOM.getBoundingClientRect().top <= 0) {
+    if (
+      presentationDOM.getBoundingClientRect().top <= 0 ||
+      presentationDOM.getBoundingClientRect().bottom <= window.innerHeight
+    ) {
       !canScroll && this.setState({ canScroll: true });
     } else {
       canScroll && this.setState({ canScroll: false });

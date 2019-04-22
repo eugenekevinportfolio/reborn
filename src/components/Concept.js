@@ -15,11 +15,10 @@ class Concept extends Component {
       credits,
       medium
     } = this.props;
-
     return (
       <div
         id={id}
-        className="concept-container"
+        className="concept-container "
         style={{ backgroundImage: "url(" + img_url + ")" }}
       >
         <div
