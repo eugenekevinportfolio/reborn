@@ -1,10 +1,10 @@
 const initialState = {
   concepts: {
-    text: "Concepts",
+    text: "Concepts"
   },
   about: {
-    text: "About me",
-  },
+    text: "About me"
+  }
   // blog: {
   //   text: "Blog",
   // }
