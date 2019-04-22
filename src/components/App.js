@@ -27,6 +27,8 @@ class App extends Component {
     const { window_dimensions } = this.props;
     this.timeout && clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
       this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     }, 400);
 
@@ -63,6 +65,8 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions.bind(this));
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
     const { window_dimensions } = this.props;
     this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     if (window.innerWidth < 810) {
