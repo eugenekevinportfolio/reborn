@@ -29,11 +29,14 @@ body {
   overflow: hidden;
 }
 
-.main-body-not-safari {
+.main-body {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.main-body-not-safari {
   scroll-snap-type: y mandatory;
 }
