@@ -31,6 +31,7 @@ body {
 
 .main-body-not-safari {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

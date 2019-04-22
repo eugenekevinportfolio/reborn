@@ -46,7 +46,7 @@
 
 .concept-container {
   height: 100vh;
-  /* height: calc(var(--vh, 1vh) * 100); */
+  height: calc(var(--vh, 1vh) * 100);
   scroll-snap-align: start;
   background-size: cover;
   background-position: center;
