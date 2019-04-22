@@ -1,4 +1,4 @@
-const initialState = "";
+const initialState = "ipadOS";
 
 export default (state = initialState, action) => {
   switch (action.type) {

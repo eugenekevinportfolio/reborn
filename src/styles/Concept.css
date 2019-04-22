@@ -1,0 +1,147 @@
+@media screen and (max-width: 649px) {
+  .concept-intro-container h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .concept-intro-container p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .credits {
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0px 32px;
+    box-sizing: border-box;
+  }
+
+  .read-on-medium {
+    padding: 12px 0px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .concept-intro-container h2 {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+
+  .concept-intro-container p {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+
+  .credits {
+    left: 32px;
+    bottom: 40px;
+  }
+
+  .read-on-medium {
+    padding: 14px 0px;
+  }
+}
+
+.concept-container {
+  height: 100vh;
+  scroll-snap-align: start;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.concept-background {
+  position: relative;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.selected-concept-background {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.selected-concept-background-safari {
+  backdrop-filter: blur(15px);
+}
+
+.concept-intro-container {
+  position: absolute;
+  color: white;
+  width: 408px;
+  max-width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.3);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition-delay: 0.4s;
+  padding: 0px 32px;
+  box-sizing: border-box;
+}
+
+.selected-concept {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.concept-intro-container h2 {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.concept-intro-container p {
+  letter-spacing: 0.4px;
+  line-height: 1.5rem;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.read-on-medium {
+  background-color: white;
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  text-decoration: none;
+}
+
+.read-on-medium p {
+  text-align: center;
+  margin: 0;
+  color: #383838;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.read-on-medium img {
+  position: absolute;
+  right: 24px;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 14px;
+}
+
+.credits {
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 1.25rem;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  opacity: 0.6;
+}
+
+.selected-credits {
+  transform: translateX(-50%);
+  opacity: 1;
+}
