@@ -1,0 +1,138 @@
+@media screen and (max-width: 709px) {
+  .intro-image {
+    height: 50%;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .hero {
+    height: 100vh;
+    padding: 0px 32px;
+    position: relative;
+  }
+
+  .hero-intro {
+    transform: translateY(56px);
+  }
+
+  .hero-tag {
+    font-size: 48px;
+    position: absolute;
+    transition: all 0.3s ease-in-out 0.3s;
+  }
+
+  .hero-tag--transparent {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 0s;
+  }
+
+  .hero-description {
+    margin-top: 88px;
+  }
+}
+
+@media screen and (min-width: 710px) {
+  .intro-image {
+    height: 100%;
+    right: 0;
+    width: 70%;
+  }
+
+  .hero {
+    height: 100vh;
+    padding: 0px 64px;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-size: 64px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.intro-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(60%);
+  position: absolute;
+  transition: all 1s ease-in-out;
+}
+
+.hero-intro {
+  z-index: 5;
+}
+
+.intro-image--transparent {
+  opacity: 0.4;
+}
+
+.intro-image:hover {
+  filter: grayscale(0%);
+}
+
+.hero-flex {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.hero-tags-container {
+  margin-bottom: 40px;
+}
+
+.hero-tag {
+  font-weight: 800;
+  margin: 0px 0px 8px;
+}
+
+.hero-tag:hover {
+  color: var(--highlight-color);
+}
+
+.hero-description {
+  font-weight: 500;
+  line-height: 1.6em;
+  margin-bottom: 40px;
+}
+
+.scroll-container {
+  bottom: 40px;
+  cursor: pointer;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-container--transparent {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-text {
+  color: var(--highlight-color);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.scroll-bar {
+  animation: scroll 1s alternate infinite ease-in-out;
+  background-color: var(--highlight-color);
+  border-radius: 10px;
+  height: 6px;
+  margin: auto;
+  width: 24px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(8px);
+  }
+}

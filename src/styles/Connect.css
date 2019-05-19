@@ -1,0 +1,96 @@
+@media screen and (max-width: 709px) {
+  .connect {
+    background-size: 500px;
+  }
+}
+
+@media screen and (min-width: 710px) {
+  .connect {
+    background-size: 800px;
+  }
+}
+
+.avatar {
+  background-size: cover;
+  background-position: center;
+  border: solid 4px white;
+  border-radius: 50%;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: block;
+  height: 80px;
+  margin: 32px auto;
+  position: relative;
+  width: 80px;
+}
+
+.bubble {
+  bottom: calc(100% + 16px);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.2);
+  transform-origin: 50% calc(100% + 16px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.8s;
+  pointer-events: none;
+  position: absolute;
+}
+
+.bubble--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%);
+}
+
+.bubble::before {
+  border: solid 10px transparent;
+  border-top-color: white;
+  content: "";
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 0;
+}
+
+.connect {
+  background-image: url("../img/Map.png");
+  background-position: 45% 50%;
+  background-repeat: no-repeat;
+  padding-bottom: 56px;
+}
+
+.connect-links {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.connect-links a {
+  align-items: center;
+  display: flex;
+  margin: 0px 14px;
+  opacity: 0.3;
+  transition: all 0.3s ease-in-out;
+}
+
+.connect-links a:hover {
+  opacity: 0.9;
+}
+
+.connect-links img {
+  height: 20px;
+}
+
+#medium {
+  transform: translateY(2px);
+}
+
+.credits {
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+  opacity: 0.6;
+}

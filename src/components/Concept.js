@@ -6,50 +6,28 @@ import "../styles/Concept.css";
 
 class Concept extends Component {
   render() {
-    const {
-      img_url,
-      title,
-      description,
-      id,
-      selected_concept,
-      credits,
-      medium
-    } = this.props;
+    const { img_url, title, description, medium } = this.props;
+
     return (
-      <div
-        id={id}
-        className="concept-container "
-        style={{ backgroundImage: "url(" + img_url + ")" }}
+      <a
+        href={medium}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="concept-container"
       >
         <div
-          className={
-            "concept-background " +
-            (selected_concept === id ? "selected-concept-background " : "")
-          }
-        >
-          <div
-            className={
-              "concept-intro-container " +
-              (selected_concept === id ? "selected-concept" : "")
-            }
-          >
-            <h2>{title}</h2>
-            <p>{description}</p>
-
-            <a
-              href={medium}
-              target="_blank"
-              rel="noopener noreferrer"
-              ref={ref => (this.readOnMedium = ref)}
-              className="read-on-medium"
-            >
-              <p>Read on Medium</p>
-              <img src={out} alt="out" />
-            </a>
-          </div>
-          {credits && <p className="credits">{credits}</p>}
-        </div>
-      </div>
+          style={{ backgroundImage: "url(" + img_url + ")" }}
+          className="concept-image"
+        />
+        <h2 className="concept-title">{title}</h2>
+        <p className="concept-description">{description}</p>
+        <p className="medium-text">
+          Read on Medium
+          <span className="out-icon">
+            <img src={out} alt="out" />
+          </span>
+        </p>
+      </a>
     );
   }
 }

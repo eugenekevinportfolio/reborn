@@ -1,58 +1,61 @@
 import React, { Component } from "react";
-import linkedin from "../img/Linkedin.svg";
-import twitter from "../img/Twitter.svg";
+import { connect } from "react-redux";
+import { createSelector } from "reselect";
+import { bindActionCreators } from "redux";
+import { openBurger } from "../actions/index.js";
 import resume from "../img/Resume.pdf";
+import me from "../img/Me.jpeg";
+import $ from "jquery";
 
-export default class MobileMenu extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isBurgerOpen: false
-    };
-  }
-
+class MobileMenu extends Component {
   render() {
-    const { isBurgerOpen } = this.state;
+    const { isBurgerOpen, antiHeader } = this.props;
     return (
-      <div>
-        <div
-          onClick={() => this.setState({ isBurgerOpen: false })}
-          className={
-            "mobile-menu-backdrop " +
-            (isBurgerOpen ? "mobile-menu-backdrop-open" : "")
-          }
-        />
-        <div
-          className="burger"
-          onClick={() => this.setState({ isBurgerOpen: !isBurgerOpen })}
+      <div
+        className={
+          "mobile-menu " +
+          (isBurgerOpen ? "mobile-menu--open " : "") +
+          (antiHeader ? "mobile-menu--anti" : "")
+        }
+      >
+        <a
+          className="section-title"
+          href={resume}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <div className={"top-bar " + (isBurgerOpen ? "top-bar-open" : "")} />
-          <div
-            className={"bottom-bar " + (isBurgerOpen ? "bottom-bar-open" : "")}
-          />
-        </div>
-        <ul className={isBurgerOpen ? "burger-open-ul" : ""}>
-          <a href={resume} target="_blank" rel="noopener noreferrer">
-            Resume
-          </a>
-          <a href="mailto:kevin.eugene@hec.edu">Say Hi</a>
-          <a
-            href="https://www.linkedin.com/in/eugenekevin/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img alt="linkedin" id="linkedin" src={linkedin} />
-          </a>
-          <a
-            href="https://twitter.com/Kekakou20"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img alt="twitter" id="twitter" src={twitter} />
-          </a>
-        </ul>
+          Resume
+        </a>
+        <a
+          className="section-title highlight-text"
+          href="mailto:kevin.eugene@hec.edu"
+        >
+          Say Hi!
+        </a>
       </div>
     );
   }
 }
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      openBurger
+    },
+    dispatch
+  );
+}
+
+const selector = createSelector(
+  state => state["isBurgerOpen"],
+  isBurgerOpen => {
+    return {
+      isBurgerOpen
+    };
+  }
+);
+
+export default connect(
+  selector,
+  matchDispatchToProps
+)(MobileMenu);

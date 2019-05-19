@@ -1,46 +1,77 @@
 import React, { Component } from "react";
-import logo from "../img/Logo.svg";
+import $ from "jquery";
 import "../styles/Header.css";
-import linkedin from "../img/Linkedin.svg";
-import twitter from "../img/Twitter.svg";
 import resume from "../img/Resume.pdf";
 import MediaQuery from "react-responsive";
+import Burger from "./Burger";
+import me from "../img/Me.jpeg";
 import MobileMenu from "./MobileMenu";
 
 export default class Header extends Component {
   render() {
+    const { hasScrolled, antiHeader } = this.props;
     return (
-      <div className="header">
-        <div className="logo-container">
-          <img src={logo} className="logo" alt="Logo" />
-          <h1>Kevin Eugene</h1>
+      <>
+        <div
+          className={
+            "header-container " +
+            (hasScrolled ? "header-container--border " : "") +
+            (antiHeader ? "header-container--anti" : "")
+          }
+        >
+          <div className="max-width header-flex">
+            <h1
+              onClick={() => {
+                $([document.documentElement, document.body]).animate(
+                  {
+                    scrollTop: $("#hero").offset().top
+                  },
+                  800
+                );
+              }}
+              className="logo-name"
+            >
+              Kevin Eugene
+            </h1>
+            <MediaQuery minWidth={710}>
+              <ul className="header-links">
+                <a
+                  className="header-link"
+                  href={resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Resume
+                </a>
+                <a
+                  className="header-link highlight-text"
+                  href="mailto:kevin.eugene@hec.edu"
+                >
+                  Say Hi!
+                </a>
+                <div
+                  onClick={() => {
+                    $([document.documentElement, document.body]).animate(
+                      {
+                        scrollTop: $("#connect").offset().top
+                      },
+                      800
+                    );
+                  }}
+                  className="small-avatar"
+                  style={{ backgroundImage: "url(" + me + ")" }}
+                />
+              </ul>
+            </MediaQuery>
+            <MediaQuery maxWidth={709}>
+              <Burger />
+            </MediaQuery>
+          </div>
         </div>
-        <MediaQuery minWidth={650}>
-          <ul>
-            <a href={resume} target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-            <a href="mailto:kevin.eugene@hec.edu">Say Hi</a>
-            <a
-              href="https://www.linkedin.com/in/eugenekevin/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img alt="linkedin" id="linkedin" src={linkedin} />
-            </a>
-            <a
-              href="https://twitter.com/Kekakou20"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img alt="twitter" id="twitter" src={twitter} />
-            </a>
-          </ul>
+        <MediaQuery maxWidth={709}>
+          <MobileMenu antiHeader={antiHeader} />
         </MediaQuery>
-        <MediaQuery maxWidth={649}>
-          <MobileMenu />
-        </MediaQuery>
-      </div>
+      </>
     );
   }
 }

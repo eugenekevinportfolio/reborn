@@ -20,9 +20,9 @@ export const openIntro = payload => {
   };
 };
 
-export const hideNavbar = payload => {
+export const playVideo = payload => {
   return {
-    type: "HIDE_NAVBAR",
+    type: "PLAY_VIDEO",
     payload
   };
 };
@@ -34,9 +34,9 @@ export const leavePanel = payload => {
   };
 };
 
-export const selectChapter = id => {
+export const currentSection = id => {
   return {
-    type: "SELECT_CHAPTER",
+    type: "CURRENT_SECTION",
     id
   };
 };
