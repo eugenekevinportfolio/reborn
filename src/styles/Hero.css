@@ -42,6 +42,7 @@
 
   .hero {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding: 0px 64px;
     position: relative;
   }
