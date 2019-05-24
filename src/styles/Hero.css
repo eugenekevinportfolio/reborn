@@ -58,7 +58,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: grayscale(60%);
   position: absolute;
   transition: all 1s ease-in-out;
 }
@@ -69,10 +68,6 @@
 
 .intro-image--transparent {
   opacity: 0.4;
-}
-
-.intro-image:hover {
-  filter: grayscale(0%);
 }
 
 .hero-flex {
