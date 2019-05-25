@@ -180,11 +180,18 @@
   margin-right: 24px;
 }
 
-a {
+a,
+li {
   color: inherit;
   cursor: pointer;
   font-weight: 500;
   text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.header-link--faded {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .small-avatar {
@@ -194,5 +201,6 @@ a {
   border-radius: 50%;
   cursor: pointer;
   height: 24px;
+  transition: all 0.4s ease-in-out;
   width: 24px;
 }

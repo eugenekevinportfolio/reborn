@@ -1,15 +1,13 @@
 const initialState = {
-  isOpen: false,
-  flavor: ""
+  isOpen: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case "OPEN_PANEL":
       return {
-        isOpen: action.isOpen,
-        flavor: action.flavor
-      }
+        isOpen: action.isOpen
+      };
   }
   return state;
 };

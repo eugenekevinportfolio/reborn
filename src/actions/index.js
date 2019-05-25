@@ -1,8 +1,7 @@
-export const openPanel = (isOpen, flavor) => {
+export const openPanel = isOpen => {
   return {
     type: "OPEN_PANEL",
-    isOpen,
-    flavor
+    isOpen
   };
 };
 

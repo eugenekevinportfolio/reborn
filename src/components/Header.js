@@ -1,15 +1,34 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createSelector } from "reselect";
+import { bindActionCreators } from "redux";
 import $ from "jquery";
 import "../styles/Header.css";
-import resume from "../img/Resume.pdf";
 import MediaQuery from "react-responsive";
 import Burger from "./Burger";
 import me from "../img/Me.jpeg";
 import MobileMenu from "./MobileMenu";
+import { openPanel } from "../actions/index.js";
 
-export default class Header extends Component {
+class Header extends Component {
+  onLogoClick() {
+    const { panel } = this.props;
+
+    if (!panel.isOpen) {
+      $([document.documentElement, document.body]).animate(
+        {
+          scrollTop: $("#hero").offset().top
+        },
+        800
+      );
+    } else {
+      this.props.openPanel(false);
+      document.body.style.height = "unset";
+      document.body.style.overflow = "unset";
+    }
+  }
   render() {
-    const { hasScrolled, antiHeader } = this.props;
+    const { hasScrolled, antiHeader, panel } = this.props;
     return (
       <>
         <div
@@ -20,31 +39,31 @@ export default class Header extends Component {
           }
         >
           <div className="max-width header-flex">
-            <h1
-              onClick={() => {
-                $([document.documentElement, document.body]).animate(
-                  {
-                    scrollTop: $("#hero").offset().top
-                  },
-                  800
-                );
-              }}
-              className="logo-name"
-            >
+            <h1 onClick={() => this.onLogoClick()} className="logo-name">
               Kevin Eugene
             </h1>
             <MediaQuery minWidth={710}>
               <ul className="header-links">
-                <a
+                <li
                   className="header-link"
-                  href={resume}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={() => {
+                    this.props.openPanel(!panel.isOpen);
+                    if (!panel.isOpen) {
+                      document.body.style.height = "100%";
+                      document.body.style.overflow = "hidden";
+                    } else {
+                      document.body.style.height = "unset";
+                      document.body.style.overflow = "unset";
+                    }
+                  }}
                 >
                   Resume
-                </a>
+                </li>
                 <a
-                  className="header-link highlight-text"
+                  className={
+                    "header-link highlight-text " +
+                    (panel.isOpen ? "header-link--faded" : "")
+                  }
                   href="mailto:kevin.eugene@hec.edu"
                 >
                   Say Hi!
@@ -58,7 +77,9 @@ export default class Header extends Component {
                       800
                     );
                   }}
-                  className="small-avatar"
+                  className={
+                    "small-avatar " + (panel.isOpen ? "header-link--faded" : "")
+                  }
                   style={{ backgroundImage: "url(" + me + ")" }}
                 />
               </ul>
@@ -75,3 +96,26 @@ export default class Header extends Component {
     );
   }
 }
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      openPanel
+    },
+    dispatch
+  );
+}
+
+const selector = createSelector(
+  state => state["panel"],
+  panel => {
+    return {
+      panel
+    };
+  }
+);
+
+export default connect(
+  selector,
+  matchDispatchToProps
+)(Header);

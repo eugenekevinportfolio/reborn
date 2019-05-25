@@ -19,6 +19,7 @@ import Presentation from "./Presentation.js";
 import Connect from "./Connect.js";
 import $ from "jquery";
 import MediaQuery from "react-responsive";
+import CV from "./CV.js";
 
 class App extends Component {
   constructor(props) {
@@ -153,6 +154,7 @@ class App extends Component {
     return (
       <div className={"main-body " + (!isSafari ? "main-body-not-safari" : "")}>
         <Header hasScrolled={hasScrolled} antiHeader={antiHeader} />
+        <CV antiHeader={antiHeader} />
         <MediaQuery maxWidth={709}>
           <MobileHero hasScrolled={hasScrolled} />
         </MediaQuery>
