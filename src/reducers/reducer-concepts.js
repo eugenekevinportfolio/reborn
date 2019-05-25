@@ -1,4 +1,4 @@
-import mogi_url from "../img/Mogi.jpg";
+import mogi_url from "../img/Mogi.gif";
 import chatroom_url from "../img/FujiSan.jpg";
 import mac_url from "../img/MacOS.jpeg";
 import youtube_url from "../img/Youtube.gif";
@@ -6,6 +6,7 @@ import ipadOS_url from "../img/iPad.jpg";
 
 const initialState = {
   mogi: {
+    gif: true,
     img_url: mogi_url,
     title: "iOS Mogi",
     description:
