@@ -115,12 +115,23 @@
 
 .concept-image {
   background-size: cover;
-  background-position: center;
+  background-position: top;
   border-radius: 12px;
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.16);
-  height: 200px;
+  height: 240px;
   position: relative;
   transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.gif-info {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  padding: 2px 8px;
+  position: absolute;
+  right: 16px;
+  top: 12px;
 }
 
 .concept-title {

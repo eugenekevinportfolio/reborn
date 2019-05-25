@@ -59,7 +59,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  transition: all 1s ease-in-out;
+  transition: all 1.3s ease-in-out;
 }
 
 .hero-intro {
@@ -67,7 +67,7 @@
 }
 
 .intro-image--transparent {
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .hero-flex {

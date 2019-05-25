@@ -6,7 +6,7 @@ import "../styles/Concept.css";
 
 class Concept extends Component {
   render() {
-    const { img_url, title, description, medium } = this.props;
+    const { img_url, title, description, medium, gif } = this.props;
 
     return (
       <a
@@ -18,7 +18,9 @@ class Concept extends Component {
         <div
           style={{ backgroundImage: "url(" + img_url + ")" }}
           className="concept-image"
-        />
+        >
+          {gif && <span className="gif-info">GIF</span>}
+        </div>
         <h2 className="concept-title">{title}</h2>
         <p className="concept-description">{description}</p>
         <p className="medium-text">

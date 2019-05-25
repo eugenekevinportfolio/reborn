@@ -1,7 +1,7 @@
 import mogi_url from "../img/Mogi.jpg";
 import chatroom_url from "../img/FujiSan.jpg";
 import mac_url from "../img/MacOS.jpeg";
-import youtube_url from "../img/Youtube.jpg";
+import youtube_url from "../img/Youtube.gif";
 import ipadOS_url from "../img/iPad.jpg";
 
 const initialState = {
@@ -16,6 +16,7 @@ const initialState = {
     credits: "Mogi village near Nagasaki."
   },
   youtube: {
+    gif: true,
     img_url: youtube_url,
     title: "Youtube 2.0",
     description:
