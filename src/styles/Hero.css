@@ -85,10 +85,6 @@
   margin: 0px 0px 8px;
 }
 
-.hero-tag:hover {
-  color: var(--highlight-color);
-}
-
 .hero-description {
   font-weight: 500;
   line-height: 1.6em;
