@@ -1,5 +1,5 @@
 import mogi_url from "../img/Mogi.gif";
-import chatroom_url from "../img/Chatroom.gif";
+import chatroom_url from "../img/Chatroom.jpg";
 import mac_url from "../img/MacOS.jpeg";
 import youtube_url from "../img/Youtube.gif";
 import ipadOS_url from "../img/iPad.gif";
@@ -39,7 +39,6 @@ const initialState = {
     credits: "Taken somewhere in Hokkaido, Northern Japan."
   },
   chatroom: {
-    gif: true,
     img_url: chatroom_url,
     title: "iMessage Chatroom",
     description:
