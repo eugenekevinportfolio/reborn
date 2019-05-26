@@ -31,7 +31,7 @@ export default class Connect extends Component {
           </h3>
           <p className="description--centered">
             Thank you for visiting my website. If you liked some of my ideas,
-            and feel like talking to a young creative and motivated designer,
+            and feel like talking to a young creative and passionate designer,
             shoot me an email!
           </p>
           <div className="connect-links">
