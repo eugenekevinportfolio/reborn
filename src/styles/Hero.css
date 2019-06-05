@@ -7,10 +7,7 @@
   }
 
   .hero {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     padding: 0px 32px;
-    position: relative;
   }
 
   .hero-intro {
@@ -42,10 +39,7 @@
   }
 
   .hero {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     padding: 0px 64px;
-    position: relative;
   }
 
   .hero-tag {
@@ -59,15 +53,30 @@
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  transition: all 1.3s ease-in-out;
+  transition: all 1.2s ease-in-out;
+}
+
+.intro-image--transparent {
+  filter: blur(6px);
+  opacity: 0.3;
+  transform: scale(1.02);
+}
+
+.intro-image--before-intro {
+  filter: blur(8px);
+  opacity: 0;
+  transform: scale(1.08);
+}
+
+.hero {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-intro {
   z-index: 5;
-}
-
-.intro-image--transparent {
-  opacity: 0.3;
 }
 
 .hero-flex {

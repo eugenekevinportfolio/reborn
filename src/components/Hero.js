@@ -4,8 +4,23 @@ import "../styles/Hero.css";
 import intro from "../img/Intro.jpeg";
 
 export default class Hero extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      passedIntro: false
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ passedIntro: true });
+    }, 1);
+  }
+
   render() {
     const { hasScrolled } = this.props;
+    const { passedIntro } = this.state;
 
     return (
       <div id="hero" className="section hero">
@@ -36,7 +51,9 @@ export default class Hero extends Component {
           </div>
           <div
             className={
-              "intro-image " + (hasScrolled ? "intro-image--transparent" : "")
+              "intro-image " +
+              (hasScrolled ? "intro-image--transparent" : "") +
+              (!passedIntro ? "intro-image--before-intro" : "")
             }
             style={{
               backgroundImage:
