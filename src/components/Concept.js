@@ -1,17 +1,30 @@
 import React, { Component } from "react";
 import out from "../img/Out.svg";
+import read from "../img/Read.svg";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import "../styles/Concept.css";
 
 class Concept extends Component {
   render() {
-    const { img_url, title, description, medium, gif, id } = this.props;
+    const {
+      img_url,
+      title,
+      description,
+      medium,
+      gif,
+      id,
+      local,
+      link
+    } = this.props;
+    const readText = local ? "Read Case Study" : "Read on Medium";
+    const readIcon = local ? read : out;
+    const readLink = local ? link : medium;
 
     return (
       <a
-        href={medium}
-        target="_blank"
+        href={readLink}
+        target={local ? "" : "_blank"}
         rel="noopener noreferrer"
         className="concept-container"
       >
@@ -27,9 +40,9 @@ class Concept extends Component {
         <h2 className="concept-title">{title}</h2>
         <p className="concept-description">{description}</p>
         <p className="medium-text">
-          Read on Medium
+          {readText}
           <span className="out-icon">
-            <img src={out} alt="out" />
+            <img src={readIcon} alt="out" />
           </span>
         </p>
       </a>

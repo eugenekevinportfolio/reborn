@@ -18,6 +18,8 @@ const initialState = {
   },
   youtube: {
     gif: true,
+    local: false,
+    link: "articles/youtube20",
     img_url: youtube_url,
     title: "Youtube 2.0",
     description:

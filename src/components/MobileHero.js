@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../styles/Hero.css";
-import intro from "../img/Intro.jpeg";
+import intro from "../img/Intro.jpg";
 
 export default class MobileHero extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentTag: 0
+      currentTag: 0,
+      passedIntro: false
     };
   }
   componentDidMount() {
@@ -22,12 +23,22 @@ export default class MobileHero extends Component {
     this.interval && clearInterval(this.interval);
   }
 
+  onImageLoaded() {
+    this.setState({ passedIntro: true });
+  }
+
   render() {
     const { hasScrolled } = this.props;
-    const { currentTag } = this.state;
+    const { currentTag, passedIntro } = this.state;
 
     return (
       <div id="hero" className="section hero">
+        <img
+          alt="Loader"
+          className="image-loader"
+          src={intro}
+          onLoad={() => this.onImageLoaded()}
+        />
         <div className="max-width hero-flex">
           <div className="hero-intro">
             <div className="hero-tags-container">
@@ -76,7 +87,9 @@ export default class MobileHero extends Component {
           </div>
           <div
             className={
-              "intro-image " + (hasScrolled ? "intro-image--transparent" : "")
+              "intro-image " +
+              (hasScrolled ? "intro-image--transparent" : "") +
+              (!passedIntro ? "intro-image--before-intro" : "")
             }
             style={{
               backgroundImage:

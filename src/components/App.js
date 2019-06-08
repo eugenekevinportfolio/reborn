@@ -52,10 +52,11 @@ class App extends Component {
 
   handleScroll() {
     const { current_section } = this.props;
+    const { hasScrolled } = this.state;
     if (window.scrollY > 80) {
-      this.setState({ hasScrolled: true });
+      !hasScrolled && this.setState({ hasScrolled: true });
     } else {
-      this.setState({ hasScrolled: false });
+      hasScrolled && this.setState({ hasScrolled: false });
     }
 
     const sectionsDOM = document.getElementsByClassName("section");
@@ -131,9 +132,12 @@ class App extends Component {
 
   componentDidMount() {
     // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    window.addEventListener("resize", this.updateDimensions.bind(this));
-    window.addEventListener("scroll", this.handleScroll.bind(this));
-    window.addEventListener("keydown", this.handleKeydown.bind(this));
+    this.updateDimensions = this.updateDimensions.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.handleKeydown = this.handleKeydown.bind(this);
+    window.addEventListener("resize", this.updateDimensions);
+    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("keydown", this.handleKeydown);
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     const { window_dimensions } = this.props;
@@ -145,6 +149,15 @@ class App extends Component {
       // Trigger desktop version
       !window_dimensions.isDesktop && this.props.switchToDesktop();
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("keydown", this.handleKeydown);
+    this.updateDimensions = undefined;
+    this.handleScroll = undefined;
+    this.handleKeydown = undefined;
   }
 
   render() {

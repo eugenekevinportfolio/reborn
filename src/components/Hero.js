@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../styles/Hero.css";
-import intro from "../img/Intro.jpeg";
+import intro from "../img/Intro.jpg";
 
 export default class Hero extends Component {
   constructor(props) {
@@ -12,10 +12,8 @@ export default class Hero extends Component {
     };
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ passedIntro: true });
-    }, 1);
+  onImageLoaded() {
+    this.setState({ passedIntro: true });
   }
 
   render() {
@@ -24,6 +22,12 @@ export default class Hero extends Component {
 
     return (
       <div id="hero" className="section hero">
+        <img
+          alt="Loader"
+          className="image-loader"
+          src={intro}
+          onLoad={() => this.onImageLoaded()}
+        />
         <div className="max-width hero-flex">
           <div className="hero-intro">
             <div className="hero-tags-container">

@@ -101,6 +101,7 @@
 }
 
 .scroll-container {
+  animation: var(--fade-in-blur);
   bottom: 40px;
   cursor: pointer;
   left: 50%;
@@ -120,6 +121,10 @@
   margin-bottom: 12px;
 }
 
+.scroll-text--dark {
+  color: var(--highlight-color--dark);
+}
+
 .scroll-bar {
   animation: scroll 1s alternate infinite ease-in-out;
   background-color: var(--highlight-color);
@@ -127,6 +132,10 @@
   height: 6px;
   margin: auto;
   width: 24px;
+}
+
+.scroll-bar--dark {
+  background-color: var(--highlight-color--dark);
 }
 
 @keyframes scroll {
@@ -137,4 +146,10 @@
   to {
     transform: translateY(8px);
   }
+}
+
+.image-loader {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
