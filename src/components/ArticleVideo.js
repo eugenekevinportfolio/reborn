@@ -9,7 +9,8 @@ export default class ArticleVideo extends Component {
 
     this.state = {
       videoPlayed: false,
-      disableAutoPlay: false
+      disableAutoPlay: false,
+      hasLoaded: false
     };
   }
 
@@ -42,7 +43,7 @@ export default class ArticleVideo extends Component {
 
   render() {
     const { videoSrc, mediaDescription } = this.props;
-    const { videoPlayed } = this.state;
+    const { videoPlayed, hasLoaded } = this.state;
     const videoControl = !videoPlayed ? play : pause;
     return (
       <div
@@ -52,22 +53,40 @@ export default class ArticleVideo extends Component {
           (!videoPlayed ? "article-media-container--paused" : "")
         }
       >
+        <div
+          className={
+            "loader-container " + (hasLoaded ? "loader-container--hidden" : "")
+          }
+        >
+          <div />
+          <div />
+          <div />
+        </div>
         <video
-          // onLoadedData={() => console.log("hey")}
+          onLoadedData={() => this.setState({ hasLoaded: true })}
           playsInline
           loop
           muted
           ref={ref => (this.videoRef = ref)}
           src={videoSrc}
-          className="article-media"
+          className={
+            "article-media " + (!hasLoaded ? "article-media--unloaded" : "")
+          }
         />
-        <div onClick={() => this.onPlayClick()} className="control-backdrop">
+        <div
+          onClick={() => this.onPlayClick()}
+          className={
+            "control-backdrop " +
+            (!hasLoaded ? "control-backdrop--unloaded" : "")
+          }
+        >
           <img className="play-btn" alt="video-control" src={videoControl} />
         </div>
         <p
           className={
             "article-media-description " +
-            (videoPlayed ? "article-media-description--played" : "")
+            (videoPlayed ? "article-media-description--played " : "") +
+            (!hasLoaded ? "article-media-description--unloaded" : "")
           }
         >
           {mediaDescription}

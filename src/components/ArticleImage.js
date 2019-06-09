@@ -5,7 +5,8 @@ export default class ArticleImage extends Component {
     super(props);
 
     this.state = {
-      focusedMedia: false
+      focusedMedia: false,
+      hasLoaded: false
     };
   }
 
@@ -20,7 +21,7 @@ export default class ArticleImage extends Component {
 
   render() {
     const { imgSrc, mediaDescription, portrait } = this.props;
-    const { focusedMedia } = this.state;
+    const { focusedMedia, hasLoaded } = this.state;
 
     return (
       <div
@@ -29,18 +30,30 @@ export default class ArticleImage extends Component {
           (!focusedMedia ? "article-media-container--paused" : "")
         }
       >
+        <div
+          className={
+            "loader-container " + (hasLoaded ? "loader-container--hidden" : "")
+          }
+        >
+          <div />
+          <div />
+          <div />
+        </div>
         <img
           alt="Media"
-          // onLoad={() => console.log("hey")}
+          onLoad={() => this.setState({ hasLoaded: true })}
           src={imgSrc}
           className={
-            "article-media " + (portrait ? "article-media--portrait" : "")
+            "article-media " +
+            (portrait ? "article-media--portrait" : "") +
+            (!hasLoaded ? "article-media--unloaded" : "")
           }
         />
         <p
           className={
             "article-media-description " +
-            (focusedMedia ? "article-media-description--played" : "")
+            (focusedMedia ? "article-media-description--played" : "") +
+            (!hasLoaded ? "article-media-description--unloaded" : "")
           }
         >
           {mediaDescription}
