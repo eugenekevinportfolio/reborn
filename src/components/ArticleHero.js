@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery";
 import youtubeArticle from "../img/YoutubeArticle.jpg";
 import "../styles/ArticleHero.css";
 
@@ -18,6 +19,7 @@ export default class ArticleHero extends Component {
   render() {
     const { hasScrolled } = this.props;
     const { passedIntro } = this.state;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     return (
       <div id="hero" className="section hero">
         <img
@@ -30,7 +32,10 @@ export default class ArticleHero extends Component {
           alt="Article Thumbnail"
           className={
             "article-hero-image " +
-            (hasScrolled ? "article-hero-image--transparent" : "") +
+            (hasScrolled ? "article-hero-image--transparent " : "") +
+            (hasScrolled && isSafari
+              ? "article-hero-image--transparent--safari "
+              : "") +
             (!passedIntro ? "article-hero-image--before-intro" : "")
           }
         />
@@ -43,14 +48,14 @@ export default class ArticleHero extends Component {
             </p>
           </div>
           <div
-            // onClick={() => {
-            //   $([document.documentElement, document.body]).animate(
-            //     {
-            //       scrollTop: $("#articles").offset().top
-            //     },
-            //     800
-            //   );
-            // }}
+            onClick={() => {
+              $([document.documentElement, document.body]).animate(
+                {
+                  scrollTop: $("#article-body").offset().top
+                },
+                800
+              );
+            }}
             className={
               "scroll-container " +
               (hasScrolled ? "scroll-container--transparent" : "")

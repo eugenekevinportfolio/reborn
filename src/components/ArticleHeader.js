@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery";
 import back from "../img/Back.svg";
 
 export default class ArticleHeader extends Component {
@@ -14,8 +15,9 @@ export default class ArticleHeader extends Component {
     return (
       <div
         className={
-          "header-container " +
+          "header-container--article " +
           (hasScrolled ? "header-container--border--dark " : "") +
+          (hasScrolledFast ? "header-container--hidden " : "") +
           (isSafari && hasScrolled
             ? "header-container--border--dark--safari "
             : "")
@@ -30,7 +32,17 @@ export default class ArticleHeader extends Component {
               Back to Home
             </h1>
           </div>
-          <p className="article-chapter--dark">
+          <p
+            onClick={() => {
+              $([document.documentElement, document.body]).animate(
+                {
+                  scrollTop: $("#hero").offset().top
+                },
+                800
+              );
+            }}
+            className="article-chapter--dark"
+          >
             Youtube 2.0
             <span>A Modern Streaming Platform</span>
           </p>

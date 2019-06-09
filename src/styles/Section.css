@@ -24,6 +24,10 @@
   background-color: var(--default-color);
 }
 
+.section--dark {
+  background-color: var(--dark-elevated);
+}
+
 /* .black-section {
   background-color: var(--dark-anti-color);
 }
@@ -43,6 +47,10 @@
   opacity: 0.6;
 }
 
+.section-sub--dark {
+  color: white;
+}
+
 .section-sub--centered {
   text-align: center;
 }
@@ -50,6 +58,10 @@
 .section-title {
   font-weight: 700;
   margin: 0px 0px 48px;
+}
+
+.section-title--dark {
+  color: white;
 }
 
 .section-title--centered {
@@ -64,4 +76,8 @@
   max-width: 100%;
   text-align: center;
   width: 480px;
+}
+
+.description--dark {
+  color: white;
 }

@@ -28,6 +28,23 @@
   src: url("../fonts/SF-Compact-Rounded-Regular.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Book Antiqua";
+  font-weight: bold;
+  src: url("../fonts/Book\ Antiqua\ Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Book Antiqua";
+  font-style: italic;
+  src: url("../fonts/Book\ Antiqua\ Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Baskerville";
+  src: url("../fonts/Baskerville.ttc") format("truetype");
+}
+
 * {
   font-family: "SF";
   -webkit-tap-highlight-color: transparent;
@@ -47,12 +64,6 @@
     font-size: 18px;
     margin: 0;
   }
-}
-
-.button--dark {
-  background-color: var(--dark-elevated);
-  border: solid 1px var(--dark-accent);
-  cursor: pointer;
 }
 
 .button--round {
@@ -84,6 +95,13 @@
   text-align: center;
   transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   white-space: nowrap;
+}
+
+.button--dark {
+  background-color: var(--dark-accent);
+  border: solid 1px var(--dark-accent--lighter);
+  color: var(--highlight-color--dark);
+  cursor: pointer;
 }
 
 .button:hover {
@@ -123,7 +141,8 @@
   --highlight-color--dark: #9c49e6;
   --anti-color: #e8e8ed;
   --dark-anti-color: #19191b;
-  --dark-elevated: #1d1d1d;
-  --dark-accent: #272727;
+  --dark-elevated: #181818;
+  --dark-accent--lighter: #363636;
+  --dark-accent: #2e2e2e;
   --fade-in-blur: fade-in-blur 0.8s ease-in-out;
 }

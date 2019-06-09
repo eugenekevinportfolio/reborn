@@ -1,3 +1,22 @@
+@media screen and (max-width: 709px) {
+  .article-body {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 710px) {
+  .article-body {
+    padding: 64px;
+  }
+}
+
 .article--dark {
   background-color: black;
+}
+
+.article-paragraph {
+  color: white;
+  line-height: 1.7em;
+  max-width: 560px;
+  margin: 1.7em auto;
 }

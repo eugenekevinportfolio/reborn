@@ -1,3 +1,23 @@
+@media screen and (max-width: 709px) {
+  .article-title {
+    font-size: 48px;
+  }
+
+  .article-hero-image {
+    height: 60%;
+  }
+}
+
+@media screen and (min-width: 710px) {
+  .article-title {
+    font-size: 64px;
+  }
+
+  .article-hero-image {
+    height: 100%;
+  }
+}
+
 .article-hero-image {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
     url("../img/YoutubeArticle.jpg");
@@ -5,7 +25,6 @@
   background-size: cover;
   opacity: 0.5;
   position: absolute;
-  height: 100%;
   left: 0;
   top: 0;
   transition: all 1.2s ease-in-out;
@@ -13,9 +32,12 @@
 }
 
 .article-hero-image--transparent {
-  filter: blur(6px);
   opacity: 0.3;
   transform: scale(1.02);
+}
+
+.article-hero-image--transparent--safari {
+  filter: blur(6px);
 }
 
 .article-hero-image--before-intro {
@@ -29,6 +51,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 .article-type {
@@ -44,7 +67,6 @@
 .article-title {
   animation: var(--fade-in-blur);
   color: white;
-  font-size: 64px;
   margin-top: 0;
   margin-bottom: 12px;
   text-align: center;

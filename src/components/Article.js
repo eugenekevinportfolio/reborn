@@ -11,14 +11,19 @@ import ArticleHero from "./ArticleHero";
 import "../styles/Article.css";
 import "../styles/Parallax.css";
 import ArticleHeader from "./ArticleHeader";
+import Youtube from "./Youtube.js";
+import Connect from "./Connect.js";
 
 class Article extends Component {
   constructor(props) {
     super(props);
+    this.lastPosition = 0;
 
     this.state = {
       hasScrolled: false,
-      hasScrolledFast: true
+      hasScrolledFast: false,
+      currentMediaIndex: null,
+      showBubble: false
     };
   }
   updateDimensions() {
@@ -26,6 +31,8 @@ class Article extends Component {
     this.timeout && clearTimeout(this.timeout);
 
     this.timeout = setTimeout(() => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
       this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     }, 400);
 
@@ -39,11 +46,45 @@ class Article extends Component {
   }
 
   handleScroll() {
-    const { hasScrolled } = this.state;
+    const { hasScrolled, hasScrolledFast, currentMediaIndex } = this.state;
+    const deltaY = window.scrollY - this.lastPosition;
     if (window.scrollY > 80) {
       !hasScrolled && this.setState({ hasScrolled: true });
+      if (deltaY > 20) {
+        !hasScrolledFast && this.setState({ hasScrolledFast: true });
+      } else if (deltaY < -15) {
+        hasScrolledFast && this.setState({ hasScrolledFast: false });
+      }
     } else {
       hasScrolled && this.setState({ hasScrolled: false });
+      hasScrolledFast && this.setState({ hasScrolledFast: false });
+    }
+    this.lastPosition = window.scrollY;
+
+    const articleMedia = document.getElementsByClassName("article-media");
+    let visibleMediaIndex = [];
+    for (let i = 0; i < articleMedia.length; i++) {
+      let mediaTop = articleMedia[i].getBoundingClientRect().top;
+      let mediaBottom = articleMedia[i].getBoundingClientRect().bottom;
+      if (mediaTop >= 0 && mediaBottom + 60 <= window.innerHeight) {
+        visibleMediaIndex.push(i);
+      } else if (mediaTop >= window.innerHeight || mediaBottom <= 0) {
+        articleMedia[i].style.visibility = "hidden";
+      } else if (mediaTop >= 0 || mediaBottom <= window.innerHeight) {
+        articleMedia[i].style.visibility = "unset";
+      }
+    }
+
+    const lastMediaIndex = visibleMediaIndex.length - 1;
+    visibleMediaIndex[lastMediaIndex] !== undefined &&
+      currentMediaIndex !== visibleMediaIndex[lastMediaIndex] &&
+      this.setState({ currentMediaIndex: visibleMediaIndex[lastMediaIndex] });
+
+    const avatarDOM = document.getElementById("avatar");
+    let avatarTop = avatarDOM.getBoundingClientRect().top;
+    let avatarBottom = avatarDOM.getBoundingClientRect().bottom;
+    if (avatarTop >= 0 && avatarBottom <= window.innerHeight) {
+      this.setState({ showBubble: true });
     }
   }
 
@@ -77,17 +118,32 @@ class Article extends Component {
     this.updateDimensions = undefined;
     this.handleScroll = undefined;
     this.handleKeydown = undefined;
+    this.setState({
+      hasScrolled: false,
+      hasScrolledFast: true,
+      currentMediaIndex: null
+    });
   }
 
   render() {
-    const { hasScrolled, hasScrolledFast } = this.state;
+    const {
+      hasScrolled,
+      hasScrolledFast,
+      currentMediaIndex,
+      showBubble
+    } = this.state;
     const { history } = this.props;
 
     return (
       <div className="article-container article--dark">
-        <ArticleHeader hasScrolled={hasScrolled} history={history} />
+        <ArticleHeader
+          hasScrolled={hasScrolled}
+          hasScrolledFast={hasScrolledFast}
+          history={history}
+        />
         <ArticleHero hasScrolled={hasScrolled} />
-        <div style={{ height: 1000 }} />
+        <Youtube currentMediaIndex={currentMediaIndex} />
+        <Connect darkMode showBubble={showBubble} />
       </div>
     );
   }

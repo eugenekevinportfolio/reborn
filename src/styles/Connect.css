@@ -24,6 +24,11 @@
   width: 80px;
 }
 
+.avatar--dark {
+  border-color: var(--dark-accent);
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.24);
+}
+
 .bubble {
   bottom: calc(100% + 16px);
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
@@ -54,11 +59,19 @@
   width: 0;
 }
 
+.bubble--dark:before {
+  border-top-color: var(--dark-accent);
+}
+
 .connect {
   background-image: url("../img/Map.png");
   background-position: 45% 50%;
   background-repeat: no-repeat;
   padding-bottom: 56px;
+}
+
+.connect--dark {
+  background-image: url("../img/MapDark.png");
 }
 
 .connect-links {
@@ -88,9 +101,18 @@
   transform: translateY(2px);
 }
 
+#twitter {
+  transform: translateY(1.5px);
+}
+
 .credits {
   font-size: 12px;
   text-align: center;
+  line-height: 1.5em;
   margin: 0;
   opacity: 0.6;
+}
+
+.credits--dark {
+  color: white;
 }

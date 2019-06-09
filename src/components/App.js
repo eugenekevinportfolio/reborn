@@ -38,6 +38,8 @@ class App extends Component {
     this.timeout && clearTimeout(this.timeout);
 
     this.timeout = setTimeout(() => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
       this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     }, 400);
 
