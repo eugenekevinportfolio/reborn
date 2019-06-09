@@ -59,8 +59,6 @@ export default class ArticleVideo extends Component {
           }
         >
           <div />
-          <div />
-          <div />
         </div>
         <video
           onLoadedData={() => this.setState({ hasLoaded: true })}
