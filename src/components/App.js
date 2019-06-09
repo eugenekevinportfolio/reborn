@@ -38,8 +38,6 @@ class App extends Component {
     this.timeout && clearTimeout(this.timeout);
 
     this.timeout = setTimeout(() => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
       this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     }, 400);
 
@@ -140,8 +138,6 @@ class App extends Component {
     window.addEventListener("resize", this.updateDimensions);
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("keydown", this.handleKeydown);
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
     const { window_dimensions } = this.props;
     this.props.storeWindowDimensions(window.innerWidth, window.innerHeight);
     if (window.innerWidth < 710) {
@@ -151,6 +147,11 @@ class App extends Component {
       // Trigger desktop version
       !window_dimensions.isDesktop && this.props.switchToDesktop();
     }
+  }
+
+  onReady() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 
   componentWillUnmount() {
@@ -167,7 +168,10 @@ class App extends Component {
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     return (
-      <div className={"main-body " + (!isSafari ? "main-body-not-safari" : "")}>
+      <div
+        onLoad={() => this.onReady()}
+        className={"main-body " + (!isSafari ? "main-body-not-safari" : "")}
+      >
         <Header hasScrolled={hasScrolled} antiHeader={antiHeader} />
         <CV antiHeader={antiHeader} />
         <MediaQuery maxWidth={709}>
