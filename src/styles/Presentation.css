@@ -9,9 +9,6 @@
 
   .control-backdrop {
     border-radius: 12px;
-  }
-
-  .control-backdrop {
     height: 98%;
   }
 }
@@ -25,16 +22,17 @@
     border-radius: 24px;
   }
 
-  .control-backdrop {
-    border-radius: 24px;
-  }
-
   .video-container:hover .control-backdrop {
     opacity: 1;
   }
 
   .control-backdrop {
+    border-radius: 24px;
     height: 99.5%;
+  }
+
+  .control-backdrop:hover {
+    opacity: 1;
   }
 }
 
@@ -71,10 +69,6 @@
   transition: all 0.3s ease-in-out;
   width: 100%;
   z-index: 1;
-}
-
-.control-backdrop:hover {
-  opacity: 1;
 }
 
 .play-btn {

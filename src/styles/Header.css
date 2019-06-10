@@ -25,7 +25,7 @@
   }
 
   .top-bar {
-    height: 6px;
+    height: 4px;
     width: 24px;
     background-color: var(--text-color);
     margin-bottom: 6px;
@@ -34,15 +34,15 @@
   }
 
   .top-bar-open {
-    transform: rotate(45deg) translateY(6px) translateX(2.5px);
+    transform: rotate(45deg) translateY(4px) translateX(3.1px);
   }
 
   .bottom-bar-open {
-    transform: rotate(-45deg) translateY(-6px) translateX(2.5px);
+    transform: rotate(-45deg) translateY(-4px) translateX(3.1px);
   }
 
   .bottom-bar {
-    height: 6px;
+    height: 4px;
     width: 24px;
     background-color: var(--text-color);
     border-radius: 5px;
