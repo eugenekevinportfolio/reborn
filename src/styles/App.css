@@ -134,6 +134,26 @@
   }
 }
 
+@keyframes move-up-and-down {
+  from {
+    transform: translate(5px, 3px);
+  }
+
+  to {
+    transform: translate(2px, -3px);
+  }
+}
+
+@keyframes move-down-and-up {
+  from {
+    transform: translate(-1px, -3px);
+  }
+
+  to {
+    transform: translate(5px, 2px);
+  }
+}
+
 :root {
   --default-color: #f5f5f9;
   --text-color: #4a4a4a;
@@ -145,4 +165,6 @@
   --dark-accent--lighter: #363636;
   --dark-accent: #2e2e2e;
   --fade-in-blur: fade-in-blur 0.8s ease-in-out;
+  --move-up-and-down: move-up-and-down infinite alternate ease-in-out 2s;
+  --move-down-and-up: move-down-and-up infinite alternate ease-in-out 2s;
 }

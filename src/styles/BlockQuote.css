@@ -59,6 +59,7 @@
 }
 
 .quote-sign {
+  animation: var(--move-down-and-up);
   color: white;
   filter: blur(2px);
   font-family: "Baskerville";
@@ -69,6 +70,7 @@
 }
 
 .quote-shadow {
+  animation: var(--move-up-and-down);
   color: white;
   font-weight: bold;
   hyphens: auto;
