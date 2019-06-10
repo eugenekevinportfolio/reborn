@@ -71,6 +71,10 @@
   z-index: 1;
 }
 
+.control-backdrop--disabled {
+  opacity: 1;
+}
+
 .play-btn {
   left: 50%;
   position: absolute;

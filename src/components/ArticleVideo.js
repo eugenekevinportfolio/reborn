@@ -43,7 +43,7 @@ export default class ArticleVideo extends Component {
 
   render() {
     const { videoSrc, mediaDescription } = this.props;
-    const { videoPlayed, hasLoaded } = this.state;
+    const { videoPlayed, hasLoaded, disableAutoPlay } = this.state;
     const videoControl = !videoPlayed ? play : pause;
     return (
       <div
@@ -75,7 +75,8 @@ export default class ArticleVideo extends Component {
           onClick={() => this.onPlayClick()}
           className={
             "control-backdrop " +
-            (!hasLoaded ? "control-backdrop--unloaded" : "")
+            (!hasLoaded ? "control-backdrop--unloaded " : "") +
+            (disableAutoPlay ? "control-backdrop--disabled" : "")
           }
         >
           <img className="play-btn" alt="video-control" src={videoControl} />
