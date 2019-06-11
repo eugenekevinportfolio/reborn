@@ -15,11 +15,12 @@ import "../styles/Section.css";
 import Hero from "./Hero.js";
 import MobileHero from "./MobileHero.js";
 import Articles from "./Articles.js";
-import Presentation from "./Presentation.js";
+// import Presentation from "./Presentation.js";
 import Connect from "./Connect.js";
 import $ from "jquery";
 import MediaQuery from "react-responsive";
 import CV from "./CV.js";
+import TechPress from "./TechPress.js";
 
 class App extends Component {
   constructor(props) {
@@ -91,15 +92,15 @@ class App extends Component {
   handleKeydown(e) {
     const { current_section, video_played } = this.props;
     const allSections = ["hero", "articles", "presentation", "connect"];
-    if (e.keyCode === 32) {
-      e.preventDefault();
-      const video = document.getElementById("pres-video");
-      const videoTop = video.getBoundingClientRect().top;
-      const videoBottom = video.getBoundingClientRect().bottom;
-      if (videoTop >= 0 && videoBottom <= window.innerHeight) {
-        this.props.playVideo(!video_played);
-      }
-    }
+    // if (e.keyCode === 32) {
+    //   e.preventDefault();
+    //   const video = document.getElementById("pres-video");
+    //   const videoTop = video.getBoundingClientRect().top;
+    //   const videoBottom = video.getBoundingClientRect().bottom;
+    //   if (videoTop >= 0 && videoBottom <= window.innerHeight) {
+    //     this.props.playVideo(!video_played);
+    //   }
+    // }
     if (e.keyCode === 38) {
       e.preventDefault();
       const currentSectionIndex = allSections.findIndex(
@@ -181,7 +182,8 @@ class App extends Component {
           <Hero hasScrolled={hasScrolled} />
         </MediaQuery>
         <Articles />
-        <Presentation paused={videoPaused} />
+        <TechPress />
+        {/* <Presentation paused={videoPaused} /> */}
         <Connect showBubble={showBubble} />
       </div>
     );

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import pause from "../img/Pause.svg";
 import play from "../img/Play.svg";
 import "../styles/ArticleVideo.css";
+import "../styles/Presentation.css";
 
 export default class ArticleVideo extends Component {
   constructor(props) {
@@ -17,13 +18,20 @@ export default class ArticleVideo extends Component {
   onPlayClick() {
     const { videoPlayed, disableAutoPlay } = this.state;
     this.setState({
-      videoPlayed: !videoPlayed,
-      disableAutoPlay: !disableAutoPlay
+      videoPlayed: !videoPlayed
     });
     if (videoPlayed) {
       this.videoRef.pause();
+      this.setState({
+        disableAutoPlay: true
+      });
     } else {
       this.videoRef.play();
+      if (disableAutoPlay) {
+        this.setState({
+          disableAutoPlay: false
+        });
+      }
     }
   }
 

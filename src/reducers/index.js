@@ -12,6 +12,7 @@ import leave_panel from "./reducer-leave-panel.js";
 import isBurgerOpen from "./reducer-burger.js";
 import intro from "./reducer-intro.js";
 import current_section from "./reducer-current-section";
+import techPress from "./reducer-techpress";
 
 const allReducers = combineReducers({
   concepts,
@@ -26,7 +27,8 @@ const allReducers = combineReducers({
   selected_chapter,
   leave_panel,
   isBurgerOpen,
-  intro
+  intro,
+  techPress
 });
 
 export default allReducers;
