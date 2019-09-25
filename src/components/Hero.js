@@ -21,7 +21,7 @@ export default class Hero extends Component {
     const { passedIntro } = this.state;
 
     return (
-      <div id="hero" className="section hero">
+      <div id="hero" className="section hero dark-section">
         <img
           alt="Loader"
           className="image-loader"
@@ -36,8 +36,7 @@ export default class Hero extends Component {
               <h2 className="hero-tag">Storywriter</h2>
             </div>
             <p className="hero-description">
-              Crafting delight at Avanade.
-              <br /> Spending most of my free time writing and designing.
+              Making monitoring fun at Datadog.
             </p>
             <button
               onClick={() => {

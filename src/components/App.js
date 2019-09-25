@@ -90,8 +90,8 @@ class App extends Component {
   }
 
   handleKeydown(e) {
-    const { current_section, video_played } = this.props;
-    const allSections = ["hero", "articles", "presentation", "connect"];
+    const { current_section } = this.props;
+    const allSections = ["hero", "articles", "techpress", "connect"];
     // if (e.keyCode === 32) {
     //   e.preventDefault();
     //   const video = document.getElementById("pres-video");
@@ -165,7 +165,7 @@ class App extends Component {
   }
 
   render() {
-    const { hasScrolled, antiHeader, showBubble, videoPaused } = this.state;
+    const { hasScrolled, antiHeader, showBubble } = this.state;
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     return (
@@ -175,12 +175,12 @@ class App extends Component {
       >
         <Header hasScrolled={hasScrolled} antiHeader={antiHeader} />
         <CV antiHeader={antiHeader} />
-        <MediaQuery maxWidth={709}>
-          <MobileHero hasScrolled={hasScrolled} />
-        </MediaQuery>
-        <MediaQuery minWidth={710}>
+        {/* <MediaQuery maxWidth={709}> */}
+        <MobileHero hasScrolled={hasScrolled} />
+        {/* </MediaQuery> */}
+        {/* <MediaQuery minWidth={710}>
           <Hero hasScrolled={hasScrolled} />
-        </MediaQuery>
+        </MediaQuery> */}
         <Articles />
         <TechPress />
         {/* <Presentation paused={videoPaused} /> */}

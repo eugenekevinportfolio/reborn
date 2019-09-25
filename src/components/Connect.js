@@ -39,14 +39,14 @@ export default class Connect extends Component {
               Send some love!
             </p>
           </a>
-          <p
+          {/* <p
             className={
               "section-sub section-sub--centered " +
               (darkMode ? "section-sub--dark" : "")
             }
           >
             Get in touch
-          </p>
+          </p> */}
           <h3
             className={
               "section-title section-title--centered " +

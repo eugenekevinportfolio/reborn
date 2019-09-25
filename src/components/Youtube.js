@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createSelector } from "reselect";
 import ArticleVideo from "./ArticleVideo";
 import home from "../videos/HomePage.mp4";
 import player from "../videos/Player.mp4";
@@ -10,11 +12,18 @@ import save from "../videos/Save.mp4";
 import BlockQuote from "./BlockQuote";
 import ArticleImage from "./ArticleImage";
 
-export default class Youtube extends Component {
+class Youtube extends Component {
   render() {
-    const { currentMediaIndex } = this.props;
+    const { currentMediaIndex, concepts, selected_concept } = this.props;
+    const darkMode = selected_concept && concepts[selected_concept].darkMode;
+
     return (
-      <div id="article-body" className="article-body max-width">
+      <div
+        id="article-body"
+        className={
+          "article-body max-width " + (darkMode ? "article-body--dark" : "")
+        }
+      >
         <ArticleVideo
           index={0}
           currentMediaIndex={currentMediaIndex}
@@ -34,6 +43,7 @@ export default class Youtube extends Component {
           by clicking the red play button.
         </p>
         <BlockQuote
+          darkMode={darkMode}
           quote={
             "Youtube 2.0 vows to build a trust relationship with the user, so that their typical experience consists in launching their recommendations and adjusting the playlist on the go."
           }
@@ -87,6 +97,7 @@ export default class Youtube extends Component {
           as trolling or harassment.
         </p>
         <BlockQuote
+          darkMode={darkMode}
           quote={
             "A simple change to the behavior of the Like/Dislike buttons can lead to a more inclusive, less normative and healthier platform."
           }
@@ -123,10 +134,11 @@ export default class Youtube extends Component {
           current one.
         </p>
         <BlockQuote
+          darkMode={darkMode}
           quote={
             "The changes made to the organization of the videos aim at being more informative about the decisions made by the AI. Transparency is key when it comes to building trust relationships."
           }
-          shadow={"Transparency"}
+          shadow={"Transparent"}
         />
         <p className="article-paragraph">
           The next feature I designed is something I have been wanting for a
@@ -174,6 +186,7 @@ export default class Youtube extends Component {
         />
         <p className="article-paragraph">And that's a wrap for Youtube 2.0!</p>
         <BlockQuote
+          darkMode={darkMode}
           quote={
             "Youtube 2.0 relies on two key principles: transparency and fluidity. Transparency is an obligation for AI-oriented platforms such as this one. And modern interactions help for a better and more fluid experience tailored for new generations of users coming from the mobile."
           }
@@ -183,3 +196,16 @@ export default class Youtube extends Component {
     );
   }
 }
+
+const selector = createSelector(
+  state => state["selected_concept"],
+  state => state["concepts"],
+  (selected_concept, concepts) => {
+    return {
+      selected_concept,
+      concepts
+    };
+  }
+);
+
+export default connect(selector)(Youtube);

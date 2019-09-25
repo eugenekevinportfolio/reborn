@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import { bindActionCreators } from "redux";
 import {
   switchToMobile,
   switchToDesktop,
-  storeWindowDimensions
+  storeWindowDimensions,
+  selectConcept
 } from "../actions/index.js";
 import ArticleHero from "./ArticleHero";
 import "../styles/Article.css";
@@ -13,6 +15,8 @@ import "../styles/Parallax.css";
 import ArticleHeader from "./ArticleHeader";
 import Youtube from "./Youtube.js";
 import Connect from "./Connect.js";
+import NextArticle from "./NextArticle.js";
+import Mogi from "./Mogi.js";
 
 class Article extends Component {
   constructor(props) {
@@ -23,7 +27,8 @@ class Article extends Component {
       hasScrolled: false,
       hasScrolledFast: false,
       currentMediaIndex: null,
-      showBubble: false
+      showBubble: false,
+      isNextArticleFocused: false
     };
   }
   updateDimensions() {
@@ -84,12 +89,32 @@ class Article extends Component {
     if (avatarTop >= 0 && avatarBottom <= window.innerHeight) {
       this.setState({ showBubble: true });
     }
+
+    const nextArticleDOM = document.getElementById("next-article");
+    let nextArticleTop = nextArticleDOM.getBoundingClientRect().top;
+    let nextArticleBottom = nextArticleDOM.getBoundingClientRect().bottom;
+    if (
+      nextArticleTop >= 0 &&
+      nextArticleBottom <= (4 * window.innerHeight) / 5
+    ) {
+      this.setState({ isNextArticleFocused: true });
+    } else {
+      this.setState({ isNextArticleFocused: false });
+    }
   }
 
   handleKeydown() {}
 
   componentDidMount() {
     // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const { location, selected_concept } = this.props;
+
+    if (selected_concept.length === 0) {
+      const id = location.pathname.slice(10);
+      this.props.selectConcept(id);
+    }
+
+    window.scrollTo(0, 0);
     this.updateDimensions = this.updateDimensions.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
@@ -123,25 +148,40 @@ class Article extends Component {
     });
   }
 
+  renderConcept() {
+    const { selected_concept } = this.props;
+    const { currentMediaIndex } = this.state;
+
+    switch (selected_concept) {
+      case "youtube":
+        return <Youtube currentMediaIndex={currentMediaIndex} />;
+      case "mogi":
+        return <Mogi currentMediaIndex={currentMediaIndex} />;
+      default:
+        return <div />;
+    }
+  }
+
   render() {
     const {
       hasScrolled,
       hasScrolledFast,
-      currentMediaIndex,
-      showBubble
+      showBubble,
+      isNextArticleFocused
     } = this.state;
-    const { history } = this.props;
+    const { concepts, selected_concept } = this.props;
+    const darkMode = selected_concept && concepts[selected_concept].darkMode;
 
     return (
-      <div className="article-container article--dark">
+      <div className={"article-container " + (darkMode ? "article--dark" : "")}>
         <ArticleHeader
           hasScrolled={hasScrolled}
           hasScrolledFast={hasScrolledFast}
-          history={history}
         />
         <ArticleHero hasScrolled={hasScrolled} />
-        <Youtube currentMediaIndex={currentMediaIndex} />
-        <Connect darkMode showBubble={showBubble} />
+        {this.renderConcept()}
+        <NextArticle isNextArticleFocused={isNextArticleFocused} />
+        <Connect darkMode={darkMode} showBubble={showBubble} />
       </div>
     );
   }
@@ -152,7 +192,8 @@ function matchDispatchToProps(dispatch) {
     {
       storeWindowDimensions,
       switchToMobile,
-      switchToDesktop
+      switchToDesktop,
+      selectConcept
     },
     dispatch
   );
@@ -160,14 +201,20 @@ function matchDispatchToProps(dispatch) {
 
 const selector = createSelector(
   state => state["window_dimensions"],
-  window_dimensions => {
+  state => state["selected_concept"],
+  state => state["concepts"],
+  (window_dimensions, selected_concept, concepts) => {
     return {
-      window_dimensions
+      window_dimensions,
+      selected_concept,
+      concepts
     };
   }
 );
 
-export default connect(
-  selector,
-  matchDispatchToProps
-)(Article);
+export default withRouter(
+  connect(
+    selector,
+    matchDispatchToProps
+  )(Article)
+);

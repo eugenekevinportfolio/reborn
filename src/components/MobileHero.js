@@ -9,7 +9,8 @@ export default class MobileHero extends Component {
 
     this.state = {
       currentTag: 0,
-      passedIntro: false
+      passedIntro: false,
+      focus: false
     };
   }
   componentDidMount() {
@@ -29,7 +30,7 @@ export default class MobileHero extends Component {
 
   render() {
     const { hasScrolled } = this.props;
-    const { currentTag, passedIntro } = this.state;
+    const { currentTag, passedIntro, focus } = this.state;
 
     return (
       <div id="hero" className="section hero">
@@ -68,7 +69,7 @@ export default class MobileHero extends Component {
               </h2>
             </div>
             <p className="hero-description">
-              Crafting delight at Avanade.
+              Making monitoring fun at Datadog.
               <br /> Spending most of my free time writing and designing.
             </p>
             <button
@@ -80,6 +81,8 @@ export default class MobileHero extends Component {
                   800
                 );
               }}
+              onMouseEnter={() => this.setState({ focus: true })}
+              onMouseLeave={() => this.setState({ focus: false })}
               className="button"
             >
               Get Started
@@ -89,11 +92,12 @@ export default class MobileHero extends Component {
             className={
               "intro-image " +
               (hasScrolled ? "intro-image--transparent" : "") +
-              (!passedIntro ? "intro-image--before-intro" : "")
+              (!passedIntro ? "intro-image--before-intro" : "") +
+              (focus ? "intro-image--focused" : "")
             }
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.4), white), url(" +
+                "linear-gradient(rgba(255,255,255,0.5), white), url(" +
                 intro +
                 ")"
             }}

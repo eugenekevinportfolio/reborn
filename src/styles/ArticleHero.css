@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 710px) {
   .article-title {
-    font-size: 64px;
+    font-size: 80px;
   }
 
   .article-hero-image {
@@ -19,25 +19,25 @@
 }
 
 .article-hero-image {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
-    url("../img/YoutubeArticle.jpg");
   background-position: center;
   background-size: cover;
   opacity: 0.5;
   position: absolute;
   left: 0;
   top: 0;
-  transition: all 1.2s ease-in-out;
+  transition: all 0.8s ease-in-out;
   width: 100%;
+  filter: blur(0px);
 }
 
 .article-hero-image--transparent {
-  opacity: 0.3;
-  transform: scale(1.02);
+  opacity: 0.2;
+  transform: scale(1.03);
+  transition: all 1.6s ease-in-out;
 }
 
 .article-hero-image--transparent--safari {
-  filter: blur(6px);
+  filter: blur(16px);
 }
 
 .article-hero-image--before-intro {
@@ -56,25 +56,37 @@
 
 .article-type {
   animation: var(--fade-in-blur);
-  color: var(--highlight-color--dark);
+  color: var(--highlight-color);
   font-weight: 500;
   letter-spacing: 0.4px;
   margin-bottom: 4px;
   text-align: center;
   text-transform: uppercase;
+  transition: all 0.4s ease-in-out;
+}
+
+.article-type--dark {
+  color: var(--highlight-color--dark);
 }
 
 .article-title {
   animation: var(--fade-in-blur);
-  color: white;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 12px;
   text-align: center;
+  transition: all 0.4s ease-in-out;
 }
 
 .article-description {
   animation: var(--fade-in-blur);
-  color: white;
   margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.2px;
   text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.text--dark {
+  color: white;
 }

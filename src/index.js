@@ -10,11 +10,11 @@ import { Provider } from "react-redux/src";
 import Article from "./components/Article";
 
 // DEV
-// const middleware = applyMiddleware(thunk, logger);
-// const store = createStore(allReducers, middleware);
+const middleware = applyMiddleware(thunk, logger);
+const store = createStore(allReducers, middleware);
 
 // PRODUCTION
-const store = createStore(allReducers);
+// const store = createStore(allReducers);
 
 ReactDOM.render(
   <Provider store={store}>

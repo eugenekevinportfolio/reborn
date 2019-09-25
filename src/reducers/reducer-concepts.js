@@ -3,12 +3,19 @@ import chatroom_url from "../img/Chatroom.jpg";
 import mac_url from "../img/MacOS.jpeg";
 import youtube_url from "../img/Youtube.gif";
 import ipadOS_url from "../img/iPad.gif";
+import youtube_article from "../img/YoutubeArticle.jpg";
+import mogi_article from "../img/MogiArticle.jpg";
 
 const initialState = {
   mogi: {
     gif: true,
+    local: false,
     img_url: mogi_url,
+    img_article: mogi_article,
     title: "iOS Mogi",
+    sub: "Introducing Contextual Awareness",
+    subheader: "Introducing Contextual Awareness",
+    scroll: "Lay back and feel the breeze",
     description:
       "Non-intrusive Siri with contextual awareness, new accessibility features, a clipboard manager, contextual awareness in Apple Maps, Live Notifications, and much more. iOS Mogi is all about mobile multitasking and context preservation.",
     date: "August 2018",
@@ -19,8 +26,13 @@ const initialState = {
   youtube: {
     gif: true,
     local: true,
+    darkMode: true,
     link: "articles/youtube20",
+    sub: "Designing a modern streaming platform",
+    subheader: "A Modern Streaming Platform",
+    scroll: "Grab a seat and some popcorn",
     img_url: youtube_url,
+    img_article: youtube_article,
     title: "Youtube 2.0",
     description:
       "A better homepage with a big emphasis on recommendations, picture-in-picture for the desktop, Instant Playlists, clear labelling in the video panel, digital wellbeing and much more. Youtube 2.0 vows to deliver a modern and intuitive experience to all its users.",

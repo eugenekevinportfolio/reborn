@@ -50,7 +50,7 @@ export default class ArticleVideo extends Component {
   }
 
   render() {
-    const { videoSrc, mediaDescription } = this.props;
+    const { videoSrc, mediaDescription, portrait } = this.props;
     const { videoPlayed, hasLoaded, disableAutoPlay } = this.state;
     const videoControl = !videoPlayed ? play : pause;
     return (
@@ -68,26 +68,30 @@ export default class ArticleVideo extends Component {
         >
           <div />
         </div>
-        <video
-          onLoadedData={() => this.setState({ hasLoaded: true })}
-          playsInline
-          loop
-          muted
-          ref={ref => (this.videoRef = ref)}
-          src={videoSrc}
-          className={
-            "article-media " + (!hasLoaded ? "article-media--unloaded" : "")
-          }
-        />
-        <div
-          onClick={() => this.onPlayClick()}
-          className={
-            "control-backdrop " +
-            (!hasLoaded ? "control-backdrop--unloaded " : "") +
-            (disableAutoPlay ? "control-backdrop--disabled" : "")
-          }
-        >
-          <img className="play-btn" alt="video-control" src={videoControl} />
+        <div className="video-container">
+          <video
+            onLoadedData={() => this.setState({ hasLoaded: true })}
+            playsInline
+            loop
+            muted
+            ref={ref => (this.videoRef = ref)}
+            src={videoSrc}
+            className={
+              "article-media " +
+              (!hasLoaded ? "article-media--unloaded " : "") +
+              (portrait ? "article-media--portrait" : "")
+            }
+          />
+          <div
+            onClick={() => this.onPlayClick()}
+            className={
+              "control-backdrop " +
+              (!hasLoaded ? "control-backdrop--unloaded " : "") +
+              (disableAutoPlay ? "control-backdrop--disabled" : "")
+            }
+          >
+            <img className="play-btn" alt="video-control" src={videoControl} />
+          </div>
         </div>
         <p
           className={

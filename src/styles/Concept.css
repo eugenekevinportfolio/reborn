@@ -101,6 +101,7 @@
   cursor: pointer;
   position: relative;
   transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  z-index: 1;
 }
 
 .concept-image {
@@ -138,6 +139,7 @@
 
 .medium-text {
   bottom: 24px;
+  font-weight: 500;
   margin: 0;
   position: absolute;
   right: 32px;

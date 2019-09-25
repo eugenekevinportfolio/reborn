@@ -1,36 +1,53 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createSelector } from "reselect";
+import { withRouter } from "react-router-dom";
 import $ from "jquery";
 import back from "../img/Back.svg";
 
-export default class ArticleHeader extends Component {
+class ArticleHeader extends Component {
   onBack() {
     const { history } = this.props;
-
     history.push("/");
   }
 
   render() {
-    const { hasScrolled, hasScrolledFast } = this.props;
+    const {
+      hasScrolled,
+      hasScrolledFast,
+      concepts,
+      selected_concept
+    } = this.props;
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const darkMode = selected_concept && concepts[selected_concept].darkMode;
+
     return (
       <div
         className={
           "header-container--article " +
-          (hasScrolled ? "header-container--border--dark " : "") +
+          (hasScrolled && !darkMode ? "header-container--border " : "") +
+          (hasScrolled && darkMode ? "header-container--border--dark " : "") +
           (hasScrolledFast ? "header-container--hidden " : "") +
-          (isSafari && hasScrolled
+          (isSafari && hasScrolled && darkMode
             ? "header-container--border--dark--safari "
+            : "") +
+          (isSafari && hasScrolled && !darkMode
+            ? "header-container--border--safari "
             : "")
         }
       >
         <div className="max-width header-flex">
           <div className="header-left-side" onClick={() => this.onBack()}>
-            <button className="button--dark button--round">
+            <button
+              className={
+                "button button--round " + (darkMode ? "button--dark" : "")
+              }
+            >
               <img alt="back" src={back} />
             </button>
-            <h1 className="logo-name logo-name--dark back-to-home">
+            <p className={"back-to-home " + (darkMode ? "text--dark" : "")}>
               Back to Home
-            </h1>
+            </p>
           </div>
           <p
             onClick={() => {
@@ -41,13 +58,30 @@ export default class ArticleHeader extends Component {
                 800
               );
             }}
-            className="article-chapter--dark"
+            className={
+              "article-chapter " + (darkMode ? "article-chapter--dark" : "")
+            }
           >
-            Youtube 2.0
-            <span>A Modern Streaming Platform</span>
+            {selected_concept && concepts[selected_concept].title}
+            <span>
+              {selected_concept && concepts[selected_concept].subheader}
+            </span>
           </p>
         </div>
       </div>
     );
   }
 }
+
+const selector = createSelector(
+  state => state["concepts"],
+  state => state["selected_concept"],
+  (concepts, selected_concept) => {
+    return {
+      concepts,
+      selected_concept
+    };
+  }
+);
+
+export default withRouter(connect(selector)(ArticleHeader));
