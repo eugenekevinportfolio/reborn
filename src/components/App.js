@@ -7,6 +7,7 @@ import {
   switchToDesktop,
   storeWindowDimensions,
   currentSection,
+  selectConcept,
   playVideo
 } from "../actions/index.js";
 import Header from "./Header.js";
@@ -52,7 +53,7 @@ class App extends Component {
   }
 
   handleScroll() {
-    const { current_section } = this.props;
+    const { current_section, selected_concept } = this.props;
     const { hasScrolled } = this.state;
     if (window.scrollY > 80) {
       !hasScrolled && this.setState({ hasScrolled: true });
@@ -60,21 +61,32 @@ class App extends Component {
       hasScrolled && this.setState({ hasScrolled: false });
     }
 
+    const conceptsDOM = document.getElementsByClassName("concept-container");
+    for (let i = 0; i < conceptsDOM.length; i++) {
+      let conceptTop = conceptsDOM[i].getBoundingClientRect().top;
+      if (
+        conceptTop >= -(window.innerHeight / 2) &&
+        conceptTop <= window.innerHeight / 2
+      ) {
+        selected_concept !== conceptsDOM[i].id &&
+          this.props.selectConcept(conceptsDOM[i].id);
+      }
+    }
+
     const sectionsDOM = document.getElementsByClassName("section");
     for (let i = 0; i < sectionsDOM.length; i++) {
       let sectionTop = sectionsDOM[i].getBoundingClientRect().top;
       let sectionBottom = sectionsDOM[i].getBoundingClientRect().bottom;
-      if (sectionTop <= 0 && sectionBottom >= 78) {
-        if (sectionsDOM[i].classList.contains("dark-section")) {
-          this.setState({ antiHeader: true });
-        } else {
-          this.setState({ antiHeader: false });
-        }
-      }
 
       if (
-        sectionTop >= -(window.innerHeight / 2) &&
-        sectionTop <= window.innerHeight / 2
+        (sectionTop <= 0 && sectionBottom >= window.innerHeight) ||
+        (sectionTop >= 0 && sectionBottom <= window.innerHeight) ||
+        (sectionTop >= 0 &&
+          sectionTop <= window.innerHeight / 2 &&
+          sectionBottom >= window.innerHeight) ||
+        (sectionTop <= 0 &&
+          sectionBottom >= window.innerHeight / 2 &&
+          sectionBottom <= window.innerHeight)
       ) {
         current_section !== sectionsDOM[i].id &&
           this.props.currentSection(sectionsDOM[i].id);
@@ -182,7 +194,7 @@ class App extends Component {
           <Hero hasScrolled={hasScrolled} />
         </MediaQuery> */}
         <Articles />
-        <TechPress />
+        {/* <TechPress /> */}
         {/* <Presentation paused={videoPaused} /> */}
         <Connect showBubble={showBubble} />
       </div>
@@ -197,7 +209,8 @@ function matchDispatchToProps(dispatch) {
       switchToMobile,
       switchToDesktop,
       currentSection,
-      playVideo
+      playVideo,
+      selectConcept
     },
     dispatch
   );
@@ -208,12 +221,20 @@ const selector = createSelector(
   state => state["concepts"],
   state => state["current_section"],
   state => state["video_played"],
-  (window_dimensions, concepts, current_section, video_played) => {
+  state => state["selected_concept"],
+  (
+    window_dimensions,
+    concepts,
+    current_section,
+    video_played,
+    selected_concept
+  ) => {
     return {
       window_dimensions,
       concepts,
       current_section,
-      video_played
+      video_played,
+      selected_concept
     };
   }
 );

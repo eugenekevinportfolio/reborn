@@ -1,0 +1,53 @@
+@media screen and (max-width: 709px) {
+  .breadcrumb-container {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.breadcrumb-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100px;
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  transform: rotate(-90deg) translateY(-50%);
+}
+
+.breadcrumb-link {
+  cursor: pointer;
+  flex-shrink: 0;
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 24px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 0.8;
+}
+
+.breadcrumb-link--not-selected {
+  opacity: 0.3;
+}
+
+.breadcrumb-link--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pagination {
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--highlight-color);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.pagination--hidden {
+  transform: translateX(-50%) translateY(-50px);
+}

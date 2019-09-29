@@ -1,39 +1,39 @@
 const initialState = {
   mogi: {
     intro1: {
-      name: "Live Notifications",
+      name: "Live Notifications"
     },
     siri: {
-      name: "Non-intrusive Siri",
+      name: "Non-intrusive Siri"
     },
     accessibility: {
-      name: "Siri actions",
+      name: "Siri actions"
     },
     clipboard: {
-      name: "Clipboard",
+      name: "Clipboard"
     },
     backstory: {
-      name: "Backstory",
+      name: "Backstory"
     }
   },
   chatroom: {
     intro2: {
-      name: "Intro",
+      name: "Intro"
     },
     scope: {
-      name: "Expansion",
+      name: "Expansion"
     },
     groups: {
-      name: "Groups",
+      name: "Groups"
     },
     conference: {
-      name: "FaceTime",
+      name: "FaceTime"
     },
     shell: {
-      name: "Breaking the shell",
+      name: "Breaking the shell"
     },
     design: {
-      name: "Process",
+      name: "Process"
     }
   }
 };

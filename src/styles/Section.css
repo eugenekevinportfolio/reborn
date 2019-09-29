@@ -11,7 +11,7 @@
 
 @media screen and (min-width: 710px) {
   .section {
-    padding: 80px 64px 120px;
+    padding: 80px 96px 120px;
     position: relative;
   }
 
@@ -56,6 +56,7 @@
 }
 
 .section-title {
+  font-family: "SF Display";
   font-weight: 700;
   margin: 0px 0px 48px;
 }
@@ -70,7 +71,6 @@
 }
 
 .description--centered {
-  font-weight: 500;
   line-height: 1.6em;
   margin: 0px auto 56px;
   max-width: 100%;

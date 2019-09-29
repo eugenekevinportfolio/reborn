@@ -34,12 +34,12 @@ export default class MobileHero extends Component {
 
     return (
       <div id="hero" className="section hero">
-        <img
+        {/* <img
           alt="Loader"
           className="image-loader"
           src={intro}
           onLoad={() => this.onImageLoaded()}
-        />
+        /> */}
         <div className="max-width hero-flex">
           <div className="hero-intro">
             <div className="hero-tags-container">
@@ -69,10 +69,18 @@ export default class MobileHero extends Component {
               </h2>
             </div>
             <p className="hero-description">
-              Making monitoring fun at Datadog.
-              <br /> Spending most of my free time writing and designing.
+              Making monitoring fun at{" "}
+              <a
+                className="hero-link"
+                href="https://www.datadoghq.com/blog/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Datadog
+              </a>
+              .
             </p>
-            <button
+            {/* <button
               onClick={() => {
                 $([document.documentElement, document.body]).animate(
                   {
@@ -86,9 +94,9 @@ export default class MobileHero extends Component {
               className="button"
             >
               Get Started
-            </button>
+            </button> */}
           </div>
-          <div
+          {/* <div
             className={
               "intro-image " +
               (hasScrolled ? "intro-image--transparent" : "") +
@@ -101,7 +109,7 @@ export default class MobileHero extends Component {
                 intro +
                 ")"
             }}
-          />
+          /> */}
         </div>
 
         <div

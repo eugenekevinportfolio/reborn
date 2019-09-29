@@ -132,7 +132,7 @@
 
 .max-width {
   margin: auto;
-  max-width: 1000px;
+  max-width: 1100px;
   z-index: 1;
 }
 
@@ -169,7 +169,7 @@
 
 :root {
   --default-color: #f5f5f9;
-  --text-color: #4a4a4a;
+  --text-color: #383838;
   --highlight-color: #8324d9;
   --highlight-color--dark: #9c49e6;
   --anti-color: #e8e8ed;

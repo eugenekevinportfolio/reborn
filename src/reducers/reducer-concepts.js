@@ -21,7 +21,36 @@ const initialState = {
     date: "August 2018",
     medium:
       "https://uxdesign.cc/redesigning-siri-and-adding-multitasking-features-to-ios-70c2f1a1569b",
-    credits: "Mogi village near Nagasaki."
+    credits: "Mogi village near Nagasaki.",
+    external_links: [
+      {
+        main:
+          "Beautiful Siri concept imagines ‘parallel help’ ditching full-screen takeover, reinvents iOS multitasking",
+        website: "9to5Mac",
+        link:
+          "https://9to5mac.com/2018/08/03/siri-concept-non-intrusive-multitasking-ios/"
+      },
+      {
+        main:
+          "iOS Concept Reimagines Siri With Non-Intrusive UI, Contextual Awareness, and More",
+        website: "MacRumors",
+        link:
+          "https://www.macrumors.com/2018/08/03/ios-concept-reimagines-siri/"
+      },
+      {
+        main:
+          "Concept iOS Mogi : davantage de souplesse pour Siri et les notifications",
+        website: "iGeneration (FR)",
+        link:
+          "https://www.igen.fr/ios/2018/08/concept-ios-mogi-davantage-de-souplesse-pour-siri-et-les-notifications-104852"
+      },
+      {
+        main: "Redesigning Siri and adding multitasking features to iOS",
+        website: "iGeneration (FR)",
+        link:
+          "https://uxdesign.cc/redesigning-siri-and-adding-multitasking-features-to-ios-70c2f1a1569b"
+      }
+    ]
   },
   youtube: {
     gif: true,
@@ -39,7 +68,15 @@ const initialState = {
     date: "June 2018",
     medium:
       "https://uxdesign.cc/my-attempt-at-redesigning-youtube-for-a-more-intuitive-and-modern-experience-dbd7707c135c",
-    credits: "Kyoto Station, eerie weather."
+    credits: "Kyoto Station, eerie weather.",
+    external_links: [
+      {
+        main: "Redesigning Youtube for a more intuitive and modern experience",
+        website: "Medium",
+        link:
+          "https://uxdesign.cc/my-attempt-at-redesigning-youtube-for-a-more-intuitive-and-modern-experience-dbd7707c135c"
+      }
+    ]
   },
   ipadOS: {
     gif: true,
@@ -50,26 +87,63 @@ const initialState = {
     date: "October 2018",
     medium:
       "https://uxdesign.cc/ipad-os-redesigning-siri-and-multitasking-on-the-ipad-pro-in-the-wake-of-the-apple-event-445ac9bacb54",
-    credits: "Taken somewhere in Hokkaido, Northern Japan."
+    credits: "Taken somewhere in Hokkaido, Northern Japan.",
+    external_links: [
+      {
+        main:
+          "Gorgeous iOS concept imagines refreshed Siri, Dock, and multitasking for 2018 iPad Pro models",
+        website: "9to5Mac",
+        link:
+          "https://9to5mac.com/2018/10/25/ios-concept-new-siri-dock-multitasking-ipad/"
+      },
+      {
+        main: "iOS sur iPad : voici un nouveau concept plein de bonnes idées",
+        website: "iGeneration (FR)",
+        link:
+          "https://www.igen.fr/ios/2018/10/ios-sur-ipad-voici-un-nouveau-concept-plein-de-bonnes-idees-105712"
+      },
+      {
+        main: "Redesigning Siri and multitasking on the iPad Pro",
+        website: "Medium",
+        link:
+          "https://uxdesign.cc/ipad-os-redesigning-siri-and-multitasking-on-the-ipad-pro-in-the-wake-of-the-apple-event-445ac9bacb54"
+      }
+    ]
   },
   chatroom: {
     img_url: chatroom_url,
-    title: "iMessage Chatroom",
+    title: "iMessage",
     description:
       "A new place to enjoy content or work with relatives in real time, new use cases for live collaboration, breaking out of the shell of iMessage, and more. iMessage Chatroom tries to ease live collaboration and sharing on iOS.",
     date: "August 2018",
     medium:
       "https://uxdesign.cc/redesigning-social-interactions-on-ios-with-imessage-17e9c8fa314",
-    credits: "On top of Mount Fuji, after a long night hiking."
+    credits: "On top of Mount Fuji, after a long night hiking.",
+    external_links: [
+      {
+        main: "Redesigning social interactions on iOS with iMessage",
+        website: "Medium",
+        link:
+          "https://uxdesign.cc/redesigning-social-interactions-on-ios-with-imessage-17e9c8fa314"
+      }
+    ]
   },
   newton: {
     img_url: mac_url,
-    title: "macOS Newton",
+    title: "macOS",
     description:
       "New window management for the desktop, inspired by the mobile. macOS Newton brings the mobile and the desktop closer than ever.",
     date: "July 2018",
     medium:
-      "https://uxdesign.cc/my-attempt-at-redesigning-the-desktop-experience-macos-case-study-99f5f2fb3b10"
+      "https://uxdesign.cc/my-attempt-at-redesigning-the-desktop-experience-macos-case-study-99f5f2fb3b10",
+    external_links: [
+      {
+        main: "Redesigning the desktop",
+        website: "Medium",
+        link:
+          "https://uxdesign.cc/my-attempt-at-redesigning-the-desktop-experience-macos-case-study-99f5f2fb3b10"
+      }
+    ]
   }
 };
 

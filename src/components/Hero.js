@@ -36,7 +36,15 @@ export default class Hero extends Component {
               <h2 className="hero-tag">Storywriter</h2>
             </div>
             <p className="hero-description">
-              Making monitoring fun at Datadog.
+              Making monitoring fun at{" "}
+              <a
+                href="https://www.datadoghq.com/blog/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Datadog
+              </a>
+              .
             </p>
             <button
               onClick={() => {

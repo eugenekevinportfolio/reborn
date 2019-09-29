@@ -27,7 +27,6 @@
 }
 
 .article-paragraph {
-  font-weight: 500;
   line-height: 1.7em;
   max-width: 560px;
   margin: 1.7em auto;
@@ -54,7 +53,7 @@
 .next-article-container:hover .next-article-image,
 .next-article-container--focused .next-article-image {
   filter: blur(0px);
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .next-article-container:hover .next-article-name,
@@ -76,6 +75,7 @@
 }
 
 .next-article-name {
+  font-family: "SF Display";
   font-weight: 700;
   line-height: 1.5em;
   letter-spacing: 0.3px;

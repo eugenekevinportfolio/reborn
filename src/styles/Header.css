@@ -1,8 +1,6 @@
 @media screen and (max-width: 709px) {
   .header-container {
-    opacity: 0;
-    padding: 2px 32px;
-    pointer-events: none;
+    padding: 8px 32px;
   }
 
   .header-container--article {
@@ -22,6 +20,14 @@
   .header-container--border {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .header-carousel {
+    height: 32px;
+  }
+
+  .header-carousel-item {
+    margin: 0px 0px 12px;
   }
 
   .top-bar {
@@ -135,7 +141,7 @@
     display: none;
   }
 
-  .logo-name,
+  .header-carousel-item,
   .back-to-home {
     font-size: 16px;
   }
@@ -144,18 +150,37 @@
 @media screen and (min-width: 710px) {
   .header-container,
   .header-container--article {
-    padding: 16px 64px;
+    padding: 16px 96px;
   }
 
   .header-container--border,
   .header-container--border--dark {
-    padding: 2px 64px;
+    padding: 2px 96px;
   }
 
-  .logo-name,
+  .header-carousel-item,
   .back-to-home {
     font-size: 18px;
   }
+
+  .header-carousel-item {
+    margin: 0px 0px 12px;
+  }
+
+  .header-carousel-item--hidden {
+    opacity: 0;
+  }
+
+  .header-carousel {
+    height: 41px;
+  }
+}
+
+.header-carousel-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .header-container,
@@ -168,6 +193,11 @@
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   width: 100%;
   z-index: 100;
+  overflow: hidden;
+}
+
+.header-container {
+  background-color: white;
 }
 
 .header-container--hidden {
@@ -175,7 +205,6 @@
 }
 
 .header-container--border {
-  background-color: white;
   border-color: var(--default-color);
 }
 
@@ -205,9 +234,9 @@
   justify-content: space-between;
 }
 
-.logo-name {
+.header-carousel-item {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .header-links {
@@ -215,14 +244,7 @@
   align-items: center;
   list-style: none;
   margin: 0;
-  opacity: 0;
-  pointer-events: none;
   transition: all 0.3s ease-in-out;
-}
-
-.header-container--border .header-links {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .header-container--border--dark .article-chapter--dark,
@@ -241,9 +263,13 @@ a,
 li {
   color: inherit;
   cursor: pointer;
-  font-weight: 500;
   text-decoration: none;
   transition: all 0.4s ease-in-out;
+}
+
+.header-container a,
+.header-container li {
+  font-weight: 500;
 }
 
 .header-link--faded {

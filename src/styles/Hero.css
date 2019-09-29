@@ -11,40 +11,37 @@
   }
 
   .hero-tag {
-    font-size: 48px;
-  }
-
-  .hero-description {
-    margin-bottom: 32px;
+    font-size: 64px;
   }
 
   .hero-tags-container {
-    height: 60px;
+    height: 68px;
   }
 }
 
 @media screen and (min-width: 710px) {
-  .intro-image {
-    background-position: left;
-    height: 100%;
-    width: 60%;
-    right: 0;
-  }
-
   .hero {
-    padding: 0px 64px;
+    padding: 0px 88px;
   }
+}
 
+@media screen and (min-width: 710px) and (max-width: 1199px) {
   .hero-tag {
-    font-size: 80px;
+    font-size: 104px;
   }
 
   .hero-tags-container {
-    height: 100px;
+    height: 130px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-tag {
+    font-size: 160px;
   }
 
-  .hero-description {
-    margin-bottom: 40px;
+  .hero-tags-container {
+    height: 192px;
   }
 }
 
@@ -91,34 +88,47 @@
 .hero-flex {
   align-items: center;
   display: flex;
+  justify-content: center;
   height: 100%;
 }
 
 .hero-tags-container {
+  display: flex;
+  justify-content: center;
   box-sizing: border-box;
   margin-bottom: 24px;
   transition: all 0.8s ease-in-out;
 }
 
 .hero-tag {
+  font-family: "SF Display";
   position: absolute;
-  transition: all 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
-  transform: translateX(-3px);
+  transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
+  text-align: center;
   font-weight: 700;
-  margin: 0px 0px 8px;
+  margin: 0px;
 }
 
 .hero-tag--transparent {
   opacity: 0;
   filter: blur(10px);
   pointer-events: none;
-  transform: translateX(-24px);
+  transform: translateY(12px);
   transition-delay: 0s;
 }
 
 .hero-description {
   font-weight: 500;
   line-height: 1.6em;
+  text-align: center;
+}
+
+.hero-link {
+  transition: all 0.3s ease-in-out;
+}
+
+.hero-link:hover {
+  color: var(--highlight-color);
 }
 
 .scroll-container {

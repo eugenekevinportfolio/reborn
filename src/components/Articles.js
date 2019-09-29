@@ -3,6 +3,7 @@ import map from "lodash/map";
 import Concept from "./Concept";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
+import Breadcrumb from "./Breadcrumb";
 
 class Articles extends Component {
   renderArticles() {
@@ -14,12 +15,9 @@ class Articles extends Component {
 
   render() {
     return (
-      <div id="articles" className="section dark-section">
-        <div className="max-width">
-          <p className="section-sub">Case Studies</p>
-          <h3 className="section-title">Articles</h3>
-          <div className="concepts-grid">{this.renderArticles()}</div>
-        </div>
+      <div id="articles" className="section max-width">
+        {this.renderArticles()}
+        <Breadcrumb />
       </div>
     );
   }

@@ -6,18 +6,19 @@ import $ from "jquery";
 import "../styles/Header.css";
 import MediaQuery from "react-responsive";
 import Burger from "./Burger";
+import map from "lodash/map";
 import me from "../img/Me.jpeg";
 import MobileMenu from "./MobileMenu";
 import { openPanel } from "../actions/index.js";
 
 class Header extends Component {
-  onLogoClick() {
+  onCarouselItemClick(section) {
     const { panel } = this.props;
 
     if (!panel.isOpen) {
       $([document.documentElement, document.body]).animate(
         {
-          scrollTop: $("#hero").offset().top
+          scrollTop: $("#" + section).offset().top
         },
         800
       );
@@ -27,6 +28,49 @@ class Header extends Component {
       document.body.style.overflow = "unset";
     }
   }
+
+  renderCarouselItems() {
+    const { current_section } = this.props;
+    const carouselItems = [
+      {
+        copy: "Kevin Eugene",
+        id: "hero"
+      },
+      {
+        copy: "Case Studies",
+        id: "articles"
+      },
+      {
+        copy: "Connect",
+        id: "connect"
+      }
+    ];
+    const current_section_index = carouselItems.findIndex(item => {
+      return item.id === current_section;
+    });
+    const translationValue =
+      -current_section_index * 100 +
+      "% + " +
+      -current_section_index * 12 +
+      "px";
+
+    return map(carouselItems, (item, index) => (
+      <h1
+        key={index}
+        onClick={() => this.onCarouselItemClick(item.id)}
+        className={
+          "header-carousel-item " +
+          (index !== current_section_index
+            ? "header-carousel-item--hidden"
+            : "")
+        }
+        style={{ transform: `translateY(calc(${translationValue}))` }}
+      >
+        {item.copy}
+      </h1>
+    ));
+  }
+
   render() {
     const { hasScrolled, antiHeader, panel } = this.props;
     return (
@@ -39,9 +83,7 @@ class Header extends Component {
           }
         >
           <div className="max-width header-flex">
-            <h1 onClick={() => this.onLogoClick()} className="logo-name">
-              Kevin Eugene
-            </h1>
+            <div className="header-carousel">{this.renderCarouselItems()}</div>
             <MediaQuery minWidth={710}>
               <ul className="header-links">
                 <li
@@ -108,9 +150,11 @@ function matchDispatchToProps(dispatch) {
 
 const selector = createSelector(
   state => state["panel"],
-  panel => {
+  state => state["current_section"],
+  (panel, current_section) => {
     return {
-      panel
+      panel,
+      current_section
     };
   }
 );
