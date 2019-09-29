@@ -13,6 +13,7 @@ import isBurgerOpen from "./reducer-burger.js";
 import intro from "./reducer-intro.js";
 import current_section from "./reducer-current-section";
 import techPress from "./reducer-techpress";
+import isPreviewOn from "./reducer-preview";
 
 const allReducers = combineReducers({
   concepts,
@@ -28,7 +29,8 @@ const allReducers = combineReducers({
   leave_panel,
   isBurgerOpen,
   intro,
-  techPress
+  techPress,
+  isPreviewOn
 });
 
 export default allReducers;

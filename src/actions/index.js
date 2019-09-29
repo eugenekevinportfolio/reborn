@@ -48,6 +48,13 @@ export const showIntro = (index, payload) => {
   };
 };
 
+export const previewConcept = payload => {
+  return {
+    type: "PREVIEW_CONCEPT",
+    payload
+  };
+};
+
 export const disappearIntro = (index, payload) => {
   return {
     type: "DISAPPEAR_INTRO",

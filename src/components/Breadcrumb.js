@@ -45,9 +45,14 @@ class Breadcrumb extends Component {
   }
 
   render() {
-    const { current_section } = this.props;
+    const { current_section, isPreviewOn } = this.props;
     return (
-      <div className="breadcrumb-container">
+      <div
+        className={
+          "breadcrumb-container " +
+          (isPreviewOn ? "breadcrumb-container--hidden" : "")
+        }
+      >
         <div
           className={
             "pagination " +
@@ -64,11 +69,13 @@ const selector = createSelector(
   state => state["concepts"],
   state => state["selected_concept"],
   state => state["current_section"],
-  (concepts, selected_concept, current_section) => {
+  state => state["isPreviewOn"],
+  (concepts, selected_concept, current_section, isPreviewOn) => {
     return {
       concepts,
       selected_concept,
-      current_section
+      current_section,
+      isPreviewOn
     };
   }
 );

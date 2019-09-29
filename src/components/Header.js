@@ -72,14 +72,15 @@ class Header extends Component {
   }
 
   render() {
-    const { hasScrolled, antiHeader, panel } = this.props;
+    const { hasScrolled, antiHeader, panel, isPreviewOn } = this.props;
     return (
       <>
         <div
           className={
             "header-container " +
             (hasScrolled ? "header-container--border " : "") +
-            (antiHeader ? "header-container--anti" : "")
+            (antiHeader ? "header-container--anti " : "") +
+            (isPreviewOn ? "header-container--invisible " : "")
           }
         >
           <div className="max-width header-flex">
@@ -151,10 +152,12 @@ function matchDispatchToProps(dispatch) {
 const selector = createSelector(
   state => state["panel"],
   state => state["current_section"],
-  (panel, current_section) => {
+  state => state["isPreviewOn"],
+  (panel, current_section, isPreviewOn) => {
     return {
       panel,
-      current_section
+      current_section,
+      isPreviewOn
     };
   }
 );

@@ -5,6 +5,7 @@ import youtube_url from "../img/Youtube.gif";
 import ipadOS_url from "../img/iPad.gif";
 import youtube_article from "../img/YoutubeArticle.jpg";
 import mogi_article from "../img/MogiArticle.jpg";
+import mogiPreview from "../videos/Mogi.mp4";
 
 const initialState = {
   mogi: {
@@ -12,6 +13,7 @@ const initialState = {
     local: false,
     img_url: mogi_url,
     img_article: mogi_article,
+    preview: mogiPreview,
     title: "iOS Mogi",
     sub: "Introducing Contextual Awareness",
     subheader: "Introducing Contextual Awareness",
