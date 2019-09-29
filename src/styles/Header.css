@@ -174,6 +174,10 @@
   .header-carousel {
     height: 41px;
   }
+
+  .header-container--invisible {
+    opacity: 0;
+  }
 }
 
 .header-carousel-item {
@@ -195,10 +199,6 @@
   width: 100%;
   z-index: 100;
   overflow: hidden;
-}
-
-.header-container--invisible {
-  opacity: 0;
 }
 
 .header-container {
