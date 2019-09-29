@@ -17,6 +17,10 @@
   .hero-tags-container {
     height: 68px;
   }
+
+  .hero-link {
+    color: var(--highlight-color);
+  }
 }
 
 @media screen and (min-width: 710px) {
