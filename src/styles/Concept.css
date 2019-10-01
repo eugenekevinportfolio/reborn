@@ -76,6 +76,10 @@
     z-index: 2;
   }
 
+  .concept-preview-gradient--dark {
+    background: linear-gradient(0.25turn, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
   .concept-preview {
     height: 100%;
     position: absolute;
@@ -124,6 +128,11 @@
   font-family: "SF Display";
   font-weight: 700;
   margin: 0px 0px 8px;
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.concept-title--dark {
+  color: white;
 }
 
 .concept-type {
@@ -131,11 +140,21 @@
   font-weight: 500;
   text-transform: uppercase;
   margin: 0px 0px 16px;
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.concept-type--dark {
+  color: var(--highlight-color--dark);
 }
 
 .concept-description {
   margin-bottom: 24px;
   line-height: 1.5em;
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.concept-description--dark {
+  color: white;
 }
 
 .read-btn {
@@ -145,7 +164,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   align-items: center;
   height: 36px;
   width: 36px;

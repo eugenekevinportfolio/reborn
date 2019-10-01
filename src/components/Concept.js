@@ -6,9 +6,14 @@ import map from "lodash/map";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import { bindActionCreators } from "redux";
-import { selectConcept, previewConcept } from "../actions/index.js";
+import {
+  selectConcept,
+  previewConcept,
+  activateGlobalDarkMode
+} from "../actions/index.js";
 import "../styles/Concept.css";
 import ExternalLink from "./ExternalLink";
+import { Link } from "react-router-dom";
 
 class Concept extends Component {
   constructor(props) {
@@ -40,12 +45,11 @@ class Concept extends Component {
       medium,
       id,
       local,
-      link,
       history,
-      img_article
+      img_article,
+      globalDarkMode
     } = this.props;
     const readIcon = local ? read : out;
-    const readLink = local ? link : medium;
 
     return (
       <div className="concept-container" id={id}>
@@ -55,7 +59,12 @@ class Concept extends Component {
             (activatePreview ? "concept-preview-container--visible" : "")
           }
         >
-          <div className="concept-preview-gradient" />
+          <div
+            className={
+              "concept-preview-gradient " +
+              (globalDarkMode ? "concept-preview-gradient--dark" : "")
+            }
+          />
           <div
             style={{ backgroundImage: "url(" + img_article + ")" }}
             className="concept-preview"
@@ -63,42 +72,76 @@ class Concept extends Component {
         </div>
         <div className="concept-content">
           <div className="concept-content-left">
-            <h2 className="concept-title">{title}</h2>
-            <p className="concept-type">Case Study</p>
+            <h2
+              className={
+                "concept-title " + (globalDarkMode ? "concept-title--dark" : "")
+              }
+            >
+              {title}
+            </h2>
+            <p
+              className={
+                "concept-type " + (globalDarkMode ? "concept-type--dark" : "")
+              }
+            >
+              Case Study
+            </p>
             <div className="concept-links-container">
               {this.renderExternalLinks()}
             </div>
           </div>
           <div className="concept-content-right">
-            <p className="concept-description">{description}</p>
-            <a
-              href={readLink}
-              target={local ? "" : "_blank"}
-              rel="noopener noreferrer"
-              className="read-btn"
-              onMouseEnter={() => {
-                this.props.previewConcept(true);
-                this.setState({ activatePreview: true });
-              }}
-              onMouseLeave={() => {
-                this.props.previewConcept(false);
-                this.setState({ activatePreview: false });
-              }}
-              onClick={e => {
-                this.props.selectConcept(id);
-                if (local) {
-                  e.preventDefault();
-                  history.push("/articles/" + id);
-                }
-              }}
+            <p
+              className={
+                "concept-description " +
+                (globalDarkMode ? "concept-description--dark" : "")
+              }
             >
-              <img
-                id={local ? "read-local-icon" : ""}
-                className="read-icon"
-                src={readIcon}
-                alt="out"
-              />
-            </a>
+              {description}
+            </p>
+            {local ? (
+              <Link
+                to={`/articles/${id}`}
+                className="read-btn"
+                onMouseEnter={() => {
+                  this.props.previewConcept(true);
+                  this.setState({ activatePreview: true });
+                }}
+                onMouseLeave={() => {
+                  this.props.previewConcept(false);
+                  this.setState({ activatePreview: false });
+                }}
+              >
+                <img
+                  id={local ? "read-local-icon" : ""}
+                  className="read-icon"
+                  src={readIcon}
+                  alt="out"
+                />
+              </Link>
+            ) : (
+              <a
+                href={medium}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="read-btn"
+                onMouseEnter={() => {
+                  this.props.previewConcept(true);
+                  this.setState({ activatePreview: true });
+                }}
+                onMouseLeave={() => {
+                  this.props.previewConcept(false);
+                  this.setState({ activatePreview: false });
+                }}
+              >
+                <img
+                  id={local ? "read-local-icon" : ""}
+                  className="read-icon"
+                  src={readIcon}
+                  alt="out"
+                />
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -110,7 +153,8 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       selectConcept,
-      previewConcept
+      previewConcept,
+      activateGlobalDarkMode
     },
     dispatch
   );
@@ -118,9 +162,11 @@ function matchDispatchToProps(dispatch) {
 
 const selector = createSelector(
   state => state["selected_concept"],
-  selected_concept => {
+  state => state["globalDarkMode"],
+  (selected_concept, globalDarkMode) => {
     return {
-      selected_concept
+      selected_concept,
+      globalDarkMode
     };
   }
 );

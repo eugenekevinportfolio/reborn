@@ -4,13 +4,9 @@ import { createSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 import $ from "jquery";
 import back from "../img/Back.svg";
+import { Link } from "react-router-dom";
 
 class ArticleHeader extends Component {
-  onBack() {
-    const { history } = this.props;
-    history.push("/");
-  }
-
   render() {
     const {
       hasScrolled,
@@ -37,7 +33,7 @@ class ArticleHeader extends Component {
         }
       >
         <div className="max-width header-flex">
-          <div className="header-left-side" onClick={() => this.onBack()}>
+          <Link className="header-left-side" to="/">
             <button
               className={
                 "button button--round " + (darkMode ? "button--dark" : "")
@@ -48,7 +44,7 @@ class ArticleHeader extends Component {
             <p className={"back-to-home " + (darkMode ? "text--dark" : "")}>
               Back to Home
             </p>
-          </div>
+          </Link>
           <p
             onClick={() => {
               $([document.documentElement, document.body]).animate(

@@ -4,6 +4,7 @@ import Concept from "./Concept";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import Breadcrumb from "./Breadcrumb";
+import MediaQuery from "react-responsive";
 
 class Articles extends Component {
   renderArticles() {
@@ -17,7 +18,9 @@ class Articles extends Component {
     return (
       <div id="articles" className="section max-width">
         {this.renderArticles()}
-        <Breadcrumb />
+        <MediaQuery minWidth={710}>
+          <Breadcrumb />
+        </MediaQuery>
       </div>
     );
   }

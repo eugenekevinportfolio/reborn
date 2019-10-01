@@ -55,6 +55,13 @@ export const previewConcept = payload => {
   };
 };
 
+export const activateGlobalDarkMode = payload => {
+  return {
+    type: "DARK_MODE",
+    payload
+  };
+};
+
 export const disappearIntro = (index, payload) => {
   return {
     type: "DISAPPEAR_INTRO",

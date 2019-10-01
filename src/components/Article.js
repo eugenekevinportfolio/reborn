@@ -107,12 +107,9 @@ class Article extends Component {
 
   componentDidMount() {
     // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    const { location, selected_concept } = this.props;
+    const { match } = this.props;
 
-    if (selected_concept.length === 0) {
-      const id = location.pathname.slice(10);
-      this.props.selectConcept(id);
-    }
+    this.props.selectConcept(match.params.id);
 
     window.scrollTo(0, 0);
     this.updateDimensions = this.updateDimensions.bind(this);

@@ -147,6 +147,14 @@
   }
 }
 
+.main-body {
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.main-body--dark {
+  background-color: black;
+}
+
 @keyframes move-up-and-down {
   from {
     transform: translate(5px, 3px);

@@ -8,20 +8,18 @@ import {
   storeWindowDimensions,
   currentSection,
   selectConcept,
-  playVideo
+  playVideo,
+  previewConcept
 } from "../actions/index.js";
 import Header from "./Header.js";
 import "../styles/App.css";
 import "../styles/Section.css";
-import Hero from "./Hero.js";
 import MobileHero from "./MobileHero.js";
 import Articles from "./Articles.js";
 // import Presentation from "./Presentation.js";
 import Connect from "./Connect.js";
 import $ from "jquery";
-import MediaQuery from "react-responsive";
 import CV from "./CV.js";
-import TechPress from "./TechPress.js";
 
 class App extends Component {
   constructor(props) {
@@ -145,6 +143,8 @@ class App extends Component {
 
   componentDidMount() {
     // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const { isPreviewOn } = this.props;
+    isPreviewOn && this.props.previewConcept(false);
     this.updateDimensions = this.updateDimensions.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
@@ -178,12 +178,17 @@ class App extends Component {
 
   render() {
     const { hasScrolled, antiHeader, showBubble } = this.state;
+    const { globalDarkMode } = this.props;
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     return (
       <div
         onLoad={() => this.onReady()}
-        className={"main-body " + (!isSafari ? "main-body-not-safari" : "")}
+        className={
+          "main-body " +
+          (!isSafari ? "main-body-not-safari " : "") +
+          (globalDarkMode ? "main-body--dark" : "")
+        }
       >
         <Header hasScrolled={hasScrolled} antiHeader={antiHeader} />
         <CV antiHeader={antiHeader} />
@@ -210,7 +215,8 @@ function matchDispatchToProps(dispatch) {
       switchToDesktop,
       currentSection,
       playVideo,
-      selectConcept
+      selectConcept,
+      previewConcept
     },
     dispatch
   );
@@ -222,19 +228,25 @@ const selector = createSelector(
   state => state["current_section"],
   state => state["video_played"],
   state => state["selected_concept"],
+  state => state["globalDarkMode"],
+  state => state["isPreviewOn"],
   (
     window_dimensions,
     concepts,
     current_section,
     video_played,
-    selected_concept
+    selected_concept,
+    globalDarkMode,
+    isPreviewOn
   ) => {
     return {
       window_dimensions,
       concepts,
       current_section,
       video_played,
-      selected_concept
+      selected_concept,
+      globalDarkMode,
+      isPreviewOn
     };
   }
 );

@@ -14,6 +14,7 @@ import intro from "./reducer-intro.js";
 import current_section from "./reducer-current-section";
 import techPress from "./reducer-techpress";
 import isPreviewOn from "./reducer-preview";
+import globalDarkMode from "./reducer-dark-mode";
 
 const allReducers = combineReducers({
   concepts,
@@ -30,7 +31,8 @@ const allReducers = combineReducers({
   isBurgerOpen,
   intro,
   techPress,
-  isPreviewOn
+  isPreviewOn,
+  globalDarkMode
 });
 
 export default allReducers;
