@@ -18,6 +18,10 @@ class ArticleHero extends Component {
     this.setState({ passedIntro: true });
   }
 
+  componentWillUnmount() {
+    this.setState({ passedIntro: false });
+  }
+
   render() {
     const { hasScrolled, concepts, selected_concept } = this.props;
     const { passedIntro } = this.state;
@@ -31,10 +35,33 @@ class ArticleHero extends Component {
         <img
           alt="Loader"
           className="image-loader"
-          src={youtubeArticle}
+          src={img_article}
           onLoad={() => this.onImageLoaded()}
         />
+
         <div
+          className={
+            "hero-image-container " +
+            (passedIntro ? "hero-image-container--visible" : "")
+          }
+        >
+          <div
+            className={
+              "hero-image-gradient " +
+              (darkMode ? "hero-image-gradient--dark" : "")
+            }
+          />
+          <div
+            style={{
+              backgroundImage: darkMode
+                ? `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(${img_article})`
+                : `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(${img_article})`
+            }}
+            className="hero-image"
+          />
+        </div>
+
+        {/* <div
           alt="Article Thumbnail"
           style={{
             backgroundImage: darkMode
@@ -49,17 +76,26 @@ class ArticleHero extends Component {
               : "") +
             (!passedIntro ? "article-hero-image--before-intro" : "")
           }
-        />
+        /> */}
+
         <div className="max-width">
           <div className="article-title-container">
             <p
               className={
-                "article-type " + (darkMode ? "article-type--dark" : "")
+                "article-type " +
+                (darkMode ? "article-type--dark " : "") +
+                (passedIntro ? "article-type--visible" : "")
               }
             >
               Case Study
             </p>
-            <h1 className={"article-title " + (darkMode ? "text--dark" : "")}>
+            <h1
+              className={
+                "article-title " +
+                (darkMode ? "text--dark " : "") +
+                (passedIntro ? "article-title--visible" : "")
+              }
+            >
               {selected_concept && concepts[selected_concept].title}
             </h1>
             {/* <p
