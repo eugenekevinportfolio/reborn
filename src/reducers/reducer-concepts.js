@@ -1,10 +1,11 @@
 import mogi_url from "../img/Mogi.gif";
-import chatroom_url from "../img/Chatroom.jpg";
-import mac_url from "../img/MacOS.jpeg";
 import youtube_url from "../img/Youtube.gif";
 import ipadOS_url from "../img/iPad.gif";
 import youtube_article from "../img/YoutubeArticle.jpg";
+import mac_article from "../img/MacArticle.jpg";
+import chatroom_article from "../img/ChatroomArticle.jpg";
 import mogi_article from "../img/MogiArticle.jpg";
+import ipad_article from "../img/iPadArticle.jpg";
 import mogiPreview from "../videos/Mogi.mp4";
 
 const initialState = {
@@ -83,6 +84,7 @@ const initialState = {
   ipadOS: {
     gif: true,
     img_url: ipadOS_url,
+    img_article: ipad_article,
     title: "iPad OS",
     description:
       "New UX for Siri, new app management and navigation paradigm inspired by the iPhone X’s, saving elements and much more. iPad OS aspires to use bezel-less screens at their full potential for better productivity.",
@@ -113,7 +115,7 @@ const initialState = {
     ]
   },
   chatroom: {
-    img_url: chatroom_url,
+    img_article: chatroom_article,
     title: "iMessage",
     description:
       "A new place to enjoy content or work with relatives in real time, new use cases for live collaboration, breaking out of the shell of iMessage, and more. iMessage Chatroom tries to ease live collaboration and sharing on iOS.",
@@ -131,7 +133,7 @@ const initialState = {
     ]
   },
   newton: {
-    img_url: mac_url,
+    img_article: mac_article,
     title: "macOS",
     description:
       "New window management for the desktop, inspired by the mobile. macOS Newton brings the mobile and the desktop closer than ever.",
