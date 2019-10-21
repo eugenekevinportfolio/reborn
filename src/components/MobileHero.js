@@ -14,7 +14,7 @@ export default class MobileHero extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ passedIntro: true });
-    }, 10);
+    }, 100);
   }
 
   render() {
