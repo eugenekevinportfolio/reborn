@@ -18,9 +18,9 @@ class Articles extends Component {
     return (
       <div id="articles" className="section max-width">
         {this.renderArticles()}
-        <MediaQuery minWidth={710}>
+        {/* <MediaQuery minWidth={710}>
           <Breadcrumb />
-        </MediaQuery>
+        </MediaQuery> */}
       </div>
     );
   }

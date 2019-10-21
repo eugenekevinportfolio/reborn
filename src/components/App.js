@@ -101,7 +101,7 @@ class App extends Component {
 
   handleKeydown(e) {
     const { current_section } = this.props;
-    const allSections = ["hero", "articles", "techpress", "connect"];
+    const allSections = ["hero", "articles", "connect"];
     // if (e.keyCode === 32) {
     //   e.preventDefault();
     //   const video = document.getElementById("pres-video");

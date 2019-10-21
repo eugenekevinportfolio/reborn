@@ -15,7 +15,7 @@
 
   .quote-shadow {
     filter: blur(4px);
-    font-size: 80px;
+    font-size: 60px;
     right: 0;
     bottom: 4%;
   }
@@ -38,7 +38,7 @@
 
   .quote-shadow {
     filter: blur(6px);
-    font-size: 120px;
+    font-size: 100px;
     right: 6%;
     bottom: 4%;
   }

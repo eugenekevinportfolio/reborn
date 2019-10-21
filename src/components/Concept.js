@@ -100,25 +100,28 @@ class Concept extends Component {
               {description}
             </p>
             {local ? (
-              <Link
-                to={`/articles/${id}`}
-                className="read-btn"
-                onMouseEnter={() => {
-                  this.props.previewConcept(true);
-                  this.setState({ activatePreview: true });
-                }}
-                onMouseLeave={() => {
-                  this.props.previewConcept(false);
-                  this.setState({ activatePreview: false });
-                }}
-              >
-                <img
-                  id={local ? "read-local-icon" : ""}
-                  className="read-icon"
-                  src={readIcon}
-                  alt="out"
-                />
-              </Link>
+              <div className="read-line">
+                <Link
+                  to={`/articles/${id}`}
+                  className="read-btn"
+                  onMouseEnter={() => {
+                    this.props.previewConcept(true);
+                    this.setState({ activatePreview: true });
+                  }}
+                  onMouseLeave={() => {
+                    this.props.previewConcept(false);
+                    this.setState({ activatePreview: false });
+                  }}
+                >
+                  <img
+                    id={local ? "read-local-icon" : ""}
+                    className="read-icon"
+                    src={readIcon}
+                    alt="out"
+                  />
+                </Link>
+                {/* {id === "mogi" && <p className="new-article">NEW</p>} */}
+              </div>
             ) : (
               <a
                 href={medium}
