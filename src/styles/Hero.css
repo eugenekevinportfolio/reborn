@@ -7,7 +7,7 @@
   }
 
   .hero {
-    padding: 0px 32px;
+    padding: 0px 24px;
   }
 
   .hero-tag {
@@ -25,7 +25,8 @@
 
 @media screen and (min-width: 710px) {
   .hero {
-    padding: 0px 88px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 

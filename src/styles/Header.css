@@ -1,10 +1,10 @@
 @media screen and (max-width: 709px) {
   .header-container {
-    padding: 8px 32px;
+    padding: 8px 24px;
   }
 
   .header-container--article {
-    padding: 2px 32px;
+    padding: 2px 24px;
   }
 
   .article-chapter {
@@ -62,7 +62,7 @@
     flex-direction: column;
     justify-content: center;
     left: 0;
-    padding: 0px 32px;
+    padding: 0px 24px;
     position: fixed;
     pointer-events: none;
     right: 0;
