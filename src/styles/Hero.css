@@ -117,29 +117,31 @@
   transform: translateY(64px);
   opacity: 0;
   white-space: pre;
+  pointer-events: none;
 }
 
 .hero-tag--visible span {
   transform: translateY(0px);
   opacity: 1;
+  pointer-events: auto;
 }
 
-.hero-tag span:nth-child(1) {
+.hero-tag--visible span:nth-child(1) {
   transition-delay: 0.1s;
 }
-.hero-tag span:nth-child(2) {
+.hero-tag--visible span:nth-child(2) {
   transition-delay: 0.2s;
 }
-.hero-tag span:nth-child(3) {
+.hero-tag--visible span:nth-child(3) {
   transition-delay: 0.3s;
 }
-.hero-tag span:nth-child(4) {
+.hero-tag--visible span:nth-child(4) {
   transition-delay: 0.4s;
 }
-.hero-tag span:nth-child(5) {
+.hero-tag--visible span:nth-child(5) {
   transition-delay: 0.5s;
 }
-.hero-tag span:nth-child(6) {
+.hero-tag--visible span:nth-child(6) {
   transition-delay: 0.6s;
 }
 
