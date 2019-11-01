@@ -22,10 +22,7 @@ class NextArticle extends Component {
 
     return (
       <a
-        // href={"/articles/" + link}
-        href="https://uxdesign.cc/redesigning-siri-and-adding-multitasking-features-to-ios-70c2f1a1569b"
-        target="_blank"
-        rel="noopener noreferrer"
+        href={"/articles/" + link}
         className={
           "next-article-container " +
           (isNextArticleFocused && window_dimensions.isMobile

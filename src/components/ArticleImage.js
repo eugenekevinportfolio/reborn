@@ -44,7 +44,7 @@ export default class ArticleImage extends Component {
           onLoad={() => this.setState({ hasLoaded: true })}
           src={imgSrc}
           className={
-            "article-media " +
+            "article-media article-image " +
             (portrait ? "article-media--portrait" : "") +
             (!hasLoaded ? "article-media--unloaded" : "")
           }

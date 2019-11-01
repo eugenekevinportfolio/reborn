@@ -32,6 +32,11 @@
   margin: 1.7em auto;
 }
 
+.article-paragraph a {
+  font-weight: 500;
+  color: var(--highlight-color);
+}
+
 .next-article-container {
   display: block;
   cursor: pointer;

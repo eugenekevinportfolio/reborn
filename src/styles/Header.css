@@ -210,6 +210,7 @@
 }
 
 .header-container--border {
+  background-color: white;
   border-color: var(--default-color);
 }
 

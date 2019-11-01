@@ -120,7 +120,7 @@ class Concept extends Component {
                     alt="out"
                   />
                 </Link>
-                {/* {id === "mogi" && <p className="new-article">NEW</p>} */}
+                {id === "mogi" && <p className="new-article">NEW!</p>}
               </div>
             ) : (
               <a

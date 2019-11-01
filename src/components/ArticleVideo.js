@@ -68,7 +68,13 @@ export default class ArticleVideo extends Component {
         >
           <div />
         </div>
-        <div className="video-container">
+        <div
+          className={
+            "article-media " +
+            (!hasLoaded ? "article-media--unloaded " : "") +
+            (portrait ? "article-media--portrait" : "")
+          }
+        >
           <video
             onLoadedData={() => this.setState({ hasLoaded: true })}
             playsInline
@@ -76,11 +82,7 @@ export default class ArticleVideo extends Component {
             muted
             ref={ref => (this.videoRef = ref)}
             src={videoSrc}
-            className={
-              "article-media " +
-              (!hasLoaded ? "article-media--unloaded " : "") +
-              (portrait ? "article-media--portrait" : "")
-            }
+            className={"article-video"}
           />
           <div
             onClick={() => this.onPlayClick()}

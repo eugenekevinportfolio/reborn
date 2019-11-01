@@ -11,7 +11,7 @@ import mogiPreview from "../videos/Mogi.mp4";
 const initialState = {
   mogi: {
     gif: true,
-    local: false,
+    local: true,
     img_url: mogi_url,
     img_article: mogi_article,
     preview: mogiPreview,

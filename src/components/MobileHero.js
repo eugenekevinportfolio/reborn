@@ -25,10 +25,7 @@ export default class MobileHero extends Component {
       <div id="hero" className="section hero">
         <div className="max-width hero-flex">
           <h2
-            className={
-              "hero-tag " +
-              (passedIntro && !hasScrolled ? "hero-tag--visible" : "")
-            }
+            className={"hero-tag " + (passedIntro ? "hero-tag--visible " : "")}
           >
             <span>Making </span>
             <span>monitoring </span>
