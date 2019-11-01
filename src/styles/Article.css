@@ -1,6 +1,6 @@
 @media screen and (max-width: 709px) {
   .article-body {
-    padding: 32px;
+    padding: 24px;
   }
 
   .next-article-name {
@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 710px) {
   .article-body {
-    padding: 64px 64px 24px;
+    padding: 64px 96px 24px;
   }
 
   .next-article-name {
