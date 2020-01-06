@@ -52,7 +52,7 @@ class Mogi extends Component {
           When I stepped off the bus in Shinjuku for the first time, I remember
           feeling completely overwhelmed. I had to find my way through a huge
           crowd of hungry salarymen and women (it was noon and I hadn’t slept
-          for a 24 hours) and the labyrinth-like organization of Shinjuku only
+          for 24 hours) and the labyrinth-like organization of Shinjuku only
           accentuated the feeling. I had a meeting two hours later in Shinjuku
           with the person in charge of my guest house; yet, I barely made it on
           time though the meeting spot was just less than a mile away from my
