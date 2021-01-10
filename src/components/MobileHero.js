@@ -8,7 +8,7 @@ export default class MobileHero extends Component {
     super(props);
 
     this.state = {
-      passedIntro: false
+      passedIntro: false,
     };
   }
   componentDidMount() {
@@ -27,18 +27,17 @@ export default class MobileHero extends Component {
           <h2
             className={"hero-tag " + (passedIntro ? "hero-tag--visible " : "")}
           >
-            <span>Making </span>
-            <span>monitoring </span>
-            <span>fun </span>
+            <span>Product </span>
+            <span>Designer </span>
             <span>at </span>
             <span>
               <a
                 className="hero-link"
-                href="https://www.datadoghq.com/blog/"
+                href="https://www.apple.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Datadog
+                Apple
               </a>
             </span>
             <span>.</span>
@@ -49,7 +48,7 @@ export default class MobileHero extends Component {
           onClick={() => {
             $([document.documentElement, document.body]).animate(
               {
-                scrollTop: $("#articles").offset().top
+                scrollTop: $("#articles").offset().top,
               },
               800
             );

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-XS" transform="translate(-227.000000, -191.000000)" fill="#FFFFFF">
+            <path d="M236.83205,195.248075 L246.963533,210.4453 C247.269886,210.904828 247.145712,211.525698 246.686183,211.83205 C246.521916,211.941562 246.328908,212 246.131483,212 L225.868517,212 C225.316232,212 224.868517,211.552285 224.868517,211 C224.868517,210.802575 224.926955,210.609567 225.036467,210.4453 L235.16795,195.248075 C235.474302,194.788547 236.095172,194.664373 236.5547,194.970725 C236.664552,195.04396 236.758815,195.138223 236.83205,195.248075 Z" id="Triangle" transform="translate(236.000000, 203.000000) rotate(90.000000) translate(-236.000000, -203.000000) "></path>
+        </g>
+    </g>
+</svg>

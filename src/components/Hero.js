@@ -8,7 +8,7 @@ export default class Hero extends Component {
     super(props);
 
     this.state = {
-      passedIntro: false
+      passedIntro: false,
     };
   }
 
@@ -36,7 +36,7 @@ export default class Hero extends Component {
               <h2 className="hero-tag">Storywriter</h2>
             </div>
             <p className="hero-description">
-              Making monitoring fun at{" "}
+              Hey{" "}
               <a
                 href="https://www.datadoghq.com/blog/"
                 target="_blank"
@@ -50,7 +50,7 @@ export default class Hero extends Component {
               onClick={() => {
                 $([document.documentElement, document.body]).animate(
                   {
-                    scrollTop: $("#articles").offset().top
+                    scrollTop: $("#articles").offset().top,
                   },
                   800
                 );
@@ -70,7 +70,7 @@ export default class Hero extends Component {
               backgroundImage:
                 "linear-gradient(0.25turn, white, rgba(255,255,255,0.4)), url(" +
                 intro +
-                ")"
+                ")",
             }}
           />
         </div>
@@ -79,7 +79,7 @@ export default class Hero extends Component {
           onClick={() => {
             $([document.documentElement, document.body]).animate(
               {
-                scrollTop: $("#articles").offset().top
+                scrollTop: $("#articles").offset().top,
               },
               800
             );
